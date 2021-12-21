@@ -1,0 +1,48 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /vending-machine
+    session:
+      timeout: 3d
+
+spring:
+  session:
+    store-type: jdbc
+    jdbc:
+      initialize-schema: always
+  data:
+    rest:
+      base-path: /api
+  datasource:
+    url: ${SPRING_DB_URL}?currentSchema=${spring.liquibase.default-schema}
+    username: ${SPRING_DB_USER}
+    password: ${SPRING_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/master.xml
+    parameters:
+      schema: ${spring.liquibase.default-schema}
+      reader: ${system.db.reader.user}
+      password: ${system.db.reader.password}
+    default-schema: vending_machine
+
+system:
+  auth:
+    username: qa_engineer
+    password: vending_machine
+  rest:
+    auth:
+      type: Basic
+  db:
+    reader:
+      user: reader
+      password: $uper$ecret

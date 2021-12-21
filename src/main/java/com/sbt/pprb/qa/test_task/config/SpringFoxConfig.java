@@ -20,7 +20,7 @@ public class SpringFoxConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.sbt.pprb.qa.test_task.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.sbt.pprb.qa.test_task.controller.api"))
                 .paths(PathSelectors.any())
                 .build();
     }

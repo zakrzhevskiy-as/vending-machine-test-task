@@ -1,43 +1,89 @@
 package com.sbt.pprb.qa.test_task.service;
 
-import com.sbt.pprb.qa.test_task.model.Beverage;
-import com.sbt.pprb.qa.test_task.model.BeverageVolume;
-import com.sbt.pprb.qa.test_task.repository.BeverageRepository;
-import com.sbt.pprb.qa.test_task.repository.BeverageVolumeRepository;
+import com.sbt.pprb.qa.test_task.model.dto.Beverage;
+import com.sbt.pprb.qa.test_task.model.dto.BeverageVolume;
+import com.sbt.pprb.qa.test_task.model.exception.EntityNotFoundException;
+import com.sbt.pprb.qa.test_task.model.response.BeverageResponseResource;
+import com.sbt.pprb.qa.test_task.model.response.BeverageVolumeResponseResource;
+import com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepository;
+import com.sbt.pprb.qa.test_task.repository.BeveragesRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
+@Transactional
 @AllArgsConstructor
 public class BeverageService {
 
-    private BeverageRepository beverageRepository;
-    private BeverageVolumeRepository volumeRepository;
+    private BeveragesRepository beveragesRepository;
+    private BeverageVolumesRepository volumeRepository;
 
     public List<Beverage> getBeverages() {
-        return beverageRepository.findAll();
+        return beveragesRepository.findAll();
     }
 
     public Beverage getBeverage(Long id) {
-        return beverageRepository.getById(id);
+        return beveragesRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Beverage", id));
     }
 
     public Beverage createBeverage(Beverage beverage) {
-        return beverageRepository.save(beverage);
+        return beveragesRepository.save(beverage);
     }
 
     public Beverage updateBeverage(Long id, Beverage beverage) {
-        return beverageRepository.update(id, beverage.getAvailableVolume());
+        return beveragesRepository.update(id, beverage.getAvailableVolume());
     }
 
-    public List<BeverageVolume> getVolumes() {
-        return volumeRepository.findAll();
+    public List<BeverageResponseResource> getVolumes() {
+        List<BeverageVolume> beverageVolumes = volumeRepository.findAll();
+        Map<Beverage, List<BeverageVolume>> temp = new HashMap<>();
+
+        for (BeverageVolume volume : beverageVolumes) {
+            Beverage beverage = volume.getBeverage();
+            if (temp.containsKey(beverage)) {
+                List<BeverageVolume> volumes = temp.get(volume.getBeverage());
+                volumes.add(volume);
+                temp.put(beverage, volumes);
+            } else {
+                List<BeverageVolume> volumes = new ArrayList<>();
+                volumes.add(volume);
+                temp.put(beverage, volumes);
+            }
+        }
+
+        List<BeverageResponseResource> responseResources = new ArrayList<>();
+        temp.forEach((key, value) -> {
+            BeverageResponseResource responseResource = new BeverageResponseResource();
+            responseResource.setId(key.getId());
+            responseResource.setBeverageType(key.getBeverageType());
+            responseResource.setAvailableVolume(key.getAvailableVolume());
+
+            List<BeverageVolumeResponseResource> beverageVolumesResources = value.stream().map(beverageVolume -> {
+                BeverageVolumeResponseResource volumeResponseResource = new BeverageVolumeResponseResource();
+                volumeResponseResource.setId(beverageVolume.getId());
+                volumeResponseResource.setPrice(beverageVolume.getPrice());
+                volumeResponseResource.setVolume(beverageVolume.getVolume());
+                return volumeResponseResource;
+            }).collect(Collectors.toList());
+
+            responseResource.setBeverageVolumes(beverageVolumesResources);
+            responseResources.add(responseResource);
+        });
+
+        return responseResources;
     }
 
     public BeverageVolume getVolume(Long id) {
-        return volumeRepository.getById(id);
+        return volumeRepository
+                .findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Beverage volume", id));
     }
 
     public List<BeverageVolume> getBeverageVolumes(Long beverageId) {
@@ -45,13 +91,10 @@ public class BeverageService {
     }
 
     public BeverageVolume createVolume(Long beverageId, BeverageVolume beverageVolume) {
-        Beverage beverage = beverageRepository.getById(beverageId);
-        beverageVolume.setBeverage(beverage);
         return volumeRepository.save(beverageVolume);
     }
 
     public BeverageVolume updateVolume(Long id, BeverageVolume beverageVolume) {
-        return volumeRepository.update(id, beverageVolume.getBeverage(),
-                beverageVolume.getPrice(), beverageVolume.getVolume());
+        return volumeRepository.update(id, beverageVolume.getPrice(), beverageVolume.getVolume());
     }
 }

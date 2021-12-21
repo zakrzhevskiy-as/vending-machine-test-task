@@ -31,3 +31,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### React Code ###
+node/
+node_modules/
+package-lock.json
+yarn.lock
+/src/main/js/build/

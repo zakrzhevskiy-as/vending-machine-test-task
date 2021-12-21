@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet id="20211214-01" author="zakrzhevskiy-as">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <tableExists tableName="users"/>
+            <and>
+                <sqlCheck expectedResult="0">
+                    select count(*) from users where username='qa_engineer'
+                </sqlCheck>
+            </and>
+        </preConditions>
+        <insert tableName="users">
+            <column name="username">qa_engineer</column>
+            <column name="password">$2a$10$KBF14iYt5voupjwbeCaEiO7rkMOQ0o0aajcUYXT/xohq6nb79/BHK</column>
+        </insert>
+    </changeSet>
+    <changeSet id="20211214-02" author="zakrzhevskiy-as">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <tableExists tableName="beverages"/>
+            <and>
+                <sqlCheck expectedResult="0">
+                    select count(*) from beverages where beverage_type in ('SLURM','NUKA_COLA','EXPRESSO')
+                </sqlCheck>
+            </and>
+        </preConditions>
+        <insert tableName="beverages">
+            <column name="available_volume">5.0</column>
+            <column name="beverage_type">SLURM</column>
+        </insert>
+        <insert tableName="beverages">
+            <column name="available_volume">8.4</column>
+            <column name="beverage_type">NUKA_COLA</column>
+        </insert>
+        <insert tableName="beverages">
+            <column name="available_volume">3.0</column>
+            <column name="beverage_type">EXPRESSO</column>
+        </insert>
+    </changeSet>
+    <changeSet id="20211214-03" author="zakrzhevskiy-as">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <tableExists tableName="beverage_volumes"/>
+        </preConditions>
+        <sql splitStatements="true" endDelimiter=";">
+            insert into beverage_volumes(price, volume, beverage_id)
+            values (35, 0.33, (select id from beverages where beverage_type = 'SLURM'));
+            insert into beverage_volumes(price, volume, beverage_id)
+            values (60, 0.5, (select id from beverages where beverage_type = 'SLURM'));
+            insert into beverage_volumes(price, volume, beverage_id)
+            values (40, 0.33, (select id from beverages where beverage_type = 'NUKA_COLA'));
+            insert into beverage_volumes(price, volume, beverage_id)
+            values (70, 0.5, (select id from beverages where beverage_type = 'NUKA_COLA'));
+            insert into beverage_volumes(price, volume, beverage_id)
+            values (30, 0.25, (select id from beverages where beverage_type = 'EXPRESSO'));
+            insert into beverage_volumes(price, volume, beverage_id)
+            values (55, 0.4, (select id from beverages where beverage_type = 'EXPRESSO'));
+        </sql>
+    </changeSet>
+</databaseChangeLog>
