@@ -97,11 +97,17 @@
     margin: 0;
 }
 
-#orders-list.ant-layout-sider-collapsed {
+#orders-list-sider.ant-layout-sider-collapsed {
     padding: 0 !important;
 }
 
-#orders-list .order-card {
+#orders-list-sider .ant-space .ant-space-item:last-child {
+    overflow-y: auto;
+    max-height: calc(100vh - 165px);
+    padding-right: 5px;
+}
+
+#orders-list-sider .order-card {
     height: 100px;
     width: 100%;
     font-size: 14px;
@@ -111,8 +117,12 @@
     margin-bottom: 8px;
 }
 
-.bill [class^='ant-space-item'] {
-    width: 100%;
+.bill {
+    color: #5B5B5B;
+}
+
+.bill .beverage {
+    margin-bottom: 16px;
 }
 
 #display.resp-table {

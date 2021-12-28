@@ -168,8 +168,10 @@ export default class OperatingContent extends Component {
                                    onClick={() => {
                                        this.setState({creatingOrder: true});
                                        orders.create()
-                                           .then(() => {
-                                           }, error => showErrorMessage(error))
+                                           .then(
+                                               response => this.setState({orderId: response.entity.id}),
+                                               error => showErrorMessage(error)
+                                           )
                                            .done(() => this.setState({creatingOrder: false, newOrder: false}));
                                    }}
                            >

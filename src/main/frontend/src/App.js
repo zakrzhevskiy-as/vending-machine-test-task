@@ -42,7 +42,7 @@ export default class App extends Component {
 
     render() {
         return (
-            <Layout id="app">
+            <Layout id="app" key={this.state.key}>
                 <Header id="header">
                     <HeaderContent/>
                 </Header>
@@ -53,7 +53,8 @@ export default class App extends Component {
                     <Content id="content">
                         <OperatingContent rerender={this.rerender}/>
                     </Content>
-                    <Sider id="orders-list"
+                    <Sider id="orders-list-sider"
+                           key={this.state.key}
                            width={350}
                            collapsible
                            collapsed={this.state.collapsedOrders}
@@ -62,7 +63,8 @@ export default class App extends Component {
                            reverseArrow={true}
                            style={{
                                backgroundColor: '#e6e6e6',
-                               padding: '15px 10px 5px 10px'
+                               padding: '15px 10px 5px 10px',
+                               height: 'calc(100vh - 64px)'
                            }}
                            zeroWidthTriggerStyle={{backgroundColor: "#363f47"}}
                            trigger={this.state.collapsedOrders ? <CaretLeftOutlined/> : <CaretRightOutlined/>}

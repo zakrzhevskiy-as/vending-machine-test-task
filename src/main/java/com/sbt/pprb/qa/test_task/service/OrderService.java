@@ -8,6 +8,7 @@ import com.sbt.pprb.qa.test_task.model.response.OrderBeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderResponseResource;
 import com.sbt.pprb.qa.test_task.repository.*;
 import lombok.AllArgsConstructor;
+import lombok.SneakyThrows;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,6 +72,7 @@ public class OrderService {
 
     public Order createOrder(AppUser user) {
         Order newOrder = new Order();
+        newOrder.setOrderNumber(ordersRepository.getNextOrderNumber());
         newOrder.setOwner(user);
         newOrder.setActive(true);
         newOrder.setBalance(0);
@@ -82,23 +84,22 @@ public class OrderService {
     }
 
     public List<OrderBeverage> getOrderBeverages(Long id) {
-        return orderBeveragesRepository.findByOrderId(id);
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        return orderBeveragesRepository.findByOrderId(id, sort);
     }
 
     public void deleteOrder(Long id) {
         Order order = ordersRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Order", id));
 
-        orderBeveragesRepository.findByOrderId(id).forEach(orderBeverage -> {
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        orderBeveragesRepository.findByOrderId(order.getId(), sort)
+                .forEach(orderBeverage -> {
+                    BeverageVolume beverageVolume = orderBeverage.getBeverageVolume();
+                    Beverage beverage = beverageVolume.getBeverage();
 
-        });
-
-        orderBeveragesRepository.findByOrderId(order.getId()).forEach(orderBeverage -> {
-            BeverageVolume beverageVolume = orderBeverage.getBeverageVolume();
-            Beverage beverage = beverageVolume.getBeverage();
-
-            beverage.addAvailableVolume(beverageVolume.getVolume());
-            beveragesRepository.save(beverage);
-        });
+                    beverage.addAvailableVolume(beverageVolume.getVolume());
+                    beveragesRepository.save(beverage);
+                });
 
         ordersRepository.deleteById(id);
     }
@@ -113,8 +114,11 @@ public class OrderService {
     private OrderResponseResource getOrderResponseResource(Order order) {
         OrderResponseResource responseResource = new OrderResponseResource();
         responseResource.setId(order.getId());
+        responseResource.setOrderNumber(order.getOrderNumber());
+        responseResource.setCreated(order.getCreated());
 
-        List<OrderBeverage> orderBeverages = orderBeveragesRepository.findByOrderId(order.getId());
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        List<OrderBeverage> orderBeverages = orderBeveragesRepository.findByOrderId(order.getId(), sort);
         List<OrderBeverageResponseResource> beverageResponseResources = orderBeverages.stream()
                 .map(this::getOrderBeverageResponseResource)
                 .collect(Collectors.toList());
@@ -135,6 +139,7 @@ public class OrderService {
         beverageResponseResource.setId(orderBeverage.getId());
         beverageResponseResource.setBeverageType(orderBeverage.getBeverageVolume().getBeverage().getBeverageType());
         beverageResponseResource.setSelectedIce(orderBeverage.getSelectedIce());
+        beverageResponseResource.setStatus(orderBeverage.getStatus());
 
         BeverageVolumeResponseResource volumeResponseResource = new BeverageVolumeResponseResource();
         volumeResponseResource.setId(orderBeverage.getBeverageVolume().getId());
@@ -159,7 +164,8 @@ public class OrderService {
 
         Map<BeverageType, Double> orderBeveragesVolume = new HashMap<>();
 
-        for (OrderBeverage ob : orderBeveragesRepository.findByOrderId(orderId)) {
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        for (OrderBeverage ob : orderBeveragesRepository.findByOrderId(orderId, sort)) {
             BeverageVolume beverageVolume = ob.getBeverageVolume();
             Beverage beverage = beverageVolume.getBeverage();
             BeverageType beverageType = beverage.getBeverageType();
@@ -191,6 +197,7 @@ public class OrderService {
         orderBeverage.setOrder(order);
         orderBeverage.setBeverageVolume(beverageVolume);
         orderBeverage.setSelectedIce(false);
+        orderBeverage.setStatus(OrderBeverageStatus.SELECTED);
 
         OrderBeverage saved = orderBeveragesRepository.save(orderBeverage);
 
@@ -201,7 +208,8 @@ public class OrderService {
         Order order = ordersRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Order", id));
         order.setActive(false);
 
-        orderBeveragesRepository.findByOrderId(id).forEach(orderBeverage -> {
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        orderBeveragesRepository.findByOrderId(id, sort).forEach(orderBeverage -> {
             BeverageVolume beverageVolume = orderBeverage.getBeverageVolume();
             Beverage beverage = beverageVolume.getBeverage();
 

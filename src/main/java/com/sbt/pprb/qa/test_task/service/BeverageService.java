@@ -8,6 +8,7 @@ import com.sbt.pprb.qa.test_task.model.response.BeverageVolumeResponseResource;
 import com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepository;
 import com.sbt.pprb.qa.test_task.repository.BeveragesRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +27,8 @@ public class BeverageService {
     private BeverageVolumesRepository volumeRepository;
 
     public List<Beverage> getBeverages() {
-        return beveragesRepository.findAll();
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        return beveragesRepository.findAll(sort);
     }
 
     public Beverage getBeverage(Long id) {
@@ -42,7 +44,8 @@ public class BeverageService {
     }
 
     public List<BeverageResponseResource> getVolumes() {
-        List<BeverageVolume> beverageVolumes = volumeRepository.findAll();
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        List<BeverageVolume> beverageVolumes = volumeRepository.findAll(sort);
         Map<Beverage, List<BeverageVolume>> temp = new HashMap<>();
 
         for (BeverageVolume volume : beverageVolumes) {
@@ -87,7 +90,8 @@ public class BeverageService {
     }
 
     public List<BeverageVolume> getBeverageVolumes(Long beverageId) {
-        return volumeRepository.getAllByBeverageId(beverageId);
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        return volumeRepository.getAllByBeverageId(beverageId, sort);
     }
 
     public BeverageVolume createVolume(Long beverageId, BeverageVolume beverageVolume) {

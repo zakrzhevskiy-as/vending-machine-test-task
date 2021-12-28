@@ -14,9 +14,6 @@ spring:
     rest:
       base-path: /api
   datasource:
-    url: ${SPRING_DB_URL}?currentSchema=${spring.liquibase.default-schema}
-    username: ${SPRING_DB_USER}
-    password: ${SPRING_DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     properties:
@@ -34,7 +31,8 @@ spring:
       reader: ${system.db.reader.user}
       password: ${system.db.reader.password}
     default-schema: vending_machine
-
+  profiles:
+    active: @active.profile@
 system:
   auth:
     username: qa_engineer

@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "orders")
 public class Order extends AuditEntity {
 
+    private Integer orderNumber;
     @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id", nullable = false)
     private AppUser owner;

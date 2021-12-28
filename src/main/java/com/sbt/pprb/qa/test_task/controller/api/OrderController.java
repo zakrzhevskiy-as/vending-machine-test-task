@@ -9,6 +9,7 @@ import com.sbt.pprb.qa.test_task.service.OrderService;
 import com.sbt.pprb.qa.test_task.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -100,7 +101,7 @@ public class OrderController {
     }
 
     @GetMapping(path = "finished")
-    public ResponseEntity<List<OrderResponseResource>> getDoneOrders(Principal principal) {
+    public ResponseEntity<List<OrderResponseResource>> getFinishedOrders(Principal principal) {
         Optional<AppUser> user = userService.getUser(principal.getName());
         if (user.isPresent()) {
             return ResponseEntity.ok(orderService.getDoneOrders(user.get()));

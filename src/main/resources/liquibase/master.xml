@@ -14,4 +14,8 @@
     <include file="edit/orders/addActiveColumn.xml" relativeToChangelogFile="true"/>
     <!-- 20211220 -->
     <include file="edit/orders/addBalanceColumn.xml" relativeToChangelogFile="true"/>
+    <!-- 20211226 -->
+    <include file="edit/orders/addOrderNumberColumn.xml" relativeToChangelogFile="true"/>
+    <!-- 20211227 -->
+    <include file="edit/orders_beverages/addStatusColumn.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>

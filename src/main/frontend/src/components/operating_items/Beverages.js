@@ -46,7 +46,7 @@ export default class Beverages extends Component {
                             <Col>
                                 <Tooltip
                                     title={this.props.totalCost === 0 || this.props.balance < this.props.totalCost
-                                        ? "Enter balance equal to order cost"
+                                        ? "Внесите количество средств, покрывающих стоимость заказа"
                                         : ""}
                                 >
                                     <Button type="primary"
@@ -57,7 +57,7 @@ export default class Beverages extends Component {
                                             style={{width: 200, height: 50, fontSize: 24}}
                                             onClick={this.props.submit}
                                     >
-                                        Submit
+                                        Подтвердить
                                     </Button>
                                 </Tooltip>
                             </Col>

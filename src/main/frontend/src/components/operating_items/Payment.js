@@ -4,7 +4,7 @@ import Cash from "./payment/Cash";
 import Coins from "./payment/Coins";
 import PayPass from "./payment/PayPass";
 
-const buttonWidth = 90;
+const buttonWidth = 100;
 const cash = [50, 100, 200];
 const coins = [1, 2, 5, 10];
 
@@ -28,7 +28,7 @@ export default class Payment extends Component {
                                     size="large" danger style={{width: buttonWidth}}
                                     onClick={() => this.props.reset()}
                             >
-                                Reset
+                                Возврат
                             </Button>
                         </Space>
                     </Col>

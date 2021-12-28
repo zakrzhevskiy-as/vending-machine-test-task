@@ -23,7 +23,7 @@ export default class HeaderContent extends Component {
                                 });
                             }}
                     >
-                        Logout <LogoutOutlined/>
+                        Выход <LogoutOutlined/>
                     </Button>
                 </Col>
             </Row>

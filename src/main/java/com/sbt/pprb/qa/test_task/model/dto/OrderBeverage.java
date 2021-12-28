@@ -19,4 +19,7 @@ public class OrderBeverage extends AuditEntity {
 
     @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
     private BeverageVolume beverageVolume;
+
+    @Enumerated(EnumType.STRING)
+    private OrderBeverageStatus status;
 }
