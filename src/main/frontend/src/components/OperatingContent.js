@@ -34,7 +34,7 @@ export default class OperatingContent extends Component {
 
     getActiveOrder = () => {
         this.setState({loading: true});
-        orders.getActive()
+        orders.getOrders(true)
             .then(
                 response => this.setState({
                     order: response.entity.orderBeverages,

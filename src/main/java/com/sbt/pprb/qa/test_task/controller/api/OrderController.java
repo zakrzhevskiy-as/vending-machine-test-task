@@ -34,10 +34,15 @@ public class OrderController {
     private OrderService orderService;
 
     @GetMapping(produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Order>> getOrders(Principal principal) {
+    public ResponseEntity<?> getOrders(Principal principal,
+                                       @RequestParam(required = false, defaultValue = "false") Boolean active) {
         Optional<AppUser> user = userService.getUser(principal.getName());
         if (user.isPresent()) {
-            return ResponseEntity.ok(orderService.getOrders(user.get()));
+            List<OrderResponseResource> orders = orderService.getOrders(user.get(), active);
+            if (active && orders.isEmpty()) {
+                return ResponseEntity.status(NOT_FOUND).build();
+            }
+            return ResponseEntity.ok(active ? orders.get(0) : orders);
         } else {
             return ResponseEntity.status(SC_UNAUTHORIZED).build();
         }
@@ -78,47 +83,10 @@ public class OrderController {
         }
     }
 
-    @DeleteMapping(path = "{id}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT, reason = "Successfully deleted")
-    public void deleteOrder(@PathVariable Long id, HttpServletResponse response) {
-        orderService.deleteOrder(id);
-        response.setStatus(204);
-    }
-
-    @GetMapping(path = "active")
-    public ResponseEntity<OrderResponseResource> getActiveOrder(Principal principal) {
-        Optional<AppUser> user = userService.getUser(principal.getName());
-        if (user.isPresent()) {
-            List<OrderResponseResource> activeOrder = orderService.getActiveOrder(user.get());
-            if (!activeOrder.isEmpty()) {
-                return ResponseEntity.ok(activeOrder.get(0));
-            } else {
-                return ResponseEntity.status(NOT_FOUND).build();
-            }
-        } else {
-            return ResponseEntity.status(SC_UNAUTHORIZED).build();
-        }
-    }
-
-    @GetMapping(path = "finished")
-    public ResponseEntity<List<OrderResponseResource>> getFinishedOrders(Principal principal) {
-        Optional<AppUser> user = userService.getUser(principal.getName());
-        if (user.isPresent()) {
-            return ResponseEntity.ok(orderService.getDoneOrders(user.get()));
-        } else {
-            return ResponseEntity.status(SC_UNAUTHORIZED).build();
-        }
-    }
-
     @SneakyThrows
     @PutMapping(path = "{id}/beverages", consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<OrderBeverageResponseResource> addBeverage(@PathVariable Long id, @RequestBody OrderBeverage beverage) {
         return ResponseEntity.ok(orderService.addBeverage(id, beverage));
-    }
-
-    @PostMapping(path = "{id}/submit")
-    public void submitOrder(@PathVariable Long id) {
-        orderService.submitOrder(id);
     }
 
     @DeleteMapping(path = "beverages/{id}")
@@ -128,9 +96,9 @@ public class OrderController {
         response.setStatus(204);
     }
 
-    @GetMapping(value = "{id}/beverages", produces = APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<OrderBeverage>> getOrderBeverages(@PathVariable Long id) {
-        return ResponseEntity.ok(orderService.getOrderBeverages(id));
+    @PostMapping(path = "{id}/submit")
+    public void submitOrder(@PathVariable Long id) {
+        orderService.submitOrder(id);
     }
 
     @PutMapping(value = "{id}/add-balance")

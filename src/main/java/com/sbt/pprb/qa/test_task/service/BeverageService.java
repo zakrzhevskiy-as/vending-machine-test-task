@@ -35,14 +35,6 @@ public class BeverageService {
         return beveragesRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Beverage", id));
     }
 
-    public Beverage createBeverage(Beverage beverage) {
-        return beveragesRepository.save(beverage);
-    }
-
-    public Beverage updateBeverage(Long id, Beverage beverage) {
-        return beveragesRepository.update(id, beverage.getAvailableVolume());
-    }
-
     public List<BeverageResponseResource> getVolumes() {
         Sort sort = Sort.by(Sort.Direction.ASC, "created");
         List<BeverageVolume> beverageVolumes = volumeRepository.findAll(sort);
@@ -92,13 +84,5 @@ public class BeverageService {
     public List<BeverageVolume> getBeverageVolumes(Long beverageId) {
         Sort sort = Sort.by(Sort.Direction.ASC, "created");
         return volumeRepository.getAllByBeverageId(beverageId, sort);
-    }
-
-    public BeverageVolume createVolume(Long beverageId, BeverageVolume beverageVolume) {
-        return volumeRepository.save(beverageVolume);
-    }
-
-    public BeverageVolume updateVolume(Long id, BeverageVolume beverageVolume) {
-        return volumeRepository.update(id, beverageVolume.getPrice(), beverageVolume.getVolume());
     }
 }

@@ -29,16 +29,11 @@ public class OrderService {
     private BeveragesRepository beveragesRepository;
     private BeverageVolumesRepository volumeRepository;
 
-    public List<Order> getOrders(AppUser owner) {
-        return ordersRepository.findByOwnerOrderByIdDesc(owner);
-    }
+    public List<OrderResponseResource> getOrders(AppUser owner, Boolean active) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "created");
+        List<Order> byOwnerAndActive = ordersRepository.findByOwnerAndActive(owner, active, sort);
 
-    public void deleteAll(AppUser owner) {
-        usersRepository.save(owner);
-
-        ordersRepository.deleteAllByOwner(owner);
-
-        resetBeveragesAvailableVolume();
+        return byOwnerAndActive.stream().map(this::getOrderResponseResource).collect(Collectors.toList());
     }
 
     public void deleteActive(AppUser owner) {
@@ -83,34 +78,6 @@ public class OrderService {
         return created;
     }
 
-    public List<OrderBeverage> getOrderBeverages(Long id) {
-        Sort sort = Sort.by(Sort.Direction.ASC, "created");
-        return orderBeveragesRepository.findByOrderId(id, sort);
-    }
-
-    public void deleteOrder(Long id) {
-        Order order = ordersRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Order", id));
-
-        Sort sort = Sort.by(Sort.Direction.ASC, "created");
-        orderBeveragesRepository.findByOrderId(order.getId(), sort)
-                .forEach(orderBeverage -> {
-                    BeverageVolume beverageVolume = orderBeverage.getBeverageVolume();
-                    Beverage beverage = beverageVolume.getBeverage();
-
-                    beverage.addAvailableVolume(beverageVolume.getVolume());
-                    beveragesRepository.save(beverage);
-                });
-
-        ordersRepository.deleteById(id);
-    }
-
-    public List<OrderResponseResource> getActiveOrder(AppUser owner) {
-        Sort sort = Sort.by(Sort.Direction.DESC, "created");
-        List<Order> byOwnerAndActive = ordersRepository.findByOwnerAndActive(owner, true, sort);
-
-        return byOwnerAndActive.stream().map(this::getOrderResponseResource).collect(Collectors.toList());
-    }
-
     private OrderResponseResource getOrderResponseResource(Order order) {
         OrderResponseResource responseResource = new OrderResponseResource();
         responseResource.setId(order.getId());
@@ -148,13 +115,6 @@ public class OrderService {
 
         beverageResponseResource.setBeverageVolume(volumeResponseResource);
         return beverageResponseResource;
-    }
-
-    public List<OrderResponseResource> getDoneOrders(AppUser owner) {
-        Sort sort = Sort.by(Sort.Direction.DESC, "created");
-        List<Order> orders = ordersRepository.findByOwnerAndActive(owner, false, sort);
-
-        return orders.stream().map(this::getOrderResponseResource).collect(Collectors.toList());
     }
 
     public OrderBeverageResponseResource addBeverage(Long orderId, OrderBeverage orderBeverage) {

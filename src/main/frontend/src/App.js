@@ -25,7 +25,7 @@ export default class App extends Component {
     }
 
     componentDidMount() {
-        orders.getFinishedOrders()
+        orders.getOrders(false)
             .then(
                 response => this.setState({ orders: response.entity }),
                 error => showErrorMessage(error)

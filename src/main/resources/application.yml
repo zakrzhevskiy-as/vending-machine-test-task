@@ -31,8 +31,8 @@ spring:
       reader: ${system.db.reader.user}
       password: ${system.db.reader.password}
     default-schema: vending_machine
-  profiles:
-    active: @active.profile@
+#  profiles:
+#    active: @active.profile@
 system:
   auth:
     username: qa_engineer

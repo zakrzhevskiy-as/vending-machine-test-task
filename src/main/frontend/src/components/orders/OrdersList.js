@@ -20,7 +20,7 @@ export default class OrdersList extends Component {
 
     deleteOrders = () => {
         this.setState({loading: true});
-        orders.clearFinishedOrders()
+        orders.deleteOrders(false)
             .then(
                 () => this.setState({orders: []}),
                 error => showErrorMessage(error)
