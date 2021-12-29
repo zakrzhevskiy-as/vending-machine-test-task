@@ -14,7 +14,11 @@ export default class OperatingContent extends Component {
         balance: 0,
         totalCost: 0,
         order: [],
-        orderId: undefined
+        orderId: undefined,
+        orderConfirmed: false,
+        processingBeverage: undefined,
+        brewing: false,
+        progress: 0
     };
 
     constructor(props) {
@@ -26,6 +30,8 @@ export default class OperatingContent extends Component {
         this.removeBeverageVolume = this.removeBeverageVolume.bind(this);
         this.selectIce = this.selectIce.bind(this);
         this.submitOrder = this.submitOrder.bind(this);
+        this.processOrderBeverage = this.processOrderBeverage.bind(this);
+        this.updateProgressBar = this.updateProgressBar.bind(this);
     }
 
     componentDidMount() {
@@ -36,12 +42,17 @@ export default class OperatingContent extends Component {
         this.setState({loading: true});
         orders.getOrders(true)
             .then(
-                response => this.setState({
-                    order: response.entity.orderBeverages,
-                    orderId: response.entity.id,
-                    totalCost: response.entity.totalCost,
-                    balance: response.entity.balance
-                }),
+                response => {
+                    let order = response.entity;
+
+                    this.setState({
+                        order: order.orderBeverages,
+                        orderId: order.id,
+                        totalCost: order.totalCost,
+                        balance: order.balance,
+                        orderConfirmed: order.orderBeverages.filter(item => item.status !== 'SELECTED').length > 0
+                    });
+                },
                 error => {
                     if (error.status.code === 404) {
                         this.setState({newOrder: true});
@@ -128,8 +139,47 @@ export default class OperatingContent extends Component {
     submitOrder() {
         this.setState({loading: true});
         orders.submit(this.state.orderId)
-            .then(() => {}, error => showErrorMessage(error))
-            .done(this.props.rerender);
+            .then(
+                response => this.setState({order: response.entity, orderConfirmed: true}),
+                error => showErrorMessage(error)
+            ).done(() => this.setState({loading: false}));
+    }
+
+    processOrderBeverage(beverageId, action) {
+        let {order} = this.state;
+        let readyCount = order.filter(item => item.status === 'READY').length;
+        let takenCount = order.filter(item => item.status === 'TAKEN').length;
+
+        let last = (order.length - (readyCount + takenCount)) === 0;
+
+        if (last) {
+            orders.finishOrder(this.state.orderId)
+                .then(() => {
+                }, error => showErrorMessage(error))
+                .done(() => {
+                    this.setState({brewing: false, progress: 0});
+                    this.props.rerender();
+                })
+        } else {
+            this.setState({processingBeverage: beverageId});
+            orders.processOrderBeverage(this.state.orderId, beverageId, action)
+                .then(
+                    response => this.setState({order: response.entity, orderConfirmed: true}),
+                    error => showErrorMessage(error)
+                ).done(() => this.setState({processingBeverage: undefined, brewing: false, progress: 0}));
+        }
+
+        if (action === 'PROCESS') {
+            this.setState({brewing: true});
+            Array.from(Array(20).keys()).forEach((item, i) => setTimeout(
+                () => this.setState({progress: 100 / 20 * (i + 1)}),
+                (i + 1) * 1000,
+            ));
+        }
+    }
+
+    updateProgressBar(progress) {
+        this.setState({progress: progress})
     }
 
     render() {
@@ -145,14 +195,21 @@ export default class OperatingContent extends Component {
                                  totalCost={this.state.totalCost}
                                  add={this.add}
                                  reset={this.resetBalance}
+                                 orderConfirmed={this.state.orderConfirmed}
                         />
                         <Beverages balance={this.state.balance}
                                    totalCost={this.state.totalCost}
+                                   orderId={this.state.orderId}
                                    order={this.state.order}
+                                   orderConfirmed={this.state.orderConfirmed}
                                    selectIce={this.selectIce}
                                    removeBeverageVolume={this.removeBeverageVolume}
                                    addBeverageVolume={this.addBeverageVolume}
                                    submit={this.submitOrder}
+                                   processBeverage={this.processOrderBeverage}
+                                   processingBeverage={this.state.processingBeverage}
+                                   brewing={this.state.brewing}
+                                   progress={this.state.progress}
                         />
                     </Space>
                 </Spin>

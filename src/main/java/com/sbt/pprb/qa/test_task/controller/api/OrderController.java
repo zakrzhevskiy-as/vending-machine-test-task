@@ -3,13 +3,13 @@ package com.sbt.pprb.qa.test_task.controller.api;
 import com.sbt.pprb.qa.test_task.model.dto.AppUser;
 import com.sbt.pprb.qa.test_task.model.dto.Order;
 import com.sbt.pprb.qa.test_task.model.dto.OrderBeverage;
+import com.sbt.pprb.qa.test_task.model.dto.ProcessAction;
 import com.sbt.pprb.qa.test_task.model.response.OrderBeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderResponseResource;
 import com.sbt.pprb.qa.test_task.service.OrderService;
 import com.sbt.pprb.qa.test_task.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -96,9 +96,21 @@ public class OrderController {
         response.setStatus(204);
     }
 
-    @PostMapping(path = "{id}/submit")
-    public void submitOrder(@PathVariable Long id) {
-        orderService.submitOrder(id);
+    @PostMapping(path = "{orderId}/submit")
+    public ResponseEntity<?> processBeverage(@PathVariable Long orderId,
+                                             @RequestParam(required = false) Long beverageId,
+                                             @RequestParam(required = false, defaultValue = "SUBMIT") ProcessAction action,
+                                             @RequestParam(required = false, defaultValue = "false") Boolean last) {
+        if (last) {
+            return ResponseEntity.ok(orderService.processBeverage(orderId, beverageId, action, true));
+        } else {
+            if (action == ProcessAction.SUBMIT) {
+                return ResponseEntity.ok(orderService.submitOrder(orderId));
+            } else {
+                return ResponseEntity.ok(orderService.processBeverage(orderId, beverageId, action, false));
+            }
+        }
+
     }
 
     @PutMapping(value = "{id}/add-balance")

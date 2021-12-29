@@ -8,7 +8,7 @@
             <tableExists tableName="orders_beverages"/>
         </preConditions>
         <addColumn tableName="orders_beverages">
-            <column name="status" type="varchar(10)"/>
+            <column name="status" type="varchar(16)"/>
         </addColumn>
         <addNotNullConstraint tableName="orders_beverages" columnName="status" defaultNullValue="SELECTED"/>
     </changeSet>

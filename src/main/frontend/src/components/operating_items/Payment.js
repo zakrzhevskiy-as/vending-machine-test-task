@@ -17,15 +17,23 @@ export default class Payment extends Component {
                     <Col>
                         <Space direction="vertical" align="center">
                             {cash.map((cost, index) => {
-                                return <Button key={index} type="primary" shape="round"
-                                               size="large" style={{width: buttonWidth}}
+                                return <Button key={index}
+                                               type="primary"
+                                               shape="round"
+                                               size="large"
+                                               disabled={this.props.orderConfirmed}
+                                               style={{width: buttonWidth}}
                                                onClick={() => this.props.add(cost)}
                                 >
                                     {cost}₽
                                 </Button>
                             })}
-                            <Button type="primary" shape="round"
-                                    size="large" danger style={{width: buttonWidth}}
+                            <Button type="primary"
+                                    shape="round"
+                                    size="large"
+                                    danger
+                                    disabled={this.props.orderConfirmed}
+                                    style={{width: buttonWidth}}
                                     onClick={() => this.props.reset()}
                             >
                                 Возврат
@@ -41,8 +49,12 @@ export default class Payment extends Component {
                     <Col>
                         <Space direction="vertical" align="center">
                             {coins.map((cost, index) => {
-                                return <Button key={index} type="primary" shape="round"
-                                               size="large" style={{width: buttonWidth}}
+                                return <Button key={index}
+                                               type="primary"
+                                               shape="round"
+                                               size="large"
+                                               disabled={this.props.orderConfirmed}
+                                               style={{width: buttonWidth}}
                                                onClick={() => this.props.add(cost)}
                                 >
                                     {cost}₽

@@ -8,18 +8,16 @@ import com.sbt.pprb.qa.test_task.model.response.OrderBeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderResponseResource;
 import com.sbt.pprb.qa.test_task.repository.*;
 import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @Service
-@Transactional
 @AllArgsConstructor
 public class OrderService {
 
@@ -29,11 +27,13 @@ public class OrderService {
     private BeveragesRepository beveragesRepository;
     private BeverageVolumesRepository volumeRepository;
 
+    private OrderProcessingService processingService;
+
     public List<OrderResponseResource> getOrders(AppUser owner, Boolean active) {
         Sort sort = Sort.by(Sort.Direction.DESC, "created");
         List<Order> byOwnerAndActive = ordersRepository.findByOwnerAndActive(owner, active, sort);
 
-        return byOwnerAndActive.stream().map(this::getOrderResponseResource).collect(Collectors.toList());
+        return byOwnerAndActive.stream().map(this::getOrderResponseResource).collect(toList());
     }
 
     public void deleteActive(AppUser owner) {
@@ -88,7 +88,7 @@ public class OrderService {
         List<OrderBeverage> orderBeverages = orderBeveragesRepository.findByOrderId(order.getId(), sort);
         List<OrderBeverageResponseResource> beverageResponseResources = orderBeverages.stream()
                 .map(this::getOrderBeverageResponseResource)
-                .collect(Collectors.toList());
+                .collect(toList());
 
         responseResource.setOrderBeverages(beverageResponseResources);
 
@@ -164,23 +164,42 @@ public class OrderService {
         return getOrderBeverageResponseResource(saved);
     }
 
-    public void submitOrder(Long id) {
-        Order order = ordersRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Order", id));
-        order.setActive(false);
+    public List<OrderBeverageResponseResource> submitOrder(Long id) {
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        List<OrderBeverage> beverages = orderBeveragesRepository.findByOrderId(id, sort);
+        processingService.beveragesToStatus(OrderBeverageStatus.READY_TO_PROCESS, beverages.toArray(new OrderBeverage[]{}));
+
+        return orderBeveragesRepository.findByOrderId(id, sort)
+                .stream()
+                .map(this::getOrderBeverageResponseResource)
+                .collect(toList());
+    }
+
+    public List<OrderBeverageResponseResource> processBeverage(Long orderId,
+                                                               Long beverageId,
+                                                               ProcessAction action,
+                                                               Boolean last) {
+        if (last) {
+            Order order = ordersRepository.getById(orderId);
+            order.setActive(false);
+            ordersRepository.save(order);
+        } else {
+            if (action == ProcessAction.PROCESS) {
+                processingService.processBeverage(beverageId);
+            } else {
+                OrderBeverage beverage = orderBeveragesRepository.getById(beverageId);
+                OrderBeverageStatus nextStatus = beverage.getStatus().getNextStatus();
+                processingService.beveragesToStatus(nextStatus, beverage);
+
+
+            }
+        }
 
         Sort sort = Sort.by(Sort.Direction.ASC, "created");
-        orderBeveragesRepository.findByOrderId(id, sort).forEach(orderBeverage -> {
-            BeverageVolume beverageVolume = orderBeverage.getBeverageVolume();
-            Beverage beverage = beverageVolume.getBeverage();
-
-            beverage.subtractAvailableVolume(beverageVolume.getVolume());
-            beveragesRepository.save(beverage);
-        });
-
-        ordersRepository.save(order);
-
-        AppUser user = usersRepository.getById(order.getOwner().getId());
-        usersRepository.save(user);
+        return orderBeveragesRepository.findByOrderId(orderId, sort)
+                .stream()
+                .map(this::getOrderBeverageResponseResource)
+                .collect(toList());
     }
 
     public void removeBeverage(Long beverageId) {

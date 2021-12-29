@@ -25,6 +25,10 @@ export default class App extends Component {
     }
 
     componentDidMount() {
+        this.getOrders();
+    }
+
+    getOrders() {
         orders.getOrders(false)
             .then(
                 response => this.setState({ orders: response.entity }),
@@ -34,6 +38,7 @@ export default class App extends Component {
 
     rerender() {
         this.setState({ key: Math.random() });
+        this.getOrders();
     }
 
     onCollapse = collapsed => {
@@ -54,7 +59,6 @@ export default class App extends Component {
                         <OperatingContent rerender={this.rerender}/>
                     </Content>
                     <Sider id="orders-list-sider"
-                           key={this.state.key}
                            width={350}
                            collapsible
                            collapsed={this.state.collapsedOrders}
@@ -71,7 +75,10 @@ export default class App extends Component {
                            breakpoint="xxl"
                            onBreakpoint={this.onCollapse}
                     >
-                        {this.state.collapsedOrders || <OrdersList rerender={this.rerender} orders={this.state.orders}/>}
+                        {
+                            this.state.collapsedOrders ||
+                            <OrdersList rerender={this.rerender} orders={this.state.orders}/>
+                        }
                     </Sider>
                 </Layout>
             </Layout>
