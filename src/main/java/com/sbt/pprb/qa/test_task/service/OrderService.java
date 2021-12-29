@@ -44,6 +44,7 @@ public class OrderService {
     }
 
     public void deleteFinished(AppUser owner) {
+        // ОЖИДАЕМАЯ ОШИБКА - не удаляются завершенные заказы
         ordersRepository.deleteAllByOwnerAndActive(owner, false);
     }
 
