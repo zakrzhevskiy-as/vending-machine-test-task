@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "beverage_volumes")
 public class BeverageVolume extends AuditEntity {
 
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "beverage_id")
     private Beverage beverage;
 

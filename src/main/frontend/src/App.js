@@ -22,6 +22,7 @@ export default class App extends Component {
         super(props);
 
         this.rerender = this.rerender.bind(this);
+        this.deleteOrder = this.deleteOrder.bind(this);
     }
 
     componentDidMount() {
@@ -45,6 +46,13 @@ export default class App extends Component {
         this.setState({ collapsedOrders: collapsed });
     };
 
+    deleteOrder(id) {
+        this.setState({loading: true});
+        orders.deleteOrder(id)
+            .then(() => this.getOrders(), error => showErrorMessage(error))
+            .done(() => this.setState({loading: false}));
+    }
+
     render() {
         return (
             <Layout id="app" key={this.state.key}>
@@ -59,7 +67,7 @@ export default class App extends Component {
                         <OperatingContent rerender={this.rerender}/>
                     </Content>
                     <Sider id="orders-list-sider"
-                           width={350}
+                           width={320}
                            collapsible
                            collapsed={this.state.collapsedOrders}
                            onCollapse={this.onCollapse}
@@ -77,7 +85,10 @@ export default class App extends Component {
                     >
                         {
                             this.state.collapsedOrders ||
-                            <OrdersList rerender={this.rerender} orders={this.state.orders}/>
+                            <OrdersList deleteOrder={this.deleteOrder}
+                                        rerender={this.rerender}
+                                        orders={this.state.orders}
+                            />
                         }
                     </Sider>
                 </Layout>

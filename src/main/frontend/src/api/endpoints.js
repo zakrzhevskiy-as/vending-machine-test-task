@@ -8,6 +8,7 @@ const rootBeveragesUrl = 'api/beverages';
 export const orders = {
     getOrders: (active) => client({method: 'GET', path: rootOrdersUrl, params: {active}}),
     deleteOrders: (all) => client({method: 'DELETE', path: rootOrdersUrl, params: {"deleteAll": all}}),
+    deleteOrder: (id) => client({method: 'DELETE', path: `${rootOrdersUrl}/${id}`}),
     create: () => client({method: 'POST', path: rootOrdersUrl}),
     addBeverage: (id, beverage) => client({method: 'PUT', path: `${rootOrdersUrl}/${id}/beverages`, entity: beverage}),
     submit: (id) => client({method: 'POST', path: `${rootOrdersUrl}/${id}/submit`}),
@@ -20,11 +21,8 @@ export const orders = {
 };
 
 export const beverages = {
-    getAll: () => client({method: 'GET', path: rootBeveragesUrl}),
-    getById: (id) => client({method: 'GET', path: `${rootBeveragesUrl}/${id}`}),
-    getBeverageVolumes: (id) => client({method: 'GET', path: `${rootBeveragesUrl}/${id}/volumes`}),
     getAllVolumes: () => client({method: 'GET', path: `${rootBeveragesUrl}/volumes`}),
-    getVolume: (id) => client({method: 'GET', path: `${rootBeveragesUrl}/volumes/${id}`})
+    addVolume: (id, volume) => client({method: 'PUT', path: `${rootBeveragesUrl}/${id}`, params: {volume}})
 };
 
 export const info = {

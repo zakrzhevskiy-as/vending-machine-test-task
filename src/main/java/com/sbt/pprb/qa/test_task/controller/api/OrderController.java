@@ -71,6 +71,11 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getOrder(id));
     }
 
+    @DeleteMapping(path = "{id}")
+    public void deleteOrder(@PathVariable Long id) {
+        orderService.deleteOrder(id);
+    }
+
     @SneakyThrows
     @PostMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createOrder(Principal principal) {

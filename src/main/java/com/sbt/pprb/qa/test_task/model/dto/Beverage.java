@@ -18,10 +18,6 @@ public class Beverage extends AuditEntity {
     @Enumerated(value = EnumType.STRING)
     private BeverageType beverageType;
 
-//    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.EAGER)
-//    @JoinColumn(name = "beverage_id")
-//    private List<BeverageVolume> beverageVolumes;
-
     public void subtractAvailableVolume(Double volume) {
         this.availableVolume -= volume;
     }

@@ -12,9 +12,6 @@ public interface OrdersRepository extends JpaRepository<Order, Long> {
 
     @Query(value = "SELECT nextval('orders_order_number_seq')", nativeQuery = true)
     Integer getNextOrderNumber();
-    List<Order> findByOwnerOrderByIdDesc(AppUser owner);
     List<Order> findByOwnerAndActive(AppUser owner, Boolean active, Sort sort);
-    void deleteAllByActive(Boolean active);
-    void deleteAllByOwner(AppUser owner);
     void deleteAllByOwnerAndActive(AppUser owner, Boolean active);
 }

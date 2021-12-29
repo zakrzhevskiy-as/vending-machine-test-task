@@ -10,5 +10,6 @@ import java.util.Optional;
 
 public interface OrderBeveragesRepository extends JpaRepository<OrderBeverage, Long> {
     List<OrderBeverage> findByOrderId(Long orderId, Sort sort);
+    List<OrderBeverage> findByOrderId(Long orderId);
     Optional<OrderBeverage> findByIdAndStatusIn(Long beverageId, OrderBeverageStatus... statuses);
 }

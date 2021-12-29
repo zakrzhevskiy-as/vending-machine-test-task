@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {orders, showErrorMessage} from "../../api/endpoints";
-import {Button, Col, Divider, Modal, Popconfirm, Row, Space} from "antd";
+import {Button, Col, Divider, Modal, Popconfirm, Row, Space, Tooltip} from "antd";
 import Title from "antd/es/typography/Title";
 import DeleteOutlined from "@ant-design/icons/es/icons/DeleteOutlined";
 import ExclamationCircleOutlined from "@ant-design/icons/es/icons/ExclamationCircleOutlined";
@@ -30,22 +30,31 @@ export default class OrdersList extends Component {
     render() {
         return (
             <Space direction="vertical">
-                <Row justify="space-between">
+                <Row>
                     <Col flex="auto">
                         <Title level={3}>История заказов</Title>
                     </Col>
-                    <Col flex="87px">
+                    <Col flex="46px">
                         <Popconfirm
                             placement="bottomRight"
                             icon={<ExclamationCircleOutlined/>}
-                            title="Are you sure delete all orders?"
+                            title="Вы точно хотите очистить историю заказов?"
                             onConfirm={this.deleteOrders}
-                            okText="Yes"
+                            okText="Да"
                             okType="danger"
-                            cancelText="No"
+                            cancelText="Нет"
                         >
-                            <Button type="text"
-                                    disabled={this.props.orders.length === 0}>Очистить <DeleteOutlined/></Button>
+                            <Tooltip placement="bottomRight"
+                                     title="Очистить историю заказов"
+                                     trigger={["hover", "click"]}
+                            >
+                                <Button type="primary"
+                                        danger
+                                        disabled={this.props.orders.length === 0}
+                                >
+                                    <DeleteOutlined/>
+                                </Button>
+                            </Tooltip>
                         </Popconfirm>
                     </Col>
                 </Row>
@@ -53,7 +62,12 @@ export default class OrdersList extends Component {
                 <div id="orders-list-scrollable">
                     {
                         this.props.orders.map(order =>
-                            <OrderCard key={order.id} order={order} showBill={this.showBill}/>)
+                            <OrderCard key={order.id}
+                                       order={order}
+                                       showBill={this.showBill}
+                                       deleteOrder={this.props.deleteOrder}
+                            />
+                        )
                     }
                 </div>
                 {
@@ -81,19 +95,41 @@ class OrderCard extends Component {
     render() {
         let {order} = this.props;
 
-        return order
-            ? <>
-                <Button className="order-card" type="text" onClick={() => this.props.showBill(order)}>
-                    <Row justify="space-between">
-                        <Col>{`Чек #${order.orderNumber}`}</Col>
-                        <Col>{`Дата: ${order.created}`}</Col>
-                    </Row>
-                    <Row justify="start">
-                        <Col>{`Итого: ${order.totalCost}₽`}</Col>
-                    </Row>
-                </Button>
-            </>
-            : <></>;
+        return (
+            <Row align="top" gutter={16}>
+                <Col flex="auto">
+                    <Button className="order-card"
+                            type="text"
+                            onClick={() => this.props.showBill(order)}
+                    >
+                        <Space direction="vertical" align="start">
+                            <span>{`Заказ #${order.orderNumber}`}</span>
+                            <span>{`Дата: ${order.created}`}</span>
+                            {/* ОЖИДАЕМАЯ ОШИБКА - отображается некорректная итоговая стоимость */}
+                            <span>{`Итого: ${order.balance - order.totalCost}₽`}</span>
+                        </Space>
+                    </Button>
+                </Col>
+                <Col flex="24px">
+                    <Popconfirm
+                        placement="bottomRight"
+                        icon={<ExclamationCircleOutlined/>}
+                        title={`Вы точно хотите удалить заказ #${order.orderNumber}?`}
+                        onConfirm={() => this.props.deleteOrder(order.id)}
+                        okText="Да"
+                        okType="danger"
+                        cancelText="Нет"
+                    >
+                        <Button type="primary"
+                                shape="circle"
+                                icon={<DeleteOutlined/>}
+                                danger
+                                size="small"
+                        />
+                    </Popconfirm>
+                </Col>
+            </Row>
+        );
     }
 }
 
@@ -132,6 +168,10 @@ class Bill extends Component {
                         <Row>
                             <Col span={19}>Итог:</Col>
                             <Col span={5}>{`${order.totalCost}₽`}</Col>
+                        </Row>
+                        <Row>
+                            <Col span={19}>Внесено:</Col>
+                            <Col span={5}>{`${order.balance}₽`}</Col>
                         </Row>
                         {
                             order.balance - order.totalCost > 0 &&

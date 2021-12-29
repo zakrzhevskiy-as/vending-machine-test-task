@@ -2,13 +2,14 @@ import React, {Component} from "react";
 import {Button, Modal, Space, Spin} from "antd";
 import Payment from "./operating_items/Payment";
 import Beverages from "./operating_items/Beverages";
-import {orders, showErrorMessage} from "../api/endpoints";
+import {beverages, orders, showErrorMessage} from "../api/endpoints";
 import {spinner} from "./constants";
 
 export default class OperatingContent extends Component {
 
     state = {
         loading: true,
+        beverages: [],
         creatingOrder: false,
         newOrder: false,
         balance: 0,
@@ -17,7 +18,6 @@ export default class OperatingContent extends Component {
         orderId: undefined,
         orderConfirmed: false,
         processingBeverage: undefined,
-        brewing: false,
         progress: 0
     };
 
@@ -31,10 +31,11 @@ export default class OperatingContent extends Component {
         this.selectIce = this.selectIce.bind(this);
         this.submitOrder = this.submitOrder.bind(this);
         this.processOrderBeverage = this.processOrderBeverage.bind(this);
-        this.updateProgressBar = this.updateProgressBar.bind(this);
+        this.addVolume = this.addVolume.bind(this);
     }
 
     componentDidMount() {
+        this.getBeverages();
         this.getActiveOrder();
     }
 
@@ -63,6 +64,15 @@ export default class OperatingContent extends Component {
             ).done(() => this.setState({loading: false}));
     };
 
+    getBeverages() {
+        this.setState({loading: true});
+        beverages.getAllVolumes()
+            .then(
+                response => this.setState({beverages: response.entity}),
+                error => showErrorMessage(error)
+            ).done(() => this.setState({loading: false}));
+    }
+
     async add(amount) {
         this.setState({loading: true});
         await orders.addBalance(this.state.orderId, amount)
@@ -83,6 +93,13 @@ export default class OperatingContent extends Component {
                 },
                 error => showErrorMessage(error)
             ).done(() => this.setState({loading: false}));
+    }
+
+    addVolume(id, volume) {
+        this.setState({loading: true});
+        beverages.addVolume(id, volume)
+            .then(() => {}, error => showErrorMessage(error))
+            .done(() => this.getBeverages());
     }
 
     addBeverageVolume(name, volume) {
@@ -157,7 +174,7 @@ export default class OperatingContent extends Component {
                 .then(() => {
                 }, error => showErrorMessage(error))
                 .done(() => {
-                    this.setState({brewing: false, progress: 0});
+                    this.setState({progress: 0});
                     this.props.rerender();
                 })
         } else {
@@ -166,20 +183,18 @@ export default class OperatingContent extends Component {
                 .then(
                     response => this.setState({order: response.entity, orderConfirmed: true}),
                     error => showErrorMessage(error)
-                ).done(() => this.setState({processingBeverage: undefined, brewing: false, progress: 0}));
+                ).done(() => this.setState({processingBeverage: undefined}));
         }
 
         if (action === 'PROCESS') {
-            this.setState({brewing: true});
             Array.from(Array(20).keys()).forEach((item, i) => setTimeout(
-                () => this.setState({progress: 100 / 20 * (i + 1)}),
+                // ОЖИДАЕМАЯ ОШИБКА - некорректно отображается % налива напитка
+                () => this.setState({progress: 100 / 25 * (i + 1)}),
                 (i + 1) * 1000,
             ));
+        } else if (action === 'TAKE') {
+            this.setState({progress: 0})
         }
-    }
-
-    updateProgressBar(progress) {
-        this.setState({progress: progress})
     }
 
     render() {
@@ -197,7 +212,9 @@ export default class OperatingContent extends Component {
                                  reset={this.resetBalance}
                                  orderConfirmed={this.state.orderConfirmed}
                         />
-                        <Beverages balance={this.state.balance}
+                        <Beverages beverages={this.state.beverages}
+                                   addVolume={this.addVolume}
+                                   balance={this.state.balance}
                                    totalCost={this.state.totalCost}
                                    orderId={this.state.orderId}
                                    order={this.state.order}
@@ -208,12 +225,11 @@ export default class OperatingContent extends Component {
                                    submit={this.submitOrder}
                                    processBeverage={this.processOrderBeverage}
                                    processingBeverage={this.state.processingBeverage}
-                                   brewing={this.state.brewing}
                                    progress={this.state.progress}
                         />
                     </Space>
                 </Spin>
-                <Modal title="No active order found"
+                <Modal title="Нет активного заказа"
                        centered
                        closable={false}
                        visible={this.state.newOrder}
@@ -232,11 +248,12 @@ export default class OperatingContent extends Component {
                                            .done(() => this.setState({creatingOrder: false, newOrder: false}));
                                    }}
                            >
-                               New order
+                               Создать
                            </Button>
                        ]}
                 >
-                    In order to proceed you need to create new order
+                    {/* ОЖИДАЕМАЯ ОШИБКА - опечатка в слове "воспользоваться" */}
+                    Чтобы всползоваться автоматом, создайте новый заказ
                 </Modal>
             </>
         );

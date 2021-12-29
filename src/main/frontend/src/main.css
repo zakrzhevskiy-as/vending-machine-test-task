@@ -112,9 +112,11 @@
     width: 100%;
     font-size: 14px;
     background-color: #f3f1ef;
-    border-radius: 4px;
-    padding: 8px 12px;
     margin-bottom: 8px;
+}
+
+#orders-list-scrollable {
+    overflow-x: hidden;
 }
 
 .bill {

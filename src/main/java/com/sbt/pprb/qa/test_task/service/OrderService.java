@@ -3,10 +3,14 @@ package com.sbt.pprb.qa.test_task.service;
 import com.sbt.pprb.qa.test_task.model.dto.*;
 import com.sbt.pprb.qa.test_task.model.exception.BeverageCantBeSelectedException;
 import com.sbt.pprb.qa.test_task.model.exception.EntityNotFoundException;
+import com.sbt.pprb.qa.test_task.model.exception.FakeCoinException;
 import com.sbt.pprb.qa.test_task.model.response.BeverageVolumeResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderBeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderResponseResource;
-import com.sbt.pprb.qa.test_task.repository.*;
+import com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepository;
+import com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepository;
+import com.sbt.pprb.qa.test_task.repository.OrdersRepository;
+import com.sbt.pprb.qa.test_task.repository.UsersRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -24,7 +28,6 @@ public class OrderService {
     private OrdersRepository ordersRepository;
     private UsersRepository usersRepository;
     private OrderBeveragesRepository orderBeveragesRepository;
-    private BeveragesRepository beveragesRepository;
     private BeverageVolumesRepository volumeRepository;
 
     private OrderProcessingService processingService;
@@ -42,21 +45,12 @@ public class OrderService {
 
     public void deleteFinished(AppUser owner) {
         ordersRepository.deleteAllByOwnerAndActive(owner, false);
-        resetBeveragesAvailableVolume();
     }
 
-    public void resetBeveragesAvailableVolume() {
-        Beverage slurm = beveragesRepository.findByBeverageType(BeverageType.SLURM);
-        slurm.setAvailableVolume(5.0);
-        beveragesRepository.save(slurm);
-
-        Beverage nukaCola = beveragesRepository.findByBeverageType(BeverageType.NUKA_COLA);
-        nukaCola.setAvailableVolume(8.4);
-        beveragesRepository.save(nukaCola);
-
-        Beverage expresso = beveragesRepository.findByBeverageType(BeverageType.EXPRESSO);
-        expresso.setAvailableVolume(3.0);
-        beveragesRepository.save(expresso);
+    public void deleteOrder(Long orderId) {
+        List<OrderBeverage> beverages = orderBeveragesRepository.findByOrderId(orderId);
+        orderBeveragesRepository.deleteAll(beverages);
+        ordersRepository.deleteById(orderId);
     }
 
     public OrderResponseResource getOrder(Long id) {
@@ -76,45 +70,6 @@ public class OrderService {
         usersRepository.save(user);
 
         return created;
-    }
-
-    private OrderResponseResource getOrderResponseResource(Order order) {
-        OrderResponseResource responseResource = new OrderResponseResource();
-        responseResource.setId(order.getId());
-        responseResource.setOrderNumber(order.getOrderNumber());
-        responseResource.setCreated(order.getCreated());
-
-        Sort sort = Sort.by(Sort.Direction.ASC, "created");
-        List<OrderBeverage> orderBeverages = orderBeveragesRepository.findByOrderId(order.getId(), sort);
-        List<OrderBeverageResponseResource> beverageResponseResources = orderBeverages.stream()
-                .map(this::getOrderBeverageResponseResource)
-                .collect(toList());
-
-        responseResource.setOrderBeverages(beverageResponseResources);
-
-        Integer totalCost = beverageResponseResources.stream()
-                .mapToInt(beverage -> beverage.getBeverageVolume().getPrice())
-                .sum();
-        responseResource.setTotalCost(totalCost);
-        responseResource.setBalance(order.getBalance());
-
-        return responseResource;
-    }
-
-    private OrderBeverageResponseResource getOrderBeverageResponseResource(OrderBeverage orderBeverage) {
-        OrderBeverageResponseResource beverageResponseResource = new OrderBeverageResponseResource();
-        beverageResponseResource.setId(orderBeverage.getId());
-        beverageResponseResource.setBeverageType(orderBeverage.getBeverageVolume().getBeverage().getBeverageType());
-        beverageResponseResource.setSelectedIce(orderBeverage.getSelectedIce());
-        beverageResponseResource.setStatus(orderBeverage.getStatus());
-
-        BeverageVolumeResponseResource volumeResponseResource = new BeverageVolumeResponseResource();
-        volumeResponseResource.setId(orderBeverage.getBeverageVolume().getId());
-        volumeResponseResource.setVolume(orderBeverage.getBeverageVolume().getVolume());
-        volumeResponseResource.setPrice(orderBeverage.getBeverageVolume().getPrice());
-
-        beverageResponseResource.setBeverageVolume(volumeResponseResource);
-        return beverageResponseResource;
     }
 
     public OrderBeverageResponseResource addBeverage(Long orderId, OrderBeverage orderBeverage) {
@@ -151,7 +106,7 @@ public class OrderService {
                 : 0D;
 
         if (beverage.getAvailableVolume() - (orderBeverageCurrentVolume + beverageVolume.getVolume()) < 0) {
-            throw new BeverageCantBeSelectedException("Lack of " + beverage.getBeverageType().getType());
+            throw new BeverageCantBeSelectedException();
         }
 
         orderBeverage.setOrder(order);
@@ -207,10 +162,21 @@ public class OrderService {
     }
 
     public OrderResponseResource addBalance(Long orderId, Integer amount) {
+        // ОЖИДАЕМАЯ ОШИБКА - при пополнении на 10₽ значение заменяется на 500₽
+        if (amount == 10) {
+            amount = 500;
+        }
+
+        // ОЖИДАЕМАЯ ОШИБКА - при пополнении на 2₽ возвращается ошибка о поддельной монете
+        if (amount == 2) {
+            throw new FakeCoinException();
+        }
+
         Order order = ordersRepository.findById(orderId).orElseThrow(() -> new EntityNotFoundException("Order", orderId));
         Integer currentBalance = order.getBalance();
         order.setBalance(currentBalance + amount);
         Order updated = ordersRepository.save(order);
+
         return getOrderResponseResource(updated);
     }
 
@@ -224,5 +190,44 @@ public class OrderService {
         OrderBeverage orderBeverage = orderBeveragesRepository.getById(beverageId);
         orderBeverage.setSelectedIce(value);
         return getOrderBeverageResponseResource(orderBeveragesRepository.save(orderBeverage));
+    }
+
+    private OrderResponseResource getOrderResponseResource(Order order) {
+        OrderResponseResource responseResource = new OrderResponseResource();
+        responseResource.setId(order.getId());
+        responseResource.setOrderNumber(order.getOrderNumber());
+        responseResource.setCreated(order.getCreated());
+
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        List<OrderBeverage> orderBeverages = orderBeveragesRepository.findByOrderId(order.getId(), sort);
+        List<OrderBeverageResponseResource> beverageResponseResources = orderBeverages.stream()
+                .map(this::getOrderBeverageResponseResource)
+                .collect(toList());
+
+        responseResource.setOrderBeverages(beverageResponseResources);
+
+        Integer totalCost = beverageResponseResources.stream()
+                .mapToInt(beverage -> beverage.getBeverageVolume().getPrice())
+                .sum();
+        responseResource.setTotalCost(totalCost);
+        responseResource.setBalance(order.getBalance());
+
+        return responseResource;
+    }
+
+    private OrderBeverageResponseResource getOrderBeverageResponseResource(OrderBeverage orderBeverage) {
+        OrderBeverageResponseResource beverageResponseResource = new OrderBeverageResponseResource();
+        beverageResponseResource.setId(orderBeverage.getId());
+        beverageResponseResource.setBeverageType(orderBeverage.getBeverageVolume().getBeverage().getBeverageType());
+        beverageResponseResource.setSelectedIce(orderBeverage.getSelectedIce());
+        beverageResponseResource.setStatus(orderBeverage.getStatus());
+
+        BeverageVolumeResponseResource volumeResponseResource = new BeverageVolumeResponseResource();
+        volumeResponseResource.setId(orderBeverage.getBeverageVolume().getId());
+        volumeResponseResource.setVolume(orderBeverage.getBeverageVolume().getVolume());
+        volumeResponseResource.setPrice(orderBeverage.getBeverageVolume().getPrice());
+
+        beverageResponseResource.setBeverageVolume(volumeResponseResource);
+        return beverageResponseResource;
     }
 }

@@ -11,13 +11,13 @@ import javax.persistence.*;
 @Table(name = "orders_beverages")
 public class OrderBeverage extends AuditEntity {
 
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     private Boolean selectedIce;
 
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.DETACH)
     private BeverageVolume beverageVolume;
 
     @Enumerated(EnumType.STRING)

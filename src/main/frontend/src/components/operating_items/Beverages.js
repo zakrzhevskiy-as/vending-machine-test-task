@@ -1,28 +1,15 @@
 import React, {Component} from "react";
 import {Button, Progress, Row, Space, Switch, Tooltip} from "antd";
-import {beverages, showErrorMessage} from "../../api/endpoints";
 import Col from "antd/es/grid/col";
 import DeleteOutlined from "@ant-design/icons/es/icons/DeleteOutlined";
 import sberLogo from "./../../assets/images/sber-logo.svg";
 import Icon from "@ant-design/icons/lib";
+import PlusOutlined from "@ant-design/icons/es/icons/PlusOutlined";
 
 const emptyContent = (<span style={{color: "rgba(0, 0, 0, 0)"}}>&nbsp;</span>);
 const displayHeader = [emptyContent, "Beverage", "Volume", "Ice", "Status"];
 
 export default class Beverages extends Component {
-
-    state = {
-        beverages: [],
-        loading: true
-    };
-
-    componentDidMount() {
-        beverages.getAllVolumes()
-            .then(
-                response => this.setState({beverages: response.entity}),
-                error => showErrorMessage(error)
-            ).done(() => this.setState({loading: false}));
-    }
 
     render() {
         return (
@@ -38,12 +25,13 @@ export default class Beverages extends Component {
                                          processBeverage={this.props.processBeverage}
                                          processingBeverage={this.props.processingBeverage}
                                          orderConfirmed={this.props.orderConfirmed}
-                                         updateProgressBar={this.props.updateProgressBar}
                                 />
                             </Col>
                         </Row>
-                        {this.state.beverages.map(beverage =>
-                            <Beverage key={beverage.id} item={beverage}
+                        {this.props.beverages.map(beverage =>
+                            <Beverage key={beverage.id}
+                                      item={beverage}
+                                      addVolume={this.props.addVolume}
                                       maxSize={this.props.order.length === 5}
                                       onSelectVolume={this.props.addBeverageVolume}
                                       orderConfirmed={this.props.orderConfirmed}
@@ -78,7 +66,6 @@ export default class Beverages extends Component {
                                 <Progress strokeLinecap="square"
                                           percent={this.props.progress}
                                           steps={20}
-                                    // showInfo={false}
                                 />
                             </Col>
                         </Row>
@@ -183,7 +170,23 @@ class Beverage extends Component {
 
     render() {
         return (
-            <Row key={this.props.item.id} align="middle" justify="center" style={{color: "white"}}>
+            <Row align="middle" justify="center" style={{color: "white"}}>
+                <Col>
+                    <Tooltip title="Добавить 0.5L">
+                        <Button type="secondary"
+                                shape="circle"
+                                size="large"
+                                icon={<PlusOutlined />}
+                                disabled={this.props.orderConfirmed}
+                                onClick={() => {
+                                    // ОЖИДАЕМАЯ ОШИБКА - некорректно увеличивается доступный объем напитка
+                                    let volumes = [0.5, 1.0, 1.5];
+                                    let volume = volumes[Math.floor(Math.random() * volumes.length)];
+                                    this.props.addVolume(this.props.item.id, volume);
+                                }}
+                        />
+                    </Tooltip>
+                </Col>
                 <Col style={{
                     backgroundColor: "#B0B0B0",
                     fontSize: 24,

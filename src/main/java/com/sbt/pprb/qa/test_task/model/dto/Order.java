@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Order extends AuditEntity {
 
     private Integer orderNumber;
-    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.DETACH)
     @JoinColumn(name = "user_id", nullable = false)
     private AppUser owner;
     private Boolean active;

@@ -2,7 +2,6 @@ package com.sbt.pprb.qa.test_task.service;
 
 import com.sbt.pprb.qa.test_task.model.dto.Beverage;
 import com.sbt.pprb.qa.test_task.model.dto.BeverageVolume;
-import com.sbt.pprb.qa.test_task.model.exception.EntityNotFoundException;
 import com.sbt.pprb.qa.test_task.model.response.BeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.BeverageVolumeResponseResource;
 import com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepository;
@@ -29,10 +28,6 @@ public class BeverageService {
     public List<Beverage> getBeverages() {
         Sort sort = Sort.by(Sort.Direction.ASC, "created");
         return beveragesRepository.findAll(sort);
-    }
-
-    public Beverage getBeverage(Long id) {
-        return beveragesRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Beverage", id));
     }
 
     public List<BeverageResponseResource> getVolumes() {
@@ -75,14 +70,9 @@ public class BeverageService {
         return responseResources;
     }
 
-    public BeverageVolume getVolume(Long id) {
-        return volumeRepository
-                .findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Beverage volume", id));
-    }
-
-    public List<BeverageVolume> getBeverageVolumes(Long beverageId) {
-        Sort sort = Sort.by(Sort.Direction.ASC, "created");
-        return volumeRepository.getAllByBeverageId(beverageId, sort);
+    public void addVolume(Long beverageId, Double volume) {
+        Beverage beverage = beveragesRepository.getById(beverageId);
+        beverage.addAvailableVolume(volume);
+        beveragesRepository.save(beverage);
     }
 }
