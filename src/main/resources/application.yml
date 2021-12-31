@@ -36,8 +36,6 @@ spring:
       initialize-schema: never
     job:
       enabled: false
-  profiles:
-    active: @active.profile@
 system:
   auth:
     username: qa_engineer
