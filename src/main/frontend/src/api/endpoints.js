@@ -1,6 +1,5 @@
 import {notification} from "antd";
 import {notificationPlacement} from "../components/constants";
-import {db} from "./../db/ErrorsJournalDb"
 
 const client = require('./client');
 const rootOrdersUrl = 'api/orders';
@@ -78,7 +77,6 @@ export const info = {
 export const logout = () => client({method: 'POST', path: 'logout'});
 
 export function showErrorMessage(error) {
-    db.errors.add(error.entity);
     notification.error({
         message: `${error.entity.status} ${error.entity.error}`,
         description: error.entity.message,
