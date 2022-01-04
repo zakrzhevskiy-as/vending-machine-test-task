@@ -4,6 +4,10 @@ server:
     context-path: /vending-machine
     session:
       timeout: 3d
+  error:
+    include-message: always
+    include-stacktrace: always
+    include-exception: true
 
 spring:
   session:
