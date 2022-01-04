@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "users")
+@Table(schema = "vending_machine", name = "users")
 public class AppUser extends AuditEntity {
 
     @Column(unique = true, nullable = false, updatable = false, length = 32)

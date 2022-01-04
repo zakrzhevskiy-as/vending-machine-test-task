@@ -8,7 +8,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "beverage_volumes")
+@Table(schema = "vending_machine", name = "beverage_volumes")
 public class BeverageVolume extends AuditEntity {
 
     @ManyToOne(cascade = CascadeType.DETACH)

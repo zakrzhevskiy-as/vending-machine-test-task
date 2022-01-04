@@ -3,12 +3,12 @@
 
 -- Create Sequence -----------------------------------------------
 
-CREATE SEQUENCE users_id_seq START 1;
+CREATE SEQUENCE vending_machine.users_id_seq START 1;
 
 -- Table Definition ----------------------------------------------
 
-CREATE TABLE users (
-    id bigint DEFAULT nextval('users_id_seq'::regclass) PRIMARY KEY,
+CREATE TABLE vending_machine.users (
+    id bigint DEFAULT nextval('vending_machine.users_id_seq'::regclass) PRIMARY KEY,
     password character varying(255) NOT NULL,
     username character varying(32) NOT NULL UNIQUE,
     created timestamp without time zone default current_timestamp NOT NULL,
@@ -17,4 +17,4 @@ CREATE TABLE users (
 
 -- Indices -------------------------------------------------------
 
-CREATE UNIQUE INDEX uk_username ON users(username text_ops);
+CREATE UNIQUE INDEX uk_username ON vending_machine.users(username text_ops);

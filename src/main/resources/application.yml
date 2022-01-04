@@ -15,7 +15,7 @@ spring:
       base-path: /api
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${SPRING_DB_URL}?currentSchema=${spring.liquibase.default-schema}
+    url: ${SPRING_DB_URL}
     username: ${SPRING_DB_USER}
     password: ${SPRING_DB_PASSWORD}
   jpa:
@@ -29,7 +29,6 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:/liquibase/master.xml
-    default-schema: vending_machine
   batch:
     jdbc:
       initialize-schema: never

@@ -3,12 +3,12 @@
 
 -- Create Sequence -----------------------------------------------
 
-CREATE SEQUENCE beverage_volumes_id_seq START 1;
+CREATE SEQUENCE vending_machine.beverage_volumes_id_seq START 1;
 
 -- Table Definition ----------------------------------------------
 
-CREATE TABLE beverage_volumes (
-    id bigint DEFAULT nextval('beverage_volumes_id_seq'::regclass) PRIMARY KEY,
+CREATE TABLE vending_machine.beverage_volumes (
+    id bigint DEFAULT nextval('vending_machine.beverage_volumes_id_seq'::regclass) PRIMARY KEY,
     price integer NOT NULL,
     volume double precision NOT NULL,
     beverage_id bigint REFERENCES vending_machine.beverages(id),

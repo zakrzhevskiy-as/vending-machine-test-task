@@ -8,7 +8,7 @@ import javax.persistence.*;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
-@Table(name = "orders")
+@Table(schema = "vending_machine", name = "orders")
 public class Order extends AuditEntity {
 
     private Integer orderNumber;
