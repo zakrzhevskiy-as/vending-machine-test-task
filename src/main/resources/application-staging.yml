@@ -1,5 +1,0 @@
-spring:
-  datasource:
-    url: ${SPRING_DB_URL}?currentSchema=${spring.liquibase.default-schema}
-    username: ${SPRING_DB_USER}
-    password: ${SPRING_DB_PASSWORD}

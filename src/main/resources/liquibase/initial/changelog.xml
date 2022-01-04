@@ -4,6 +4,7 @@
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <include file="create_tables/changelog.xml" relativeToChangelogFile="true"/>
-    <include file="users/read_user.sql" relativeToChangelogFile="true"/>
+    <!-- Commented while moved to SberCloud -->
+<!--    <include file="users/read_user.sql" relativeToChangelogFile="true"/>-->
     <include file="fill_data/changelog.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
