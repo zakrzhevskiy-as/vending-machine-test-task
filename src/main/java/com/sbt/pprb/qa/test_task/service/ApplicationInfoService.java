@@ -11,6 +11,8 @@ public class ApplicationInfoService {
 
     @Value("${spring.datasource.url}")
     private String jdbcUrl;
+    @Value("${system.db.schema")
+    private String schema;
     @Value("${system.db.reader.user}")
     private String username;
     @Value("${system.db.reader.password}")
@@ -21,6 +23,7 @@ public class ApplicationInfoService {
     public Map<String, String> getDbConfig() {
         Map<String, String> body = new HashMap<>();
         body.put("url", jdbcUrl);
+        body.put("schema", schema);
         body.put("username", username);
         body.put("password", password);
 

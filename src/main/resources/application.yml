@@ -42,6 +42,7 @@ system:
     auth:
       type: Basic
   db:
+    schema: vending_machine
     reader:
       user: ${SPRING_DB_USER}
       password: ${SPRING_DB_PASSWORD}
