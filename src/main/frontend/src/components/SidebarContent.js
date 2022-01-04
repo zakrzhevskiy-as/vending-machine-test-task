@@ -100,7 +100,6 @@ export default class SidebarContent extends Component {
                                  </Space>
                              }
                              trigger="click"
-                             overlayStyle={{width: 280}}
                     >
                         <Icon component={restApiSvg}/>
                     </Popover>
@@ -114,7 +113,6 @@ export default class SidebarContent extends Component {
                              title="Application info"
                              content={JSON.stringify(this.state.app)}
                              trigger="click"
-                             overlayStyle={{width: 300}}
                     >
                         <Icon component={appInfoSvg}/>
                     </Popover>
