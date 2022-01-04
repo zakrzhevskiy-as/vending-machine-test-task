@@ -69,7 +69,6 @@ export default class SidebarContent extends Component {
                                  </Space>
                              }
                              trigger="click"
-                             overlayStyle={{width: 600}}
                     >
                         <Icon component={dbSettingsSvg}/>
                     </Popover>
