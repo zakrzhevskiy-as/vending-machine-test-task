@@ -52,19 +52,19 @@ export default class SidebarContent extends Component {
                                  <Space direction="vertical">
                                      <Space>
                                          <Text strong>URL:</Text>
-                                         <Text>{this.state.db.url}</Text>
+                                         <Text copyable={{ tooltips: false }}>{this.state.db.url}</Text>
                                      </Space>
                                      <Space>
                                          <Text strong>Schema:</Text>
-                                         <Text>{this.state.db.schema}</Text>
+                                         <Text copyable={{ tooltips: false }}>{this.state.db.schema}</Text>
                                      </Space>
                                      <Space>
                                          <Text strong>Username:</Text>
-                                         <Text>{this.state.db.username}</Text>
+                                         <Text copyable={{ tooltips: false }}>{this.state.db.username}</Text>
                                      </Space>
                                      <Space>
                                          <Text strong>Password:</Text>
-                                         <Text>{this.state.db.password}</Text>
+                                         <Text copyable={{ tooltips: false }}>{this.state.db.password}</Text>
                                      </Space>
                                  </Space>
                              }
