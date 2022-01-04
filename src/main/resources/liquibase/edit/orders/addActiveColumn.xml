@@ -5,13 +5,13 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <changeSet id="20211219-02" author="zakrzhevskiy-as">
         <preConditions>
-            <tableExists tableName="orders"/>
+            <tableExists tableName="orders" schemaName="vending_machine"/>
         </preConditions>
-        <addColumn tableName="orders">
+        <addColumn tableName="orders" schemaName="vending_machine">
             <column name="active" type="boolean" defaultValueBoolean="true"/>
         </addColumn>
         <sql>
-            CREATE UNIQUE INDEX uk_user_id_active_order ON orders (user_id)
+            CREATE UNIQUE INDEX uk_user_id_active_order ON vending_machine.orders (user_id)
             WHERE active;
         </sql>
     </changeSet>

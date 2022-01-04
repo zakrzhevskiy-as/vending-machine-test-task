@@ -5,9 +5,9 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <changeSet id="20211220-01" author="zakrzhevskiy-as">
         <preConditions>
-            <tableExists tableName="orders"/>
+            <tableExists tableName="orders" schemaName="vending_machine"/>
         </preConditions>
-        <addColumn tableName="orders">
+        <addColumn tableName="orders" schemaName="vending_machine">
             <column name="balance" type="int"/>
         </addColumn>
     </changeSet>

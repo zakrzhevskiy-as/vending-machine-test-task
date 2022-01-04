@@ -5,11 +5,12 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <changeSet id="20211227-01" author="zakrzhevskiy-as">
         <preConditions>
-            <tableExists tableName="orders_beverages"/>
+            <tableExists tableName="orders_beverages" schemaName="vending_machine"/>
         </preConditions>
-        <addColumn tableName="orders_beverages">
+        <addColumn tableName="orders_beverages" schemaName="vending_machine">
             <column name="status" type="varchar(16)"/>
         </addColumn>
-        <addNotNullConstraint tableName="orders_beverages" columnName="status" defaultNullValue="SELECTED"/>
+        <addNotNullConstraint tableName="orders_beverages" schemaName="vending_machine"
+                              columnName="status" defaultNullValue="SELECTED"/>
     </changeSet>
 </databaseChangeLog>
