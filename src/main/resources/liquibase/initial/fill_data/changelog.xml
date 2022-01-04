@@ -45,17 +45,17 @@
         </preConditions>
         <sql splitStatements="true" endDelimiter=";">
             insert into vending_machine.beverage_volumes(price, volume, beverage_id)
-            values (35, 0.33, (select id from beverages where beverage_type = 'SLURM'));
+            values (35, 0.33, (select id from vending_machine.beverages where beverage_type = 'SLURM'));
             insert into vending_machine.beverage_volumes(price, volume, beverage_id)
-            values (60, 0.5, (select id from beverages where beverage_type = 'SLURM'));
+            values (60, 0.5, (select id from vending_machine.beverages where beverage_type = 'SLURM'));
             insert into vending_machine.beverage_volumes(price, volume, beverage_id)
-            values (40, 0.33, (select id from beverages where beverage_type = 'NUKA_COLA'));
+            values (40, 0.33, (select id from vending_machine.beverages where beverage_type = 'NUKA_COLA'));
             insert into vending_machine.beverage_volumes(price, volume, beverage_id)
-            values (70, 0.5, (select id from beverages where beverage_type = 'NUKA_COLA'));
+            values (70, 0.5, (select id from vending_machine.beverages where beverage_type = 'NUKA_COLA'));
             insert into vending_machine.beverage_volumes(price, volume, beverage_id)
-            values (30, 0.25, (select id from beverages where beverage_type = 'EXPRESSO'));
+            values (30, 0.25, (select id from vending_machine.beverages where beverage_type = 'EXPRESSO'));
             insert into vending_machine.beverage_volumes(price, volume, beverage_id)
-            values (55, 0.4, (select id from beverages where beverage_type = 'EXPRESSO'));
+            values (55, 0.4, (select id from vending_machine.beverages where beverage_type = 'EXPRESSO'));
         </sql>
     </changeSet>
 </databaseChangeLog>
