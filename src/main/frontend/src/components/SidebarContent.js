@@ -1,11 +1,13 @@
 import React, {Component} from "react";
-import {Popover, Space, Tooltip} from "antd";
+import {Popover, Space, Tooltip, Typography} from "antd";
 import Icon from "@ant-design/icons/es";
 import dbSettingsSvg from "../assets/images/database-settings.svg";
 import restApiSvg from "../assets/images/rest-api.svg";
 import newTabIcon from "../assets/images/new-tab.svg";
 import appInfoSvg from "../assets/images/info.svg";
 import {info, showErrorMessage} from "../api/endpoints";
+
+const {Title, Text} = Typography;
 
 export default class SidebarContent extends Component {
 
@@ -48,9 +50,22 @@ export default class SidebarContent extends Component {
                              title="Database connection"
                              content={
                                  <Space direction="vertical">
-                                     <span>{`URL: ${this.state.db.url}`}</span>
-                                     <span>{`Username: ${this.state.db.username}`}</span>
-                                     <span>{`Password: ${this.state.db.password}`}</span>
+                                     <Space>
+                                         <Text strong>URL:</Text>
+                                         <Text>{this.state.db.url}</Text>
+                                     </Space>
+                                     <Space>
+                                         <Text strong>Schema:</Text>
+                                         <Text>{this.state.db.schema}</Text>
+                                     </Space>
+                                     <Space>
+                                         <Text strong>Username:</Text>
+                                         <Text>{this.state.db.username}</Text>
+                                     </Space>
+                                     <Space>
+                                         <Text strong>Password:</Text>
+                                         <Text>{this.state.db.password}</Text>
+                                     </Space>
                                  </Space>
                              }
                              trigger="click"
@@ -69,14 +84,20 @@ export default class SidebarContent extends Component {
                              content={
                                  <Space direction="vertical">
                                      <Space>
-                                         <span style={{fontWeight: 400}}>Documentation:</span>
+                                         <Text strong>Documentation:</Text>
                                          <a href={this.state.rest.documentation} target="_blank">
-                                             <span>Swagger UI </span><Icon component={newTabIcon}
+                                             <Text>Swagger UI </Text><Icon component={newTabIcon}
                                                                            style={{fontSize: 10}}/>
                                          </a>
                                      </Space>
-                                     <span>{`Auth type: ${this.state.rest.auth_type}`}</span>
-                                     <span>{`Credentials: ${this.state.rest.credentials}`}</span>
+                                     <Space>
+                                         <Text strong>Auth type:</Text>
+                                         <Text>{this.state.rest.auth_type}</Text>
+                                     </Space>
+                                     <Space>
+                                         <Text strong>Credentials:</Text>
+                                         <Text>{this.state.rest.credentials}</Text>
+                                     </Space>
                                  </Space>
                              }
                              trigger="click"

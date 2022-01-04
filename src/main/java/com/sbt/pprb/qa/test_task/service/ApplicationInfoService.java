@@ -9,9 +9,9 @@ import java.util.Map;
 @Service
 public class ApplicationInfoService {
 
-    @Value("${spring.datasource.url}")
+    @Value("${SPRING_DB_URL:jdbc:postgresql://localhost:5432/test-task}")
     private String jdbcUrl;
-    @Value("${system.db.schema")
+    @Value("${system.db.schema}")
     private String schema;
     @Value("${system.db.reader.user}")
     private String username;

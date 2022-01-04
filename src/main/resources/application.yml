@@ -19,9 +19,9 @@ spring:
       base-path: /api
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${SPRING_DB_URL}
-    username: ${SPRING_DB_USER}
-    password: ${SPRING_DB_PASSWORD}
+    url: ${SPRING_DB_URL:jdbc:postgresql://localhost:5432/test-task}
+    username: ${SPRING_DB_USER:postgres}
+    password: ${SPRING_DB_PASSWORD:1234}
   jpa:
     properties:
       hibernate:
@@ -48,5 +48,5 @@ system:
   db:
     schema: vending_machine
     reader:
-      user: ${SPRING_DB_USER}
-      password: ${SPRING_DB_PASSWORD}
+      user: ${SPRING_DB_USER:postgres}
+      password: ${SPRING_DB_PASSWORD:1234}
