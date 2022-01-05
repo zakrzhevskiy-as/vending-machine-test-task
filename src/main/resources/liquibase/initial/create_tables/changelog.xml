@@ -3,9 +3,185 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    <include file="beverages.sql" relativeToChangelogFile="true"/>
-    <include file="beverages_volumes.sql" relativeToChangelogFile="true"/>
-    <include file="users.sql" relativeToChangelogFile="true"/>
-    <include file="orders.sql" relativeToChangelogFile="true"/>
-    <include file="orders_beverages.sql" relativeToChangelogFile="true"/>
+    <changeSet id="20220105-01" author="zakrzhevskiy-as" failOnError="true">
+        <preConditions onError="HALT" onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                SELECT count(*) FROM information_schema.schemata WHERE schema_name = 'vending_machine'
+            </sqlCheck>
+        </preConditions>
+        <sql>create schema vending_machine</sql>
+    </changeSet>
+    <changeSet id="20211211-02" author="zakrzhevskiy-as" failOnError="true">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <not>
+                <tableExists schemaName="vending_machine" tableName="beverages"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="vending_machine"
+                        sequenceName="beverages_id_seq"/>
+        <createTable schemaName="vending_machine" tableName="beverages">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="available_volume" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="beverage_type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addDefaultValue schemaName="vending_machine"
+                         tableName="beverages"
+                         columnName="id"
+                         defaultValueSequenceNext="beverages_id_seq"/>
+    </changeSet>
+    <changeSet id="20211211-03" author="zakrzhevskiy-as" failOnError="true">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <not>
+                <tableExists schemaName="vending_machine" tableName="beverage_volumes"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="vending_machine"
+                        sequenceName="beverage_volumes_id_seq"/>
+        <createTable schemaName="vending_machine" tableName="beverage_volumes">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="price" type="integer">
+                <constraints nullable="false"/>
+            </column>
+            <column name="volume" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="beverage_id" type="bigint">
+                <constraints references="vending_machine.beverages(id)"
+                             foreignKeyName="fk_beverage_volumes_beverages"/>
+            </column>
+            <column name="created" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addDefaultValue schemaName="vending_machine"
+                         tableName="beverage_volumes"
+                         columnName="id"
+                         defaultValueSequenceNext="beverage_volumes_id_seq"/>
+    </changeSet>
+    <changeSet id="20211211-04" author="zakrzhevskiy-as" failOnError="true">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <not>
+                <tableExists schemaName="vending_machine" tableName="users"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="vending_machine"
+                        sequenceName="users_id_seq"/>
+        <createTable schemaName="vending_machine" tableName="users">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="username" type="varchar(32)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addDefaultValue schemaName="vending_machine"
+                         tableName="users"
+                         columnName="id"
+                         defaultValueSequenceNext="users_id_seq"/>
+    </changeSet>
+    <changeSet id="20211211-05" author="zakrzhevskiy-as" failOnError="true">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <not>
+                <tableExists schemaName="vending_machine" tableName="orders"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="vending_machine"
+                        sequenceName="orders_order_number_seq"
+                        incrementBy="1"
+                        startValue="1000"/>
+        <createSequence schemaName="vending_machine"
+                        sequenceName="orders_id_seq"/>
+        <createTable schemaName="vending_machine" tableName="orders">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="bigint">
+                <constraints nullable="false" references="vending_machine.users(id)"
+                             foreignKeyName="fk_orders_user"/>
+            </column>
+            <column name="active" type="boolean" defaultValueBoolean="true"/>
+            <column name="balance" type="int"/>
+            <column name="order_number" type="int"/>
+            <column name="created" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addDefaultValue schemaName="vending_machine"
+                         tableName="orders"
+                         columnName="id"
+                         defaultValueSequenceNext="orders_id_seq"/>
+        <addDefaultValue schemaName="vending_machine"
+                         tableName="orders"
+                         columnName="order_number"
+                         defaultValueSequenceNext="orders_order_number_seq"/>
+        <sql dbms="psql">
+            CREATE UNIQUE INDEX uk_user_id_active_order ON vending_machine.orders (user_id)
+            WHERE active;
+        </sql>
+    </changeSet>
+    <changeSet id="20211211-06" author="zakrzhevskiy-as" failOnError="true">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <not>
+                <tableExists schemaName="vending_machine" tableName="orders_beverages"/>
+            </not>
+        </preConditions>
+        <createSequence schemaName="vending_machine"
+                        sequenceName="orders_beverages_id_seq"/>
+        <createTable schemaName="vending_machine" tableName="orders_beverages">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="selected_ice" type="boolean" defaultValueBoolean="false"/>
+            <column name="beverage_volume_id" type="bigint">
+                <constraints references="vending_machine.beverage_volumes(id)"
+                             foreignKeyName="fk_orders_beverages_beverage_volumes"/>
+            </column>
+            <column name="order_id" type="bigint">
+                <constraints references="vending_machine.orders(id)"
+                             foreignKeyName="fk_orders_beverages_orders"/>
+            </column>
+            <column name="status" type="varchar(16)" defaultValue="SELECTED">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="modified" type="timestamp" defaultValueDate="current_timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addDefaultValue schemaName="vending_machine"
+                         tableName="orders_beverages"
+                         columnName="id"
+                         defaultValueSequenceNext="orders_beverages_id_seq"/>
+    </changeSet>
 </databaseChangeLog>

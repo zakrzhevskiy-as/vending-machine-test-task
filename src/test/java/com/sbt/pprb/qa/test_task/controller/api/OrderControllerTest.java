@@ -1,48 +1,63 @@
 package com.sbt.pprb.qa.test_task.controller.api;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import com.sbt.pprb.qa.test_task.CommonTestContext;
+import com.sbt.pprb.qa.test_task.VendingMachineApplication;
+import com.sbt.pprb.qa.test_task.repository.OrdersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.web.servlet.MockMvc;
 
-class OrderControllerTest {
+@SpringBootTest(classes = VendingMachineApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+class OrderControllerTest extends CommonTestContext {
 
-    @BeforeEach
-    void setUp() {
+    @Autowired
+    private MockMvc mvc;
+    @Autowired
+    private OrdersRepository repository;
+
+    //@Test
+    void getOrders_endpoint_test() {
     }
 
-    @AfterEach
-    void tearDown() {
+    //@Test
+    void deleteOrders_endpoint_test() {
     }
 
-    @Test
-    void getOrders() {
+    //@Test
+    void getOrder_endpoint_test() {
     }
 
-    @Test
-    void getOrder() {
+    //@Test
+    void deleteOrder_endpoint_test() {
     }
 
-    @Test
-    void createOrder() {
+    //@Test
+    void createOrder_endpoint_test() {
     }
 
-    @Test
-    void deleteOrder() {
+    //@Test
+    void addBeverage_endpoint_test() {
     }
 
-    @Test
-    void addBeverage() {
+    //@Test
+    void removeBeverage_endpoint_test() {
     }
 
-    @Test
-    void submitOrder() {
+    //@Test
+    void processBeverage_endpoint_test() {
     }
 
-    @Test
-    void removeBeverage() {
+    //@Test
+    void addBalance_endpoint_test() {
     }
 
-    @Test
-    void getOrderBeverages() {
+    //@Test
+    void resetBalance_endpoint_test() {
+    }
+
+    //@Test
+    void selectIce_endpoint_test() {
     }
 }

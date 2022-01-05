@@ -1,10 +1,10 @@
 package com.sbt.pprb.qa.test_task.controller.mvc;
 
-import org.junit.jupiter.api.Test;
+import com.sbt.pprb.qa.test_task.CommonTestContext;
 
-class HomeControllerTest {
+class HomeControllerTest extends CommonTestContext {
 
-    @Test
+//    @Test
     void index() {
     }
 }

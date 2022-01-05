@@ -10,6 +10,8 @@ server:
     include-exception: true
 
 spring:
+  profiles:
+    default: prod
   session:
     store-type: jdbc
     jdbc:
@@ -17,15 +19,7 @@ spring:
   data:
     rest:
       base-path: /api
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: ${SPRING_DB_URL:jdbc:postgresql://localhost:5432/test-task}
-    username: ${SPRING_DB_USER:postgres}
-    password: ${SPRING_DB_PASSWORD:1234}
   jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
   mvc:
     pathmatch:
