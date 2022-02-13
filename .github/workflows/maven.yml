@@ -6,8 +6,6 @@ name: Unit Tests with Maven
 on:
   push:
     branches: [ develop, master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   build:
