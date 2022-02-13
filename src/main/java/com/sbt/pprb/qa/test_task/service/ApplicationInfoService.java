@@ -1,6 +1,9 @@
 package com.sbt.pprb.qa.test_task.service;
 
+import com.sbt.pprb.qa.test_task.model.dto.AppUser;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -40,6 +43,11 @@ public class ApplicationInfoService {
     }
 
     public Map<String, String> getAppInfo() {
-        return new HashMap<>();
+        Map<String, String> appInfo = new HashMap<>();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            appInfo.put("username", ((AppUser) authentication.getPrincipal()).getUsername());
+        }
+        return appInfo;
     }
 }

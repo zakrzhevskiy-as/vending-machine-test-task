@@ -1,14 +1,13 @@
 package com.sbt.pprb.qa.test_task.config;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter;
 
 @Configuration
@@ -16,26 +15,18 @@ import org.springframework.security.web.authentication.ui.DefaultLoginPageGenera
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Value("${system.auth.username}")
-    private String username;
-    @Value("${system.auth.password}")
-    private String password;
-    private String failureUrl = "/login?error";
-
     private final PasswordEncoder passwordEncoder;
+    private final UserDetailsServiceImpl userDetailsService;
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser(username)
-                .password(passwordEncoder.encode(password))
-                .authorities("ROLE_USER");
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
+        String failureUrl = "/login?error";
+        http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/**/*.{js,css,html}", "**/favicon.ico").permitAll()
                 .anyRequest().authenticated()
@@ -44,14 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutUrl("/logout").invalidateHttpSession(true).permitAll()
                 .and()
-                .addFilterBefore(authHintFilter(), DefaultLoginPageGeneratingFilter.class)
+                .addFilterAfter(new RedirectToRegisterFilter(), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new AuthHintFilter(failureUrl), DefaultLoginPageGeneratingFilter.class)
                 .httpBasic();
-    }
-
-    public AuthHintFilter authHintFilter() {
-        return new AuthHintFilter()
-                .username(username)
-                .password(password)
-                .failureUrl(failureUrl);
     }
 }

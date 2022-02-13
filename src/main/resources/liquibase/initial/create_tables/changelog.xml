@@ -93,6 +93,12 @@
             <column name="password" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="enabled" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="authority" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
             <column name="created" type="timestamp" defaultValueDate="current_timestamp">
                 <constraints nullable="false"/>
             </column>

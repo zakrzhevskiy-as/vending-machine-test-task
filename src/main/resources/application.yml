@@ -33,9 +33,6 @@ spring:
     job:
       enabled: false
 system:
-  auth:
-    username: qa_engineer
-    password: vending_machine
   rest:
     auth:
       type: Basic

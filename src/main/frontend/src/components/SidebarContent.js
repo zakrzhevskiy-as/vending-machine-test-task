@@ -111,7 +111,14 @@ export default class SidebarContent extends Component {
                 >
                     <Popover placement="rightTop"
                              title="Application info"
-                             content={JSON.stringify(this.state.app)}
+                             content={
+                                 <Space direction="vertical">
+                                     <Space>
+                                         <Text strong>Current user:</Text>
+                                         <Text>{this.state.app.username}</Text>
+                                     </Space>
+                                 </Space>
+                             }
                              trigger="click"
                     >
                         <Icon component={appInfoSvg}/>

@@ -14,7 +14,9 @@
         </preConditions>
         <insert tableName="users" schemaName="vending_machine">
             <column name="username">qa_engineer</column>
-            <column name="password">$2a$10$KBF14iYt5voupjwbeCaEiO7rkMOQ0o0aajcUYXT/xohq6nb79/BHK</column>
+            <column name="password">$2a$10$gZrT2Lhgilu7SRQKYPUv4uJBzkFm30UurtnUqaqx6MYRv.8tGNgBW</column>
+            <column name="enabled">true</column>
+            <column name="authority">USER</column>
         </insert>
     </changeSet>
     <changeSet id="20211214-02" author="zakrzhevskiy-as">

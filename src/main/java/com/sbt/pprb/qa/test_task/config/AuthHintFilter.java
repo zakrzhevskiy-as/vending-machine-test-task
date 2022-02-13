@@ -15,23 +15,10 @@ import java.io.IOException;
 
 public class AuthHintFilter extends DefaultLoginPageGeneratingFilter {
 
-    private String username;
-    private String password;
-    private String failureUrl;
+    private final String failureUrl;
 
-    public AuthHintFilter username(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public AuthHintFilter password(String password) {
-        this.password = password;
-        return this;
-    }
-
-    public AuthHintFilter failureUrl(String failureUrl) {
+    public AuthHintFilter(String failureUrl) {
         this.failureUrl = failureUrl;
-        return this;
     }
 
     @Override
@@ -44,15 +31,14 @@ public class AuthHintFilter extends DefaultLoginPageGeneratingFilter {
         if (loginFailed) {
             HttpSession session = httpRequest.getSession(false);
             if (session != null) {
-                String msg = "[401] Bad credentials: Inspect response headers for credentials";
+                String msg = "[401] Bad credentials: Inspect response headers of login page for credentials";
                 BadCredentialsException exception = new BadCredentialsException(msg);
                 session.setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION, exception);
             }
 
-            httpResponse.addHeader("username", username);
-            httpResponse.addHeader("password", password);
+            httpResponse.addHeader("username", "qa_engineer");
+            httpResponse.addHeader("password", "vending_machine");
         }
-
 
         super.doFilter(httpRequest, httpResponse, chain);
     }
@@ -75,35 +61,4 @@ public class AuthHintFilter extends DefaultLoginPageGeneratingFilter {
         }
         return uri.equals(request.getContextPath() + url);
     }
-
-    /*
-    private final String username = "user1";
-    private final String password = "user1Pass";
-    private final String failureUrl = "/login?error";
-
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser(username).password(passwordEncoder.encode(password))
-                .authorities("ROLE_USER");
-    }
-
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .formLogin()
-                .failureUrl(failureUrl)
-                .and()
-                .addFilterBefore(authHintFilter(), DefaultLoginPageGeneratingFilter.class);
-    }
-
-    public AuthHintFilter authHintFilter() {
-        return new AuthHintFilter()
-                .username(username)
-                .password(password)
-                .failureUrl(failureUrl);
-    }
-     */
 }
