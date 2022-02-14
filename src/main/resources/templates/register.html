@@ -13,8 +13,7 @@
 <div class="container">
     <form class="form-signin" method="post" th:action="@{/register}">
         <h2 class="form-signin-heading">Create user</h2>
-        <p>Или используй существующего</p>
-        <p>Кроме qa_engineer!</p>
+        <div class="alert alert-warning" role="alert">Или используй существующего, кроме qa_engineer!</div>
         <p>
             <label for="username" class="sr-only">Username</label>
             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
