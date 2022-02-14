@@ -2,6 +2,7 @@ package com.sbt.pprb.qa.test_task.controller.api;
 
 import com.sbt.pprb.qa.test_task.CommonTestContext;
 import com.sbt.pprb.qa.test_task.VendingMachineApplication;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -49,6 +50,7 @@ class ApplicationInfoControllerTest extends CommonTestContext {
     }
 
     @Test
+    @Tag("restConfig")
     void restConfig_endpoint_test() throws Exception {
         MockHttpServletRequestBuilder request = get("/api/app-info/rest")
                 .with(auth)
@@ -71,6 +73,6 @@ class ApplicationInfoControllerTest extends CommonTestContext {
         mvc.perform(request)
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(content().string("{}"));
+                .andExpect(jsonPath("$.username", is(username)));
     }
 }

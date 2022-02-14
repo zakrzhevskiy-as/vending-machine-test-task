@@ -21,12 +21,12 @@ public class UserService {
         return repository.findByUsername(username);
     }
 
-    public void createUser(String username, String password) {
+    public AppUser createUser(String username, String password) {
         AppUser newUser = new AppUser();
         newUser.setUsername(username);
         newUser.setPassword(passwordEncoder.encode(password));
         newUser.setEnabled(true);
         newUser.setAuthority("USER");
-        repository.save(newUser);
+        return repository.save(newUser);
     }
 }
