@@ -23,21 +23,21 @@ jobs:
         cache: maven
     
     - name: Test with Maven
-      run: mvn -B test --file pom.xml -Dspring.profiles.active=integrationtest
+      run: mvn -B test --file pom.xml -Dspring.profiles.active=integrationtest allure:report
     
     - name: Get Allure history
       uses: actions/checkout@v2
       continue-on-error: true
       with:
         ref: allure-report
-        path: allure-report
+        path: target/allure-report-pages
     
     - name: Allure Report Generation
       uses: simple-elf/allure-report-action@v1.6
       with:
-        gh_pages: allure-report
+        gh_pages: target/allure-report-pages
         allure_results: target/allure-results
-        allure_report: target/allure-report
+#         allure_report: target/allure-report
         allure_history: target/allure-history
         
     - name: Deploy report to Github Pages
@@ -45,4 +45,4 @@ jobs:
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         PUBLISH_BRANCH: allure-report
-        PUBLISH_DIR: allure-history
+        PUBLISH_DIR: target/allure-history
