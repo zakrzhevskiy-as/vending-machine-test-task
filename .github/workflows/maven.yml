@@ -25,8 +25,23 @@ jobs:
     - name: Test with Maven
       run: mvn -B test --file pom.xml -Dspring.profiles.active=integrationtest
     
+    - name: Get Allure history
+      uses: actions/checkout@v2
+      continue-on-error: true
+      with:
+        ref: gh-pages
+        path: gh-pages
+    
     - name: Allure Report Generation
       uses: simple-elf/allure-report-action@v1.6
       with:
+        gh_pages: gh-pages
         allure_results: target/allure-results
         allure_report: target/allure-report
+        
+    - name: Deploy report to Github Pages
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: allure-history
