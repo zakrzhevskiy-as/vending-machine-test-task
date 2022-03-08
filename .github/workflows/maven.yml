@@ -36,8 +36,8 @@ jobs:
       uses: simple-elf/allure-report-action@v1.6
       with:
         gh_pages: target/allure-report-pages
-        allure_results: target/allure-results
-#         allure_report: target/allure-report
+#         allure_results: target/allure-results
+        allure_report: target/allure-report
         allure_history: target/allure-history
         
     - name: Deploy report to Github Pages
