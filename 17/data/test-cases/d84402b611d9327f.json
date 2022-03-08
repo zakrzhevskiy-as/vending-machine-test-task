@@ -1,0 +1,57 @@
+{
+  "uid" : "d84402b611d9327f",
+  "name" : "contextLoads()",
+  "fullName" : "com.sbt.pprb.qa.test_task.VendingMachineApplicationTests.contextLoads",
+  "historyId" : "cc21d8f4fe7e9ab15224fe66a186ae78",
+  "time" : {
+    "start" : 1646771122680,
+    "stop" : 1646771122684,
+    "duration" : 4
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az148-741"
+  }, {
+    "name" : "thread",
+    "value" : "2351@fv-az148-741.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.VendingMachineApplicationTests"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.VendingMachineApplicationTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "contextLoads"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.VendingMachineApplicationTests"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "d84402b611d9327f.json",
+  "parameterValues" : [ ]
+}
