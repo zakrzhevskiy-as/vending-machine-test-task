@@ -1,0 +1,77 @@
+{
+  "uid" : "cdae244d85b8de50",
+  "name" : "dbConfig_endpoint_test()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest.dbConfig_endpoint_test",
+  "historyId" : "6cbad50757f657c9946334f7ced2d658",
+  "time" : {
+    "start" : 1646771593460,
+    "stop" : 1646771593679,
+    "duration" : 219
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az148-127"
+  }, {
+    "name" : "thread",
+    "value" : "2227@fv-az148-127.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "dbConfig_endpoint_test"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "fe319ba8b4150ea9",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/17//#testresult/fe319ba8b4150ea9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1646771119913,
+          "stop" : 1646771120099,
+          "duration" : 186
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "cdae244d85b8de50.json",
+  "parameterValues" : [ ]
+}
