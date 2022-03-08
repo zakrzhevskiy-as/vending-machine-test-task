@@ -21,6 +21,9 @@
 		<node.version>v14.15.4</node.version>
 		<yarn.version>v1.16.0</yarn.version>
 		<frontend-maven-plugin.version>1.7.6</frontend-maven-plugin.version>
+		<aspectj.version>1.8.2</aspectj.version>
+		<allure.version>2.13.0</allure.version>
+		<allure.results.directory>${project.build.directory}/allure-results/</allure.results.directory>
 	</properties>
 
 	<dependencies>
@@ -74,6 +77,11 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-junit5</artifactId>
+			<version>${allure.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>test</scope>
@@ -105,6 +113,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.6.4</version>
 				<configuration>
 					<excludes>
 						<exclude>
@@ -113,6 +122,24 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.2</version>
+				<configuration>
+					<systemPropertyVariables>
+						<junit.jupiter.extensions.autodetection.enabled>true</junit.jupiter.extensions.autodetection.enabled>
+						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+					</systemPropertyVariables>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>1.2.0</version>
+					</dependency>
+				</dependencies>
 			</plugin>
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
@@ -153,7 +180,9 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.2.0</version>
 				<executions>
 					<execution>
 						<id>position-react-build</id>
@@ -172,6 +201,17 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.10.0</version>
+				<configuration>
+					<reportVersion>${allure.version}</reportVersion>
+					<installDirectory>${project.basedir}/.allure</installDirectory>
+					<reportDirectory>${project.build.directory}/allure-report</reportDirectory>
+					<resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
