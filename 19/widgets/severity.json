@@ -1,0 +1,61 @@
+[ {
+  "uid" : "9a6bacfdc201ae82",
+  "name" : "dbConfig_endpoint_test()",
+  "time" : {
+    "start" : 1646775801555,
+    "stop" : 1646775801805,
+    "duration" : 250
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8a8931b2a8ec5168",
+  "name" : "restConfig_endpoint_test()",
+  "time" : {
+    "start" : 1646775801880,
+    "stop" : 1646775801897,
+    "duration" : 17
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bbaffb438baf052f",
+  "name" : "appInfo_endpoint_test()",
+  "time" : {
+    "start" : 1646775801851,
+    "stop" : 1646775801868,
+    "duration" : 17
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b01b10cfe9ff4400",
+  "name" : "getVolumes_endpoint_test()",
+  "time" : {
+    "start" : 1646775802143,
+    "stop" : 1646775802280,
+    "duration" : 137
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "729542f9cdd02639",
+  "name" : "contextLoads()",
+  "time" : {
+    "start" : 1646775805134,
+    "stop" : 1646775805138,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "706c0704970bfc38",
+  "name" : "addAvailableVolume_endpoint_test()",
+  "time" : {
+    "start" : 1646775802285,
+    "stop" : 1646775802346,
+    "duration" : 61
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]
