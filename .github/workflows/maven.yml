@@ -14,11 +14,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Set up JDK 8
       uses: actions/setup-java@v2
       with:
         java-version: '8.0.282+8'
         distribution: 'adopt'
         cache: maven
+    
     - name: Test with Maven
       run: mvn -B test --file pom.xml -Dspring.profiles.active=integrationtest
+    
+    - name: Allure report
+      uses: afiore/action-allure-report@v0.1.0
+      with:
+        results-dir: target/allure-results
+        report-dir: target/allure-report
