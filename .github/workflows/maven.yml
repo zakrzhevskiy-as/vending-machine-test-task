@@ -25,8 +25,8 @@ jobs:
     - name: Test with Maven
       run: mvn -B test --file pom.xml -Dspring.profiles.active=integrationtest
     
-    - name: Allure report
-      uses: afiore/action-allure-report@v0.1.0
+    - name: Allure Report Generation
+      uses: simple-elf/allure-report-action@v1.6
       with:
-        results-dir: target/allure-results
-        report-dir: target/allure-report
+        allure_results: target/allure-results
+        allure_report: target/allure-report
