@@ -1,0 +1,103 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "com.sbt.pprb.qa.test_task",
+    "children" : [ {
+      "name" : "controller.api",
+      "children" : [ {
+        "name" : "ApplicationInfoControllerTest",
+        "children" : [ {
+          "name" : "dbConfig_endpoint_test",
+          "uid" : "d8087bfe59c8d34a",
+          "parentUid" : "a1c49e597c5834f73a223073587be45b",
+          "status" : "passed",
+          "time" : {
+            "start" : 1646763123052,
+            "stop" : 1646763123267,
+            "duration" : 215
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "appInfo_endpoint_test",
+          "uid" : "fa52cbc235872df1",
+          "parentUid" : "a1c49e597c5834f73a223073587be45b",
+          "status" : "passed",
+          "time" : {
+            "start" : 1646763123295,
+            "stop" : 1646763123305,
+            "duration" : 10
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "restConfig_endpoint_test",
+          "uid" : "e735f27442c75ecc",
+          "parentUid" : "a1c49e597c5834f73a223073587be45b",
+          "status" : "passed",
+          "time" : {
+            "start" : 1646763123310,
+            "stop" : 1646763123319,
+            "duration" : 9
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "a1c49e597c5834f73a223073587be45b"
+      }, {
+        "name" : "BeverageControllerTest",
+        "children" : [ {
+          "name" : "getVolumes_endpoint_test",
+          "uid" : "853b1d12a4596603",
+          "parentUid" : "5f3d1990fc0fe0b754018f6add2651af",
+          "status" : "passed",
+          "time" : {
+            "start" : 1646763123481,
+            "stop" : 1646763123569,
+            "duration" : 88
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        }, {
+          "name" : "addAvailableVolume_endpoint_test",
+          "uid" : "58c70392a661666f",
+          "parentUid" : "5f3d1990fc0fe0b754018f6add2651af",
+          "status" : "passed",
+          "time" : {
+            "start" : 1646763123572,
+            "stop" : 1646763123618,
+            "duration" : 46
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "5f3d1990fc0fe0b754018f6add2651af"
+      } ],
+      "uid" : "controller.api"
+    }, {
+      "name" : "VendingMachineApplicationTests",
+      "children" : [ {
+        "name" : "contextLoads",
+        "uid" : "f47771aaf89dfffb",
+        "parentUid" : "9a57f2f4ca0be9670c2ed46e5df3c806",
+        "status" : "passed",
+        "time" : {
+          "start" : 1646763126530,
+          "stop" : 1646763126543,
+          "duration" : 13
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "9a57f2f4ca0be9670c2ed46e5df3c806"
+    } ],
+    "uid" : "com.sbt.pprb.qa.test_task"
+  } ],
+  "name" : "packages"
+}

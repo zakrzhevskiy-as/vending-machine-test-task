@@ -1,0 +1,57 @@
+{
+  "uid" : "58c70392a661666f",
+  "name" : "addAvailableVolume_endpoint_test()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest.addAvailableVolume_endpoint_test",
+  "historyId" : "cec35015f1b3af35cdbc54c6be5fc318",
+  "time" : {
+    "start" : 1646763123572,
+    "stop" : 1646763123618,
+    "duration" : 46
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az170-28"
+  }, {
+    "name" : "thread",
+    "value" : "2465@fv-az170-28.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "addAvailableVolume_endpoint_test"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "58c70392a661666f.json",
+  "parameterValues" : [ ]
+}
