@@ -13,7 +13,7 @@ const {Header, Sider, Content} = Layout;
 export default class App extends Component {
 
     state = {
-        key: Math.random(),
+        // key: Math.random(),
         collapsedOrders: true,
         orders: []
     };
@@ -21,7 +21,8 @@ export default class App extends Component {
     constructor(props) {
         super(props);
 
-        this.rerender = this.rerender.bind(this);
+        // this.rerender = this.rerender.bind(this);
+        this.getOrders = this.getOrders.bind(this);
         this.deleteOrder = this.deleteOrder.bind(this);
     }
 
@@ -38,7 +39,7 @@ export default class App extends Component {
     }
 
     rerender() {
-        this.setState({ key: Math.random() });
+        // this.setState({ key: Math.random() });
         this.getOrders();
     }
 
@@ -55,7 +56,8 @@ export default class App extends Component {
 
     render() {
         return (
-            <Layout id="app" key={this.state.key}>
+            <Layout id="app" //key={this.state.key}
+            >
                 <Header id="header">
                     <HeaderContent/>
                 </Header>
@@ -64,7 +66,7 @@ export default class App extends Component {
                         <SidebarContent/>
                     </Sider>
                     <Content id="content">
-                        <OperatingContent rerender={this.rerender}/>
+                        <OperatingContent getOrders={this.getOrders}/>
                     </Content>
                     <Sider id="orders-list-sider"
                            width={320}
@@ -86,7 +88,7 @@ export default class App extends Component {
                         {
                             this.state.collapsedOrders ||
                             <OrdersList deleteOrder={this.deleteOrder}
-                                        rerender={this.rerender}
+                                        rerender={this.getOrders}
                                         orders={this.state.orders}
                             />
                         }

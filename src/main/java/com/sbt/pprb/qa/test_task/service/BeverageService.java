@@ -11,10 +11,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,8 +19,8 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class BeverageService {
 
-    private BeveragesRepository beveragesRepository;
-    private BeverageVolumesRepository volumeRepository;
+    private final BeveragesRepository beveragesRepository;
+    private final BeverageVolumesRepository volumeRepository;
 
     public List<Beverage> getBeverages() {
         Sort sort = Sort.by(Sort.Direction.ASC, "created");
@@ -37,15 +34,11 @@ public class BeverageService {
 
         for (BeverageVolume volume : beverageVolumes) {
             Beverage beverage = volume.getBeverage();
-            if (temp.containsKey(beverage)) {
-                List<BeverageVolume> volumes = temp.get(volume.getBeverage());
-                volumes.add(volume);
-                temp.put(beverage, volumes);
-            } else {
-                List<BeverageVolume> volumes = new ArrayList<>();
-                volumes.add(volume);
-                temp.put(beverage, volumes);
-            }
+            List<BeverageVolume> volumes = temp.containsKey(beverage)
+                    ? temp.get(volume.getBeverage())
+                    : new ArrayList<>();
+            volumes.add(volume);
+            temp.put(beverage, volumes);
         }
 
         List<BeverageResponseResource> responseResources = new ArrayList<>();
@@ -55,17 +48,20 @@ public class BeverageService {
             responseResource.setBeverageType(key.getBeverageType());
             responseResource.setAvailableVolume(key.getAvailableVolume());
 
-            List<BeverageVolumeResponseResource> beverageVolumesResources = value.stream().map(beverageVolume -> {
-                BeverageVolumeResponseResource volumeResponseResource = new BeverageVolumeResponseResource();
-                volumeResponseResource.setId(beverageVolume.getId());
-                volumeResponseResource.setPrice(beverageVolume.getPrice());
-                volumeResponseResource.setVolume(beverageVolume.getVolume());
-                return volumeResponseResource;
-            }).collect(Collectors.toList());
+            List<BeverageVolumeResponseResource> beverageVolumesResources = value.stream()
+                    .map(beverageVolume -> {
+                        BeverageVolumeResponseResource volumeResponseResource = new BeverageVolumeResponseResource();
+                        volumeResponseResource.setId(beverageVolume.getId());
+                        volumeResponseResource.setPrice(beverageVolume.getPrice());
+                        volumeResponseResource.setVolume(beverageVolume.getVolume());
+                        return volumeResponseResource;
+                    })
+                    .collect(Collectors.toList());
 
             responseResource.setBeverageVolumes(beverageVolumesResources);
             responseResources.add(responseResource);
         });
+        Collections.sort(responseResources);
 
         return responseResources;
     }

@@ -25,11 +25,13 @@ export default class OperatingContent extends Component {
         super(props);
 
         this.add = this.add.bind(this);
+        this.getBeverages = this.getBeverages.bind(this);
         this.resetBalance = this.resetBalance.bind(this);
         this.addBeverageVolume = this.addBeverageVolume.bind(this);
         this.removeBeverageVolume = this.removeBeverageVolume.bind(this);
         this.selectIce = this.selectIce.bind(this);
         this.submitOrder = this.submitOrder.bind(this);
+        this.cancelActiveOrder = this.cancelActiveOrder.bind(this);
         this.processOrderBeverage = this.processOrderBeverage.bind(this);
         this.addVolume = this.addVolume.bind(this);
     }
@@ -47,11 +49,11 @@ export default class OperatingContent extends Component {
                     let order = response.entity;
 
                     this.setState({
-                        order: order.orderBeverages,
-                        orderId: order.id,
-                        totalCost: order.totalCost,
-                        balance: order.balance,
-                        orderConfirmed: order.orderBeverages.filter(item => item.status !== 'SELECTED').length > 0
+                        order: order[0].orderBeverages,
+                        orderId: order[0].id,
+                        totalCost: order[0].totalCost,
+                        balance: order[0].balance,
+                        orderConfirmed: order[0].orderBeverages.filter(item => item.status !== 'SELECTED').length > 0
                     });
                 },
                 error => {
@@ -162,6 +164,25 @@ export default class OperatingContent extends Component {
             ).done(() => this.setState({loading: false}));
     }
 
+    cancelActiveOrder() {
+        this.setState({loading: true});
+        orders.deleteOrder(this.state.orderId)
+            .then(
+                () => this.setState({
+                    order: [],
+                    orderId: undefined,
+                    balance: 0,
+                    totalCost: 0,
+                    orderConfirmed: false
+                }),
+                error => showErrorMessage(error)
+            )
+            .done(() => {
+                this.setState({loading: false});
+                this.getActiveOrder();
+            });
+    }
+
     processOrderBeverage(beverageId, action) {
         let {order} = this.state;
         let readyCount = order.filter(item => item.status === 'READY').length;
@@ -174,8 +195,16 @@ export default class OperatingContent extends Component {
                 .then(() => {
                 }, error => showErrorMessage(error))
                 .done(() => {
-                    this.setState({progress: 0});
-                    this.props.rerender();
+                    this.setState({
+                        progress: 0,
+                        newOrder: true,
+                        order: [],
+                        orderId: undefined,
+                        balance: 0,
+                        totalCost: 0,
+                        orderConfirmed: false,
+                    });
+                    this.props.getOrders();
                 })
         } else {
             this.setState({processingBeverage: beverageId});
@@ -223,17 +252,19 @@ export default class OperatingContent extends Component {
                                    removeBeverageVolume={this.removeBeverageVolume}
                                    addBeverageVolume={this.addBeverageVolume}
                                    submit={this.submitOrder}
+                                   cancelActiveOrder={this.cancelActiveOrder}
                                    processBeverage={this.processOrderBeverage}
                                    processingBeverage={this.state.processingBeverage}
                                    progress={this.state.progress}
                         />
                     </Space>
                 </Spin>
-                <Modal title="Нет активного заказа"
+                <Modal className="new-order-modal"
+                       title="Нет активного заказа"
                        centered
                        closable={false}
                        visible={this.state.newOrder}
-                       afterClose={this.props.rerender}
+                       afterClose={this.getBeverages}
                        footer={[
                            <Button key="create"
                                    type="primary"

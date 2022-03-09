@@ -13,12 +13,12 @@ export default class Beverages extends Component {
 
     render() {
         return (
-            <Row align="middle" justify="center">
+            <Row id="beverages-control-panel" align="middle" justify="center">
                 <Col style={{backgroundColor: "#C8C8C8", borderRadius: 5, padding: 10}}>
                     <Space direction="vertical">
                         <Row>
                             <Col>
-                                <Display id="#display"
+                                <Display id="display"
                                          content={this.props.order}
                                          onSelectIce={this.props.selectIce}
                                          onRemoveVolume={this.props.removeBeverageVolume}
@@ -44,7 +44,8 @@ export default class Beverages extends Component {
                                         ? "Внесите количество средств, покрывающих стоимость заказа"
                                         : ""}
                                 >
-                                    <Button type="primary"
+                                    <Button id="submit-order"
+                                            type="primary"
                                             shape="round"
                                             size="large"
                                             loading={false}
@@ -63,7 +64,29 @@ export default class Beverages extends Component {
                         </Row>
                         <Row align="middle" justify="center">
                             <Col>
-                                <Progress strokeLinecap="square"
+                                <Tooltip title="Удалить активный заказ">
+                                    <Button id="cancel-order"
+                                            type="danger"
+                                            shape="round"
+                                            size="large"
+                                            // loading={false}
+                                            // disabled={
+                                            //     this.props.totalCost === 0 ||
+                                            //     this.props.balance < this.props.totalCost ||
+                                            //     this.props.orderConfirmed
+                                            // }
+                                            style={{width: 200, height: 50, fontSize: 24}}
+                                            onClick={this.props.cancelActiveOrder}
+                                    >
+                                        Отменить
+                                    </Button>
+                                </Tooltip>
+                            </Col>
+                        </Row>
+                        <Row align="middle" justify="center">
+                            <Col>
+                                <Progress id="beverage-processing-progress-bar"
+                                          strokeLinecap="square"
                                           percent={this.props.progress}
                                           steps={20}
                                 />
@@ -99,7 +122,7 @@ class Display extends Component {
         let volume = this.props.content[index];
 
         return (
-            <div className="resp-table-row">
+            <div id={`order-beverage-${index}`} className="resp-table-row">
                 <div className="table-body-cell">
                     {volume
                         ? <Tooltip title={`Delete '${volume.beverageType}' (${volume.beverageVolume.volume})`}>
@@ -170,13 +193,14 @@ class Beverage extends Component {
 
     render() {
         return (
-            <Row align="middle" justify="center" style={{color: "white"}}>
+            <Row className="beverage" align="middle" justify="center" style={{color: "white"}}>
                 <Col>
                     <Tooltip title="Добавить 0.5L">
-                        <Button type="secondary"
+                        <Button className="beverage-fill"
+                                type="secondary"
                                 shape="circle"
                                 size="large"
-                                icon={<PlusOutlined />}
+                                icon={<PlusOutlined/>}
                                 disabled={this.props.orderConfirmed}
                                 onClick={() => {
                                     // ОЖИДАЕМАЯ ОШИБКА - некорректно увеличивается доступный объем напитка
@@ -187,18 +211,21 @@ class Beverage extends Component {
                         />
                     </Tooltip>
                 </Col>
-                <Col style={{
-                    backgroundColor: "#B0B0B0",
-                    fontSize: 24,
-                    width: 220,
-                    textAlign: "center"
-                }}>
+                <Col className="beverage-label"
+                     style={{
+                         backgroundColor: "#B0B0B0",
+                         fontSize: 24,
+                         width: 220,
+                         textAlign: "center"
+                     }}
+                >
                     <span>{`${this.props.item.beverageType} (${this.props.item.availableVolume.toFixed(2)}L)`}</span>
                 </Col>
                 {this.props.item.beverageVolumes.map(beverageVolume =>
                     <Col key={beverageVolume.id}>
                         <Tooltip title={`${beverageVolume.price}₽`}>
-                            <Button shape="circle"
+                            <Button className="beverage-volume"
+                                    shape="circle"
                                     size="large"
                                     disabled={this.props.maxSize || this.props.orderConfirmed}
                                     onClick={() => this.props.onSelectVolume(this.props.item.beverageType, beverageVolume)}

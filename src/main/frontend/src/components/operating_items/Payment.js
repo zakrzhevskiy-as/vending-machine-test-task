@@ -12,7 +12,7 @@ export default class Payment extends Component {
 
     render() {
         return (
-            <Space align="center" direction="vertical">
+            <Space id="payment-control-panel" align="center" direction="vertical">
                 <Row>
                     <Col>
                         <Space direction="vertical" align="center">

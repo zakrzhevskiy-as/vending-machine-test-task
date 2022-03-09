@@ -32,23 +32,24 @@ export default class OrdersList extends Component {
             <Space direction="vertical">
                 <Row>
                     <Col flex="auto">
-                        <Title level={3}>История заказов</Title>
+                        <Title id="orders-history-title" level={3}>История заказов</Title>
                     </Col>
                     <Col flex="46px">
-                        <Popconfirm
-                            placement="bottomRight"
-                            icon={<ExclamationCircleOutlined/>}
-                            title="Вы точно хотите очистить историю заказов?"
-                            onConfirm={this.deleteOrders}
-                            okText="Да"
-                            okType="danger"
-                            cancelText="Нет"
+                        <Popconfirm id="orders-history-clear-confirm"
+                                    placement="bottomRight"
+                                    icon={<ExclamationCircleOutlined/>}
+                                    title="Вы точно хотите очистить историю заказов?"
+                                    onConfirm={this.deleteOrders}
+                                    okText="Да"
+                                    okType="danger"
+                                    cancelText="Нет"
                         >
                             <Tooltip placement="bottomRight"
                                      title="Очистить историю заказов"
                                      trigger={["hover", "click"]}
                             >
-                                <Button type="primary"
+                                <Button id="orders-history-clear-button"
+                                        type="primary"
                                         danger
                                         disabled={this.props.orders.length === 0}
                                 >
@@ -96,7 +97,7 @@ class OrderCard extends Component {
         let {order} = this.props;
 
         return (
-            <Row align="top" gutter={16}>
+            <Row className="order-plate" align="top" gutter={16}>
                 <Col flex="auto">
                     <Button className="order-card"
                             type="text"
@@ -111,16 +112,17 @@ class OrderCard extends Component {
                     </Button>
                 </Col>
                 <Col flex="24px">
-                    <Popconfirm
-                        placement="bottomRight"
-                        icon={<ExclamationCircleOutlined/>}
-                        title={`Вы точно хотите удалить заказ #${order.orderNumber}?`}
-                        onConfirm={() => this.props.deleteOrder(order.id)}
-                        okText="Да"
-                        okType="danger"
-                        cancelText="Нет"
+                    <Popconfirm className="order-delete-confirm"
+                                placement="bottomRight"
+                                icon={<ExclamationCircleOutlined/>}
+                                title={`Вы точно хотите удалить заказ #${order.orderNumber}?`}
+                                onConfirm={() => this.props.deleteOrder(order.id)}
+                                okText="Да"
+                                okType="danger"
+                                cancelText="Нет"
                     >
-                        <Button type="primary"
+                        <Button className="order-delete-button"
+                                type="primary"
                                 shape="circle"
                                 icon={<DeleteOutlined/>}
                                 danger
@@ -153,7 +155,7 @@ class Bill extends Component {
                 <Row justify="center">
                     <Col style={{width: '100%'}}>
                         {order.orderBeverages.map(beverage => {
-                            return <Row key={beverage.id} className="beverage">
+                            return <Row key={beverage.id} className="bill-beverage">
                                 <Col span={beverage.selectedIce ? 8 : 11}>{beverage.beverageType}</Col>
                                 {beverage.selectedIce && <Col span={3}>{beverage.selectedIce ? "(Ice)" : ""}</Col>}
                                 <Col span={beverage.selectedIce ? 8 : 8}>{`1 * ${beverage.beverageVolume.volume}`}</Col>

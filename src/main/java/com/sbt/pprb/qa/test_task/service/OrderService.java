@@ -39,10 +39,6 @@ public class OrderService {
         return byOwnerAndActive.stream().map(this::getOrderResponseResource).collect(toList());
     }
 
-    public void deleteActive(AppUser owner) {
-        ordersRepository.deleteAllByOwnerAndActive(owner, true);
-    }
-
     public void deleteFinished(AppUser owner) {
         // ОЖИДАЕМАЯ ОШИБКА - не удаляются завершенные заказы
         ordersRepository.deleteAllByOwnerAndActive(owner, false);
@@ -193,7 +189,7 @@ public class OrderService {
         return getOrderBeverageResponseResource(orderBeveragesRepository.save(orderBeverage));
     }
 
-    private OrderResponseResource getOrderResponseResource(Order order) {
+    public OrderResponseResource getOrderResponseResource(Order order) {
         OrderResponseResource responseResource = new OrderResponseResource();
         responseResource.setId(order.getId());
         responseResource.setOrderNumber(order.getOrderNumber());

@@ -46,7 +46,8 @@ export default class SidebarContent extends Component {
                          title="Database connection"
                          trigger={["hover", "click"]}
                 >
-                    <Popover placement="rightTop"
+                    <Popover id="db-config-popup"
+                             placement="rightTop"
                              title="Database connection"
                              content={
                                  <Space direction="vertical">
@@ -78,7 +79,8 @@ export default class SidebarContent extends Component {
                          title="API connection"
                          trigger={["hover", "click"]}
                 >
-                    <Popover placement="rightTop"
+                    <Popover id="api-config-popup"
+                             placement="rightTop"
                              title="API connection"
                              content={
                                  <Space direction="vertical">
@@ -109,7 +111,8 @@ export default class SidebarContent extends Component {
                          title="Application info"
                          trigger={["hover", "click"]}
                 >
-                    <Popover placement="rightTop"
+                    <Popover id="app-info-popup"
+                             placement="rightTop"
                              title="Application info"
                              content={
                                  <Space direction="vertical">

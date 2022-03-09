@@ -8,21 +8,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.sbt.pprb.qa.test_task.controller.Endpoints.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping(path = "/api/beverages")
+@RequestMapping(path = BEVERAGES)
 public class BeverageController {
 
-    private BeverageService service;
+    private final BeverageService service;
 
-    @GetMapping(path = "volumes", produces = APPLICATION_JSON_VALUE)
+    @GetMapping(path = BEVERAGES_VOLUMES, produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<List<BeverageResponseResource>> getVolumes() {
         return ResponseEntity.ok(service.getVolumes());
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping(path = BEVERAGES_ID)
     public void addAvailableVolume(@PathVariable Long id, @RequestParam Double volume) {
         service.addVolume(id, volume);
     }

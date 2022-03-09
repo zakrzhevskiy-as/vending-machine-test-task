@@ -30,7 +30,7 @@ public class SpringFoxConfig {
                 .title("Vending Machine API")
                 .description("Документация API приложения для тестового задания тестировщиков СберТех")
                 .termsOfServiceUrl("")
-                .contact(new Contact("Zakrzhevskiy Andrey", "", ""))
+                .contact(new Contact("Zakrzhevskiy Andrey", "", "zakrzhevskiy.a.s@sberbank.ru"))
                 .contact(new Contact("Bespalov Dmitriy", "", ""))
                 .version("1.0")
                 .build();
