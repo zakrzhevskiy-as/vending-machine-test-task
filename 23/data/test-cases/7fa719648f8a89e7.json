@@ -1,0 +1,57 @@
+{
+  "uid" : "7fa719648f8a89e7",
+  "name" : "itShouldNotFindOrderByOwnerAndActive()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest.itShouldNotFindOrderByOwnerAndActive",
+  "historyId" : "58a4e889978653a6733199e1b88bb748",
+  "time" : {
+    "start" : 1647291240619,
+    "stop" : 1647291240637,
+    "duration" : 18
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az147-23"
+  }, {
+    "name" : "thread",
+    "value" : "2228@fv-az147-23.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldNotFindOrderByOwnerAndActive"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7fa719648f8a89e7.json",
+  "parameterValues" : [ ]
+}

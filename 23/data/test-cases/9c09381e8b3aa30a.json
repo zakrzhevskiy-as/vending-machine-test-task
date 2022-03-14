@@ -1,0 +1,57 @@
+{
+  "uid" : "9c09381e8b3aa30a",
+  "name" : "canGetFinishedOrders()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.canGetFinishedOrders",
+  "historyId" : "e986218607951de7aed4aa014755f9f5",
+  "time" : {
+    "start" : 1647291245984,
+    "stop" : 1647291245985,
+    "duration" : 1
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az147-23"
+  }, {
+    "name" : "thread",
+    "value" : "2228@fv-az147-23.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canGetFinishedOrders"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9c09381e8b3aa30a.json",
+  "parameterValues" : [ ]
+}

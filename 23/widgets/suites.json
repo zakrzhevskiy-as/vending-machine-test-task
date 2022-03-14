@@ -1,0 +1,114 @@
+{
+  "total" : 11,
+  "items" : [ {
+    "uid" : "43eb0d4ba94ab6421506d6263a607053",
+    "name" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 24,
+      "unknown" : 0,
+      "total" : 24
+    }
+  }, {
+    "uid" : "d910fff61337f433bbd277000eaac4b5",
+    "name" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 8,
+      "unknown" : 0,
+      "total" : 8
+    }
+  }, {
+    "uid" : "9a0687877b709d30e63cc3b2eca2bf26",
+    "name" : "com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepositoryTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "557affecb7a0f0135283e6252965c4af",
+    "name" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    }
+  }, {
+    "uid" : "625d93f9d50a7c5402b1afe447a0bceb",
+    "name" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    }
+  }, {
+    "uid" : "7c4fce0be46635ae45c887387e773839",
+    "name" : "com.sbt.pprb.qa.test_task.service.BeverageServiceTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    }
+  }, {
+    "uid" : "0304ef5c1947b79e427c22b66de27ac9",
+    "name" : "com.sbt.pprb.qa.test_task.service.UserServiceTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    }
+  }, {
+    "uid" : "d911bb645c35352775d68d8fd42f948d",
+    "name" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "abf7688346cafff4abb282af47758716",
+    "name" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 2,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 3
+    }
+  }, {
+    "uid" : "e9cd42711e38122d4c6200664ecbeb41",
+    "name" : "com.sbt.pprb.qa.test_task.repository.BeveragesRepositoryTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  } ]
+}

@@ -1,0 +1,57 @@
+{
+  "uid" : "bf23d358ef8b1e1a",
+  "name" : "itShouldFindExistingUserByUsername()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest.itShouldFindExistingUserByUsername",
+  "historyId" : "556c01fdc54ff2bd23ea69e2becf0d8a",
+  "time" : {
+    "start" : 1647291240966,
+    "stop" : 1647291240974,
+    "duration" : 8
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az147-23"
+  }, {
+    "name" : "thread",
+    "value" : "2228@fv-az147-23.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldFindExistingUserByUsername"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bf23d358ef8b1e1a.json",
+  "parameterValues" : [ ]
+}

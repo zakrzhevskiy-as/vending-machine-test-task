@@ -1,0 +1,57 @@
+{
+  "uid" : "7d25144e244fcb6e",
+  "name" : "canGetRestConfig()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest.canGetRestConfig",
+  "historyId" : "a191f8f880d88d92006925e1ef51194f",
+  "time" : {
+    "start" : 1647291245370,
+    "stop" : 1647291245371,
+    "duration" : 1
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az147-23"
+  }, {
+    "name" : "thread",
+    "value" : "2228@fv-az147-23.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canGetRestConfig"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "7d25144e244fcb6e.json",
+  "parameterValues" : [ ]
+}
