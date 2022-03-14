@@ -1,7 +1,9 @@
 package com.sbt.pprb.qa.test_task.service;
 
 import com.sbt.pprb.qa.test_task.model.dto.AppUser;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.security.core.Authentication;
@@ -14,6 +16,8 @@ import java.util.Map;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+@Epic("Unit-тесты сервисов")
+@DisplayName("Тесты сервиса ApplicationInfoService")
 class ApplicationInfoServiceTest {
 
     private ApplicationInfoService underTest;

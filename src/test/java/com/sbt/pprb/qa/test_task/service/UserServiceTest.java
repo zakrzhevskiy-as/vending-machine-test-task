@@ -3,7 +3,9 @@ package com.sbt.pprb.qa.test_task.service;
 import com.sbt.pprb.qa.test_task.model.dto.AppUser;
 import com.sbt.pprb.qa.test_task.model.exception.UsernameAlreadyTakenException;
 import com.sbt.pprb.qa.test_task.repository.UsersRepository;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -23,6 +25,8 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
+@Epic("Unit-тесты сервисов")
+@DisplayName("Тесты сервиса UserService")
 class UserServiceTest {
 
     @Mock

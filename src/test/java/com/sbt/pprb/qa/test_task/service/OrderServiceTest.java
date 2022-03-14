@@ -10,7 +10,11 @@ import com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepository;
 import com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepository;
 import com.sbt.pprb.qa.test_task.repository.OrdersRepository;
 import com.sbt.pprb.qa.test_task.repository.UsersRepository;
+import io.qameta.allure.Epic;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -32,6 +36,8 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
+@Epic("Unit-тесты сервисов")
+@DisplayName("Тесты сервиса OrderService")
 class OrderServiceTest {
 
     @Mock
@@ -109,6 +115,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     void cantDeleteFinishedOrders() {
         // given
         AppUser user = new AppUser();
@@ -732,6 +739,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     void canAddBalanceAndChangeAmountOf10To500() {
         // given
         AppUser user = new AppUser();
@@ -761,6 +769,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     void addBalanceThrowsEntityNotFoundException_order() {
         // given
         when(ordersRepository.findById(anyLong())).thenReturn(Optional.empty());
@@ -776,6 +785,7 @@ class OrderServiceTest {
     }
 
     @Test
+    @Severity(SeverityLevel.CRITICAL)
     void addBalanceThrowsFakeCoinException() {
         // when
         Throwable thrown = catchThrowable(() -> underTest.addBalance(null, 2));

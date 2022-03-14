@@ -1,6 +1,8 @@
 package com.sbt.pprb.qa.test_task.repository;
 
 import com.sbt.pprb.qa.test_task.model.dto.Beverage;
+import io.qameta.allure.Epic;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -10,6 +12,8 @@ import javax.persistence.EntityNotFoundException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+@Epic("Unit-тесты репозиториев")
+@DisplayName("Тесты репозитория BeveragesRepository")
 class BeveragesRepositoryTest {
 
     @Autowired
