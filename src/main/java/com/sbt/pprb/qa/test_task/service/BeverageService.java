@@ -68,7 +68,6 @@ public class BeverageService {
 
     public void addVolume(Long beverageId, Double volume) {
         Beverage beverage = beveragesRepository.getById(beverageId);
-        beverage.addAvailableVolume(volume);
-        beveragesRepository.save(beverage);
+        beveragesRepository.update(beverage.getId(), beverage.getAvailableVolume() + volume);
     }
 }

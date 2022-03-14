@@ -1,14 +1,11 @@
 package com.sbt.pprb.qa.test_task.controller.api;
 
 import com.sbt.pprb.qa.test_task.CommonTestContext;
-import com.sbt.pprb.qa.test_task.VendingMachineApplication;
 import com.sbt.pprb.qa.test_task.model.dto.Beverage;
 import com.sbt.pprb.qa.test_task.repository.BeveragesRepository;
 import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -22,8 +19,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest(classes = VendingMachineApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@AutoConfigureMockMvc
+//@SpringBootTest(classes = VendingMachineApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+//@AutoConfigureMockMvc
 class BeverageControllerTest extends CommonTestContext {
 
     @Autowired
@@ -31,7 +28,8 @@ class BeverageControllerTest extends CommonTestContext {
     @Autowired
     private BeveragesRepository repository;
 
-    @Test
+//    @Test
+    @Disabled
     void getVolumes_endpoint_test() throws Exception {
         MockHttpServletRequestBuilder request = get("/api/beverages/volumes")
                 .with(auth)
@@ -70,7 +68,8 @@ class BeverageControllerTest extends CommonTestContext {
                 .andExpect(jsonPath("$[0].beverageVolumes[0].price", allOf(notNullValue(), instanceOf(Integer.class))));
     }
 
-    @Test
+//    @Test
+    @Disabled
     void addAvailableVolume_endpoint_test() throws Exception {
         Optional<Beverage> optionalBeverage = repository.findAll().stream().findAny();
         Assumptions.assumeTrue(optionalBeverage.isPresent(), "No beverages in DB");

@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(schema = "vending_machine", name = "beverage_volumes")
+@SequenceGenerator(name = "default_gen", schema = "vending_machine", sequenceName = "beverage_volumes_id_seq", allocationSize = 1)
 public class BeverageVolume extends AuditEntity {
 
     @ManyToOne(cascade = CascadeType.DETACH)

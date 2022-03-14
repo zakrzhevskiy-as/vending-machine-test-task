@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet id="20220310-01" author="zakrzhevskiy-as">
+        <preConditions onFail="MARK_RAN" onError="HALT">
+            <columnExists schemaName="vending_machine" tableName="orders" columnName="order_number"/>
+        </preConditions>
+        <addNotNullConstraint schemaName="vending_machine" tableName="orders" columnName="order_number"/>
+    </changeSet>
+</databaseChangeLog>

@@ -14,6 +14,7 @@
     <form class="form-signin" method="post" th:action="@{/register}">
         <h2 class="form-signin-heading">Create user</h2>
         <div class="alert alert-warning" role="alert">Или используй существующего, кроме qa_engineer!</div>
+        <div th:if="${usernameTaken != null}" th:text="${usernameTaken}" class="alert alert-danger" role="alert"></div>
         <p>
             <label for="username" class="sr-only">Username</label>
             <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>

@@ -18,9 +18,9 @@ import java.util.Map;
 @AllArgsConstructor
 public class OrderProcessingService {
 
-    private OrderBeveragesRepository repository;
-    private JobLauncher jobLauncher;
-    private Job processBeverageJob;
+    private final OrderBeveragesRepository repository;
+    private final JobLauncher jobLauncher;
+    private final Job processBeverageJob;
 
     public void beveragesToStatus(OrderBeverageStatus status, OrderBeverage... beverages) {
         for (OrderBeverage beverage : beverages) {

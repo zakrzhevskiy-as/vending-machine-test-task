@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Data
 @Entity
 @Table(schema = "vending_machine", name = "beverages")
+@SequenceGenerator(name = "default_gen", schema = "vending_machine", sequenceName = "beverages_id_seq", allocationSize = 1)
 public class Beverage extends AuditEntity {
 
     @Column(nullable = false)

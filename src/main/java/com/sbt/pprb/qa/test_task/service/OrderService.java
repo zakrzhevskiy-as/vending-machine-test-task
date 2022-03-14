@@ -25,12 +25,12 @@ import static java.util.stream.Collectors.toList;
 @AllArgsConstructor
 public class OrderService {
 
-    private OrdersRepository ordersRepository;
-    private UsersRepository usersRepository;
-    private OrderBeveragesRepository orderBeveragesRepository;
-    private BeverageVolumesRepository volumeRepository;
+    private final OrdersRepository ordersRepository;
+    private final UsersRepository usersRepository;
+    private final OrderBeveragesRepository orderBeveragesRepository;
+    private final BeverageVolumesRepository volumeRepository;
 
-    private OrderProcessingService processingService;
+    private final OrderProcessingService processingService;
 
     public List<OrderResponseResource> getOrders(AppUser owner, Boolean active) {
         Sort sort = Sort.by(Sort.Direction.DESC, "created");
@@ -45,7 +45,7 @@ public class OrderService {
     }
 
     public void deleteOrder(Long orderId) {
-        List<OrderBeverage> beverages = orderBeveragesRepository.findByOrderId(orderId);
+        List<OrderBeverage> beverages = orderBeveragesRepository.findByOrderId(orderId, Sort.unsorted());
         orderBeveragesRepository.deleteAll(beverages);
         ordersRepository.deleteById(orderId);
     }
@@ -136,14 +136,17 @@ public class OrderService {
             order.setActive(false);
             ordersRepository.save(order);
         } else {
-            if (action == ProcessAction.PROCESS) {
-                processingService.processBeverage(beverageId);
-            } else {
-                OrderBeverage beverage = orderBeveragesRepository.getById(beverageId);
-                OrderBeverageStatus nextStatus = beverage.getStatus().getNextStatus();
-                processingService.beveragesToStatus(nextStatus, beverage);
-
-
+            switch (action) {
+                case PROCESS:
+                    processingService.processBeverage(beverageId);
+                    break;
+                case TAKE:
+                    OrderBeverage beverage = orderBeveragesRepository.getById(beverageId);
+                    OrderBeverageStatus nextStatus = beverage.getStatus().getNextStatus();
+                    processingService.beveragesToStatus(nextStatus, beverage);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Action type SUBMIT not supported");
             }
         }
 

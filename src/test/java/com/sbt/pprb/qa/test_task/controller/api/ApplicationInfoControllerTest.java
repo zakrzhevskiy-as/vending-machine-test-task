@@ -1,13 +1,10 @@
 package com.sbt.pprb.qa.test_task.controller.api;
 
 import com.sbt.pprb.qa.test_task.CommonTestContext;
-import com.sbt.pprb.qa.test_task.VendingMachineApplication;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Tag;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
@@ -16,8 +13,8 @@ import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@SpringBootTest(classes = VendingMachineApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@AutoConfigureMockMvc
+//@SpringBootTest(classes = VendingMachineApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+//@AutoConfigureMockMvc
 class ApplicationInfoControllerTest extends CommonTestContext {
 
     @Autowired
@@ -34,7 +31,8 @@ class ApplicationInfoControllerTest extends CommonTestContext {
     @Value("${system.rest.auth.type}")
     private String expectedRestAuthType;
 
-    @Test
+//    @Test
+    @Disabled
     void dbConfig_endpoint_test() throws Exception {
         MockHttpServletRequestBuilder request = get("/api/app-info/database")
                 .with(auth)
@@ -49,8 +47,9 @@ class ApplicationInfoControllerTest extends CommonTestContext {
                 .andExpect(jsonPath("$.password", is(expectedDbPassword)));
     }
 
-    @Test
+//    @Test
     @Tag("restConfig")
+    @Disabled
     void restConfig_endpoint_test() throws Exception {
         MockHttpServletRequestBuilder request = get("/api/app-info/rest")
                 .with(auth)
@@ -64,7 +63,8 @@ class ApplicationInfoControllerTest extends CommonTestContext {
                 .andExpect(jsonPath("$.documentation", is("swagger-ui/index.html")));
     }
 
-    @Test
+//    @Test
+    @Disabled
     void appInfo_endpoint_test() throws Exception {
         MockHttpServletRequestBuilder request = get("/api/app-info")
                 .with(auth)

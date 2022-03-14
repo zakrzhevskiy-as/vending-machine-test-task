@@ -16,6 +16,7 @@ import java.util.Optional;
 
 import static com.sbt.pprb.qa.test_task.model.dto.OrderBeverageStatus.PROCESSING;
 import static com.sbt.pprb.qa.test_task.model.dto.OrderBeverageStatus.READY_TO_PROCESS;
+import static java.util.Arrays.asList;
 
 @Slf4j
 @Component
@@ -28,9 +29,11 @@ public class OrderBeverageReader implements ItemReader<OrderBeverage> {
 
     @Override
     public OrderBeverage read() throws Exception, UnexpectedInputException, ParseException, NonTransientResourceException {
-        Optional<OrderBeverage> beverage = orderBeveragesRepository.findByIdAndStatusIn(beverageId, READY_TO_PROCESS, PROCESSING);
+        Optional<OrderBeverage> beverage = orderBeveragesRepository.findById(beverageId);
 
-        return beverage.orElse(null);
+        return beverage.isPresent() && asList(READY_TO_PROCESS, PROCESSING).contains(beverage.get().getStatus())
+                ? beverage.get()
+                : null;
     }
 
     @Value("#{jobParameters['beverageId']}")
