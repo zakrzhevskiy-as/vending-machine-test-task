@@ -1,0 +1,80 @@
+{
+  "uid" : "59781eb368bd574d",
+  "name" : "canGetDbConfig()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest.canGetDbConfig",
+  "historyId" : "ca1e56e247797d98de7af172140afb96",
+  "time" : {
+    "start" : 1647293084523,
+    "stop" : 1647293084525,
+    "duration" : 2
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az28-929"
+  }, {
+    "name" : "thread",
+    "value" : "2140@fv-az28-929.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.ApplicationInfoServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canGetDbConfig"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса ApplicationInfoService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "dd1e846483028f93",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/23//#testresult/dd1e846483028f93",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647291245372,
+          "stop" : 1647291245375,
+          "duration" : 3
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "59781eb368bd574d.json",
+  "parameterValues" : [ ]
+}
