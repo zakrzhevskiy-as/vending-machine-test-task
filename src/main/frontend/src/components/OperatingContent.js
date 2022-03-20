@@ -58,7 +58,15 @@ export default class OperatingContent extends Component {
                 },
                 error => {
                     if (error.status.code === 404) {
-                        this.setState({newOrder: true});
+                        this.setState({
+                            progress: 0,
+                            newOrder: true,
+                            order: [],
+                            orderId: undefined,
+                            balance: 0,
+                            totalCost: 0,
+                            orderConfirmed: false
+                        });
                     } else {
                         showErrorMessage(error);
                     }
@@ -184,36 +192,28 @@ export default class OperatingContent extends Component {
     }
 
     processOrderBeverage(beverageId, action) {
-        let {order} = this.state;
-        let readyCount = order.filter(item => item.status === 'READY').length;
-        let takenCount = order.filter(item => item.status === 'TAKEN').length;
-
-        let last = (order.length - (readyCount + takenCount)) === 0;
-
-        if (last) {
-            orders.finishOrder(this.state.orderId)
-                .then(() => {
-                }, error => showErrorMessage(error))
-                .done(() => {
-                    this.setState({
-                        progress: 0,
-                        newOrder: true,
-                        order: [],
-                        orderId: undefined,
-                        balance: 0,
-                        totalCost: 0,
-                        orderConfirmed: false,
-                    });
-                    this.props.getOrders();
-                })
-        } else {
-            this.setState({processingBeverage: beverageId});
-            orders.processOrderBeverage(this.state.orderId, beverageId, action)
-                .then(
-                    response => this.setState({order: response.entity, orderConfirmed: true}),
-                    error => showErrorMessage(error)
-                ).done(() => this.setState({processingBeverage: undefined}));
-        }
+        this.setState({processingBeverage: beverageId});
+        orders.processOrderBeverage(this.state.orderId, beverageId, action)
+            .then(
+                response => {
+                    let order = response.entity;
+                    if (order.length === 0) {
+                        this.setState({
+                            progress: 0,
+                            newOrder: true,
+                            order: [],
+                            orderId: undefined,
+                            balance: 0,
+                            totalCost: 0,
+                            orderConfirmed: false
+                        });
+                        this.props.getOrders();
+                    } else {
+                        this.setState({order: order, orderConfirmed: true})
+                    }
+                },
+                error => showErrorMessage(error)
+            ).done(() => this.setState({processingBeverage: undefined}));
 
         if (action === 'PROCESS') {
             Array.from(Array(20).keys()).forEach((item, i) => setTimeout(

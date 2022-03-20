@@ -16,6 +16,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -152,10 +153,16 @@ public class OrderService {
                 long takenCount = beverages.stream()
                         .filter(ob -> ob.getStatus() == OrderBeverageStatus.TAKEN)
                         .count();
-                if (beverages.size() - takenCount == 1) {
+                long readyCount = beverages.stream()
+                        .filter(ob -> ob.getStatus() == OrderBeverageStatus.READY)
+                        .count();
+
+                if (beverages.size() - (readyCount + takenCount) == 0) {
                     Order order = ordersRepository.getById(orderId);
                     order.setActive(false);
                     ordersRepository.save(order);
+
+                    return Collections.emptyList();
                 }
                 break;
             default:

@@ -31,17 +31,13 @@ export const orders = {
     }),
     submit: (id) => client({
         method: 'POST',
-        path: `${rootOrdersUrl}/${id}`
+        path: `${rootOrdersUrl}/${id}`,
+        params: {action: 'SUBMIT'}
     }),
     processOrderBeverage: (orderId, beverageId, action) => client({
         method: 'POST',
         path: `${rootOrdersUrl}/${orderId}`,
         params: {beverageId, action}
-    }),
-    finishOrder: (orderId) => client({
-        method: 'POST',
-        path: `${rootOrdersUrl}/${orderId}`,
-        params: {"last": true}
     }),
     removeBeverage: (id) => client({
         method: 'DELETE',
