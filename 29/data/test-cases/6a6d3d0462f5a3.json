@@ -1,0 +1,125 @@
+{
+  "uid" : "6a6d3d0462f5a3",
+  "name" : "getOrderThrowsEntityNotFoundException()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.getOrderThrowsEntityNotFoundException",
+  "historyId" : "95e558a753a862fb64a9d69b3dbcc6d7",
+  "time" : {
+    "start" : 1647815293645,
+    "stop" : 1647815293647,
+    "duration" : 2
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az147-698"
+  }, {
+    "name" : "thread",
+    "value" : "2396@fv-az147-698.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "getOrderThrowsEntityNotFoundException"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 7,
+        "unknown" : 0,
+        "total" : 7
+      },
+      "items" : [ {
+        "uid" : "5798a9c9f205908f",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/28//#testresult/5798a9c9f205908f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810650351,
+          "stop" : 1647810650352,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "e8019146d85ccd3d",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/27//#testresult/e8019146d85ccd3d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810354932,
+          "stop" : 1647810354934,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "a95ff03e7d5d95e9",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/26//#testresult/a95ff03e7d5d95e9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647808394378,
+          "stop" : 1647808394380,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "fea2882954be1243",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/25//#testresult/fea2882954be1243",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647807238264,
+          "stop" : 1647807238265,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "7d350ff4f8ae74be",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/24//#testresult/7d350ff4f8ae74be",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647293085048,
+          "stop" : 1647293085050,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "3b8833d80ce02b7b",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/23//#testresult/3b8833d80ce02b7b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647291245975,
+          "stop" : 1647291245976,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "6a6d3d0462f5a3.json",
+  "parameterValues" : [ ]
+}

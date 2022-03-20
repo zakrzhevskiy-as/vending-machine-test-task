@@ -1,0 +1,125 @@
+{
+  "uid" : "a2e4259cd4fab50f",
+  "name" : "itShouldNotFindUserByUsername()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest.itShouldNotFindUserByUsername",
+  "historyId" : "4226b5487e97aee695c2a0f3f43d46f1",
+  "time" : {
+    "start" : 1647815288602,
+    "stop" : 1647815288612,
+    "duration" : 10
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты репозиториев"
+  }, {
+    "name" : "host",
+    "value" : "fv-az147-698"
+  }, {
+    "name" : "thread",
+    "value" : "2396@fv-az147-698.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.UsersRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldNotFindUserByUsername"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты репозитория UsersRepository"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 7,
+        "unknown" : 0,
+        "total" : 7
+      },
+      "items" : [ {
+        "uid" : "95299b2faef00cf7",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/28//#testresult/95299b2faef00cf7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810645092,
+          "stop" : 1647810645106,
+          "duration" : 14
+        }
+      }, {
+        "uid" : "7f858f6a08fa41f1",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/27//#testresult/7f858f6a08fa41f1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810350114,
+          "stop" : 1647810350126,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "f8eeb5343e61d636",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/26//#testresult/f8eeb5343e61d636",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647808389345,
+          "stop" : 1647808389362,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "65496d87c2f3b395",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/25//#testresult/65496d87c2f3b395",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647807233484,
+          "stop" : 1647807233496,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "9aeede1fe2ebe54d",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/24//#testresult/9aeede1fe2ebe54d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647293080264,
+          "stop" : 1647293080282,
+          "duration" : 18
+        }
+      }, {
+        "uid" : "c0a20358394acc42",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/23//#testresult/c0a20358394acc42",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647291240944,
+          "stop" : 1647291240963,
+          "duration" : 19
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "a2e4259cd4fab50f.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,132 @@
+{
+  "uid" : "d7bd946b81f1a142",
+  "name" : "canProcessBeverage()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest.canProcessBeverage",
+  "historyId" : "c50888a9ca08bc48ebb46ed0899d0ba6",
+  "time" : {
+    "start" : 1647815293303,
+    "stop" : 1647815293303,
+    "duration" : 0
+  },
+  "description" : "",
+  "status" : "skipped",
+  "statusMessage" : "can't implement job test",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az147-698"
+  }, {
+    "name" : "thread",
+    "value" : "2396@fv-az147-698.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canProcessBeverage"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderProcessingService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 7,
+        "passed" : 0,
+        "unknown" : 0,
+        "total" : 7
+      },
+      "items" : [ {
+        "uid" : "24256ee6aff084dc",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/28//#testresult/24256ee6aff084dc",
+        "status" : "skipped",
+        "statusDetails" : "can't implement job test",
+        "time" : {
+          "start" : 1647810650004,
+          "stop" : 1647810650005,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "a9e5bcc8046a5fb0",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/27//#testresult/a9e5bcc8046a5fb0",
+        "status" : "skipped",
+        "statusDetails" : "can't implement job test",
+        "time" : {
+          "start" : 1647810354590,
+          "stop" : 1647810354590,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "7db4e60819d66544",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/26//#testresult/7db4e60819d66544",
+        "status" : "skipped",
+        "statusDetails" : "can't implement job test",
+        "time" : {
+          "start" : 1647808394051,
+          "stop" : 1647808394051,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "f84b8eccd63f660e",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/25//#testresult/f84b8eccd63f660e",
+        "status" : "skipped",
+        "statusDetails" : "can't implement job test",
+        "time" : {
+          "start" : 1647807237875,
+          "stop" : 1647807237875,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "241e037ecfae884f",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/24//#testresult/241e037ecfae884f",
+        "status" : "skipped",
+        "statusDetails" : "can't implement job test",
+        "time" : {
+          "start" : 1647293084757,
+          "stop" : 1647293084757,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "fa5600ce89792162",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/23//#testresult/fa5600ce89792162",
+        "status" : "skipped",
+        "statusDetails" : "can't implement job test",
+        "time" : {
+          "start" : 1647291245597,
+          "stop" : 1647291245597,
+          "duration" : 0
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "d7bd946b81f1a142.json",
+  "parameterValues" : [ ]
+}
