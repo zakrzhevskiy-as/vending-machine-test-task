@@ -19,6 +19,7 @@ public class SpringFoxConfig {
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
+                .useDefaultResponseMessages(false)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("com.sbt.pprb.qa.test_task.controller.api"))
                 .paths(PathSelectors.any())
@@ -29,9 +30,7 @@ public class SpringFoxConfig {
         return new ApiInfoBuilder()
                 .title("Vending Machine API")
                 .description("Документация API приложения для тестового задания тестировщиков СберТех")
-                .termsOfServiceUrl("")
                 .contact(new Contact("Zakrzhevskiy Andrey", "", "zakrzhevskiy.a.s@sberbank.ru"))
-                .contact(new Contact("Bespalov Dmitriy", "", ""))
                 .version("1.0")
                 .build();
     }

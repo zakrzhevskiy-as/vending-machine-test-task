@@ -17,6 +17,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.REGISTER;
+
 @Slf4j
 @Controller
 @AllArgsConstructor
@@ -25,12 +27,12 @@ public class RegisterController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
-    @RequestMapping(value = "/register")
+    @RequestMapping(value = REGISTER)
     public String register() {
         return "register";
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/register")
+    @RequestMapping(method = RequestMethod.POST, value = REGISTER)
     public Object register(@RequestParam String username,
                                  @RequestParam String password,
                                  HttpServletRequest request)

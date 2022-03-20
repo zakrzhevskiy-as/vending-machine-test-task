@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
-import static com.sbt.pprb.qa.test_task.controller.Endpoints.*;
+import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @ApiIgnore

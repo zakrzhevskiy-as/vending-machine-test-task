@@ -78,7 +78,9 @@ export default class App extends Component {
                            style={{
                                backgroundColor: '#e6e6e6',
                                padding: '15px 10px 5px 10px',
-                               height: 'calc(100vh - 64px)'
+                               height: 'calc(100vh - 64px)',
+                               position: "absolute",
+                               right: 0
                            }}
                            zeroWidthTriggerStyle={{backgroundColor: "#363f47"}}
                            trigger={this.state.collapsedOrders ? <CaretLeftOutlined/> : <CaretRightOutlined/>}

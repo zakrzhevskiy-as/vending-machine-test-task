@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signin" method="post" th:action="@{/register}">
+    <form class="form-signin" method="post" th:action="@{/registration}">
         <h2 class="form-signin-heading">Create user</h2>
         <div class="alert alert-warning" role="alert">Или используй существующего, кроме qa_engineer!</div>
         <div th:if="${usernameTaken != null}" th:text="${usernameTaken}" class="alert alert-danger" role="alert"></div>

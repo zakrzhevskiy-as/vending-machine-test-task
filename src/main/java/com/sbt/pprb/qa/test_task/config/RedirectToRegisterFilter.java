@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.REGISTER;
+
 public class RedirectToRegisterFilter extends OncePerRequestFilter {
 
     @Override
@@ -24,7 +26,7 @@ public class RedirectToRegisterFilter extends OncePerRequestFilter {
                 request = new HttpServletRequestWrapper(request) {
                     @Override
                     public String getRequestURI() {
-                        return this.getContextPath() + "/register";
+                        return this.getContextPath() + REGISTER;
                     }
                 };
             }

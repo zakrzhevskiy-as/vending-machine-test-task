@@ -1,6 +1,7 @@
 package com.sbt.pprb.qa.test_task.service;
 
 import com.sbt.pprb.qa.test_task.model.dto.*;
+import com.sbt.pprb.qa.test_task.model.exception.BeverageCantBeProcessedException;
 import com.sbt.pprb.qa.test_task.model.exception.BeverageCantBeSelectedException;
 import com.sbt.pprb.qa.test_task.model.exception.EntityNotFoundException;
 import com.sbt.pprb.qa.test_task.model.exception.FakeCoinException;
@@ -131,26 +132,34 @@ public class OrderService {
                                                                Long beverageId,
                                                                ProcessAction action,
                                                                Boolean last) {
-        if (last) {
-            Order order = ordersRepository.getById(orderId);
-            order.setActive(false);
-            ordersRepository.save(order);
-        } else {
-            switch (action) {
-                case PROCESS:
-                    processingService.processBeverage(beverageId);
-                    break;
-                case TAKE:
-                    OrderBeverage beverage = orderBeveragesRepository.getById(beverageId);
-                    OrderBeverageStatus nextStatus = beverage.getStatus().getNextStatus();
-                    processingService.beveragesToStatus(nextStatus, beverage);
-                    break;
-                default:
-                    throw new IllegalArgumentException("Action type SUBMIT not supported");
-            }
+        Sort sort = Sort.by(Sort.Direction.ASC, "created");
+        List<OrderBeverage> beverages = orderBeveragesRepository.findByOrderId(orderId, sort);
+
+        switch (action) {
+            case PROCESS:
+                beverages.stream()
+                        .filter(orderBeverage -> orderBeverage.getStatus() == OrderBeverageStatus.READY)
+                        .findAny()
+                        .ifPresent(orderBeverage -> {
+                            throw new BeverageCantBeProcessedException(orderBeverage);
+                        });
+
+                processingService.processBeverage(beverageId);
+                break;
+            case TAKE:
+                OrderBeverage beverage = orderBeveragesRepository.getById(beverageId);
+                OrderBeverageStatus nextStatus = beverage.getStatus().getNextStatus();
+                processingService.beveragesToStatus(nextStatus, beverage);
+                if (last) {
+                    Order order = ordersRepository.getById(orderId);
+                    order.setActive(false);
+                    ordersRepository.save(order);
+                }
+                break;
+            default:
+                throw new IllegalArgumentException("Action type SUBMIT not supported");
         }
 
-        Sort sort = Sort.by(Sort.Direction.ASC, "created");
         return orderBeveragesRepository.findByOrderId(orderId, sort)
                 .stream()
                 .map(this::getOrderBeverageResponseResource)

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.sbt.pprb.qa</groupId>
 	<artifactId>test-task</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<name>test-task</name>
 	<description>Test task for QA Engineer</description>
 

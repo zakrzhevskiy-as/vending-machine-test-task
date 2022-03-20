@@ -2,8 +2,8 @@ import {notification} from "antd";
 import {notificationPlacement} from "../components/constants";
 
 const client = require('./client');
-const rootOrdersUrl = 'api/orders';
-const rootBeveragesUrl = 'api/beverages';
+const rootOrdersUrl = 'api/v1/orders';
+const rootBeveragesUrl = 'api/v1/beverages';
 
 export const orders = {
     getOrders: (active) => client({
@@ -31,16 +31,16 @@ export const orders = {
     }),
     submit: (id) => client({
         method: 'POST',
-        path: `${rootOrdersUrl}/${id}/submit`
+        path: `${rootOrdersUrl}/${id}`
     }),
     processOrderBeverage: (orderId, beverageId, action) => client({
         method: 'POST',
-        path: `${rootOrdersUrl}/${orderId}/submit`,
+        path: `${rootOrdersUrl}/${orderId}`,
         params: {beverageId, action}
     }),
     finishOrder: (orderId) => client({
         method: 'POST',
-        path: `${rootOrdersUrl}/${orderId}/submit`,
+        path: `${rootOrdersUrl}/${orderId}`,
         params: {"last": true}
     }),
     removeBeverage: (id) => client({
@@ -49,16 +49,16 @@ export const orders = {
     }),
     addBalance: (id, amount) => client({
         method: 'PUT',
-        path: `${rootOrdersUrl}/${id}/add-balance`,
+        path: `${rootOrdersUrl}/${id}/balance`,
         params: {'amount': amount}
     }),
     resetBalance: (id) => client({
-        method: 'PATCH',
-        path: `${rootOrdersUrl}/${id}/reset-balance`
+        method: 'DELETE',
+        path: `${rootOrdersUrl}/${id}/balance`
     }),
     selectIce: (beverageId, value) => client({
         method: 'PATCH',
-        path: `${rootOrdersUrl}/beverages/${beverageId}/select-ice`,
+        path: `${rootOrdersUrl}/beverages/${beverageId}/ice`,
         params: {'withIce': value}
     })
 };
@@ -69,9 +69,9 @@ export const beverages = {
 };
 
 export const info = {
-    db: () => client({method: 'GET', path: 'api/app-info/database'}),
-    rest: () => client({method: 'GET', path: 'api/app-info/rest'}),
-    app: () => client({method: 'GET', path: 'api/app-info'})
+    db: () => client({method: 'GET', path: 'api/v1/app-info/database'}),
+    rest: () => client({method: 'GET', path: 'api/v1/app-info/rest'}),
+    app: () => client({method: 'GET', path: 'api/v1/app-info'})
 };
 
 export const logout = () => client({method: 'POST', path: 'logout'});

@@ -1,6 +1,7 @@
 package com.sbt.pprb.qa.test_task.service;
 
 import com.sbt.pprb.qa.test_task.model.dto.*;
+import com.sbt.pprb.qa.test_task.model.exception.BeverageCantBeProcessedException;
 import com.sbt.pprb.qa.test_task.model.exception.BeverageCantBeSelectedException;
 import com.sbt.pprb.qa.test_task.model.exception.EntityNotFoundException;
 import com.sbt.pprb.qa.test_task.model.exception.FakeCoinException;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -708,6 +710,7 @@ class OrderServiceTest {
         saved.setCreated(LocalDateTime.now());
         saved.setModified(LocalDateTime.now());
 
+        when(orderBeveragesRepository.getById(anyLong())).thenReturn(saved);
         when(ordersRepository.getById(anyLong())).thenReturn(order);
 
         // when
@@ -715,6 +718,73 @@ class OrderServiceTest {
 
         // then
         verify(ordersRepository).save(any(Order.class));
+    }
+
+    @Test
+    void processBeverageThrowsBeverageCantBeProcessedException() {
+        // given
+        AppUser user = new AppUser();
+        user.setUsername("test_user");
+        user.setPassword("password");
+        user.setEnabled(true);
+        user.setAuthority("USER");
+
+        Order order = new Order();
+        order.setId(1L);
+        order.setOrderNumber(1001);
+        order.setBalance(100);
+        order.setActive(true);
+        order.setOwner(user);
+        order.setCreated(LocalDateTime.now());
+        order.setModified(LocalDateTime.now());
+
+        Beverage beverage = new Beverage();
+        beverage.setId(1L);
+        beverage.setBeverageType(BeverageType.EXPRESSO);
+        beverage.setAvailableVolume(0.1);
+        beverage.setCreated(LocalDateTime.now());
+        beverage.setModified(LocalDateTime.now());
+
+        BeverageVolume fullBeverageVolume = new BeverageVolume();
+        fullBeverageVolume.setId(1L);
+        fullBeverageVolume.setBeverage(beverage);
+        fullBeverageVolume.setVolume(0.5);
+        fullBeverageVolume.setPrice(50);
+        fullBeverageVolume.setCreated(LocalDateTime.now());
+        fullBeverageVolume.setModified(LocalDateTime.now());
+
+        OrderBeverage orderBeverage1 = new OrderBeverage();
+        orderBeverage1.setId(1L);
+        orderBeverage1.setOrder(order);
+        orderBeverage1.setBeverageVolume(fullBeverageVolume);
+        orderBeverage1.setStatus(OrderBeverageStatus.READY);
+        orderBeverage1.setSelectedIce(false);
+        orderBeverage1.setCreated(LocalDateTime.now());
+        orderBeverage1.setModified(LocalDateTime.now());
+
+        OrderBeverage orderBeverage2 = new OrderBeverage();
+        orderBeverage2.setId(1L);
+        orderBeverage2.setOrder(order);
+        orderBeverage2.setBeverageVolume(fullBeverageVolume);
+        orderBeverage2.setStatus(OrderBeverageStatus.READY_TO_PROCESS);
+        orderBeverage2.setSelectedIce(false);
+        orderBeverage2.setCreated(LocalDateTime.now());
+        orderBeverage2.setModified(LocalDateTime.now());
+
+        when(orderBeveragesRepository.findByOrderId(anyLong(), any(Sort.class)))
+                .thenReturn(asList(orderBeverage1, orderBeverage2));
+
+        // when
+        Throwable thrown = catchThrowable(() -> underTest.processBeverage(
+                order.getId(),
+                orderBeverage2.getId(),
+                ProcessAction.PROCESS,
+                false
+        ));
+
+        // then
+        assertThat(thrown).isInstanceOf(BeverageCantBeProcessedException.class);
+        verify(processingService, never()).processBeverage(anyLong());
     }
 
     @Test
@@ -726,7 +796,9 @@ class OrderServiceTest {
         assertThat(thrown)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Action type SUBMIT not supported");
-        verify(orderBeveragesRepository, never()).findByOrderId(any(), any());
+        verify(orderBeveragesRepository).findByOrderId(any(), any());
+        verify(processingService, never()).processBeverage(any());
+        verify(processingService, never()).beveragesToStatus(any(), any());
     }
 
     @Test
