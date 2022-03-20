@@ -133,20 +133,15 @@ public class OrderController {
             @ApiResponse(code = 401, message = "Unauthorized"),
             @ApiResponse(code = 404, message = "Not Found")
     })
-    public ResponseEntity<List<OrderBeverageResponseResource>> processBeverage(@PathVariable(name = "id") Long orderId,
-                                                                               @RequestParam(required = false) Long beverageId,
-                                                                               @RequestParam(required = false, defaultValue = "SUBMIT") ProcessAction action,
-                                                                               @RequestParam(required = false, defaultValue = "false") Boolean last) {
-        if (last) {
-            return ResponseEntity.ok(orderService.processBeverage(orderId, beverageId, action, true));
-        } else {
-            if (action == ProcessAction.SUBMIT) {
-                return ResponseEntity.ok(orderService.submitOrder(orderId));
-            } else {
-                return ResponseEntity.ok(orderService.processBeverage(orderId, beverageId, action, false));
-            }
-        }
+    public ResponseEntity<List<OrderBeverageResponseResource>> process(@PathVariable(name = "id") Long orderId,
+                                                                       @RequestParam(required = false) Long beverageId,
+                                                                       @RequestParam ProcessAction action) {
 
+        if (action == ProcessAction.SUBMIT) {
+            return ResponseEntity.ok(orderService.submitOrder(orderId));
+        } else {
+            return ResponseEntity.ok(orderService.processBeverage(orderId, beverageId, action));
+        }
     }
 
     @PutMapping(value = ORDERS_ID_BALANCE)

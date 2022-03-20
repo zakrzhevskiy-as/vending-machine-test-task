@@ -130,8 +130,7 @@ public class OrderService {
 
     public List<OrderBeverageResponseResource> processBeverage(Long orderId,
                                                                Long beverageId,
-                                                               ProcessAction action,
-                                                               Boolean last) {
+                                                               ProcessAction action) {
         Sort sort = Sort.by(Sort.Direction.ASC, "created");
         List<OrderBeverage> beverages = orderBeveragesRepository.findByOrderId(orderId, sort);
 
@@ -150,7 +149,10 @@ public class OrderService {
                 OrderBeverage beverage = orderBeveragesRepository.getById(beverageId);
                 OrderBeverageStatus nextStatus = beverage.getStatus().getNextStatus();
                 processingService.beveragesToStatus(nextStatus, beverage);
-                if (last) {
+                long takenCount = beverages.stream()
+                        .filter(ob -> ob.getStatus() == OrderBeverageStatus.TAKEN)
+                        .count();
+                if (beverages.size() - takenCount == 1) {
                     Order order = ordersRepository.getById(orderId);
                     order.setActive(false);
                     ordersRepository.save(order);

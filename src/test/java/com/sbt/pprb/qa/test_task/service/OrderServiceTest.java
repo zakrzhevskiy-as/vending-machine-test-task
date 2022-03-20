@@ -611,7 +611,7 @@ class OrderServiceTest {
         saved.setModified(LocalDateTime.now());
 
         // when
-        underTest.processBeverage(order.getId(), saved.getId(), ProcessAction.PROCESS, false);
+        underTest.processBeverage(order.getId(), saved.getId(), ProcessAction.PROCESS);
 
         // then
         verify(processingService).processBeverage(eq(order.getId()));
@@ -650,22 +650,34 @@ class OrderServiceTest {
         fullBeverageVolume.setCreated(LocalDateTime.now());
         fullBeverageVolume.setModified(LocalDateTime.now());
 
-        OrderBeverage saved = new OrderBeverage();
-        saved.setId(1L);
-        saved.setOrder(order);
-        saved.setBeverageVolume(fullBeverageVolume);
-        saved.setStatus(OrderBeverageStatus.READY);
-        saved.setSelectedIce(false);
-        saved.setCreated(LocalDateTime.now());
-        saved.setModified(LocalDateTime.now());
+        OrderBeverage orderBeverage1 = new OrderBeverage();
+        orderBeverage1.setId(1L);
+        orderBeverage1.setOrder(order);
+        orderBeverage1.setBeverageVolume(fullBeverageVolume);
+        orderBeverage1.setStatus(OrderBeverageStatus.TAKEN);
+        orderBeverage1.setSelectedIce(false);
+        orderBeverage1.setCreated(LocalDateTime.now());
+        orderBeverage1.setModified(LocalDateTime.now());
 
-        when(orderBeveragesRepository.getById(saved.getId())).thenReturn(saved);
+        OrderBeverage orderBeverage2 = new OrderBeverage();
+        orderBeverage2.setId(2L);
+        orderBeverage2.setOrder(order);
+        orderBeverage2.setBeverageVolume(fullBeverageVolume);
+        orderBeverage2.setStatus(OrderBeverageStatus.READY);
+        orderBeverage2.setSelectedIce(false);
+        orderBeverage2.setCreated(LocalDateTime.now());
+        orderBeverage2.setModified(LocalDateTime.now());
+
+        when(orderBeveragesRepository.findByOrderId(anyLong(), any(Sort.class)))
+                .thenReturn(asList(orderBeverage1, orderBeverage2));
+        when(orderBeveragesRepository.getById(orderBeverage2.getId())).thenReturn(orderBeverage2);
+        when(ordersRepository.getById(anyLong())).thenReturn(order);
 
         // when
-        underTest.processBeverage(order.getId(), saved.getId(), ProcessAction.TAKE, false);
+        underTest.processBeverage(order.getId(), orderBeverage2.getId(), ProcessAction.TAKE);
 
         // then
-        verify(processingService).beveragesToStatus(saved.getStatus().getNextStatus(), saved);
+        verify(processingService).beveragesToStatus(orderBeverage2.getStatus().getNextStatus(), orderBeverage2);
     }
 
     @Test
@@ -701,22 +713,34 @@ class OrderServiceTest {
         fullBeverageVolume.setCreated(LocalDateTime.now());
         fullBeverageVolume.setModified(LocalDateTime.now());
 
-        OrderBeverage saved = new OrderBeverage();
-        saved.setId(1L);
-        saved.setOrder(order);
-        saved.setBeverageVolume(fullBeverageVolume);
-        saved.setStatus(OrderBeverageStatus.READY);
-        saved.setSelectedIce(false);
-        saved.setCreated(LocalDateTime.now());
-        saved.setModified(LocalDateTime.now());
+        OrderBeverage orderBeverage1 = new OrderBeverage();
+        orderBeverage1.setId(1L);
+        orderBeverage1.setOrder(order);
+        orderBeverage1.setBeverageVolume(fullBeverageVolume);
+        orderBeverage1.setStatus(OrderBeverageStatus.TAKEN);
+        orderBeverage1.setSelectedIce(false);
+        orderBeverage1.setCreated(LocalDateTime.now());
+        orderBeverage1.setModified(LocalDateTime.now());
 
-        when(orderBeveragesRepository.getById(anyLong())).thenReturn(saved);
+        OrderBeverage orderBeverage2 = new OrderBeverage();
+        orderBeverage2.setId(2L);
+        orderBeverage2.setOrder(order);
+        orderBeverage2.setBeverageVolume(fullBeverageVolume);
+        orderBeverage2.setStatus(OrderBeverageStatus.READY);
+        orderBeverage2.setSelectedIce(false);
+        orderBeverage2.setCreated(LocalDateTime.now());
+        orderBeverage2.setModified(LocalDateTime.now());
+
+        when(orderBeveragesRepository.findByOrderId(anyLong(), any(Sort.class)))
+                .thenReturn(asList(orderBeverage1, orderBeverage2));
+        when(orderBeveragesRepository.getById(anyLong())).thenReturn(orderBeverage2);
         when(ordersRepository.getById(anyLong())).thenReturn(order);
 
         // when
-        underTest.processBeverage(order.getId(), saved.getId(), ProcessAction.TAKE, true);
+        underTest.processBeverage(order.getId(), orderBeverage2.getId(), ProcessAction.TAKE);
 
         // then
+        verify(processingService).beveragesToStatus(orderBeverage2.getStatus().getNextStatus(), orderBeverage2);
         verify(ordersRepository).save(any(Order.class));
     }
 
@@ -778,8 +802,7 @@ class OrderServiceTest {
         Throwable thrown = catchThrowable(() -> underTest.processBeverage(
                 order.getId(),
                 orderBeverage2.getId(),
-                ProcessAction.PROCESS,
-                false
+                ProcessAction.PROCESS
         ));
 
         // then
@@ -790,7 +813,7 @@ class OrderServiceTest {
     @Test
     void processBeverageThrowsIllegalArgumentException() {
         // when
-        Throwable thrown = catchThrowable(() -> underTest.processBeverage(null, null, ProcessAction.SUBMIT, false));
+        Throwable thrown = catchThrowable(() -> underTest.processBeverage(null, null, ProcessAction.SUBMIT));
 
         // then
         assertThat(thrown)
