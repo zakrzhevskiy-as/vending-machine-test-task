@@ -1,0 +1,60 @@
+{
+  "uid" : "f2071fb5fe531cd0",
+  "name" : "processBeverageThrowsBeverageCantBeProcessedException()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.processBeverageThrowsBeverageCantBeProcessedException",
+  "historyId" : "6dfa16bfa698cb1f07e33d16fcbf997c",
+  "time" : {
+    "start" : 1647807238185,
+    "stop" : 1647807238237,
+    "duration" : 52
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az149-889"
+  }, {
+    "name" : "thread",
+    "value" : "2598@fv-az149-889.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "processBeverageThrowsBeverageCantBeProcessedException"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "f2071fb5fe531cd0.json",
+  "parameterValues" : [ ]
+}

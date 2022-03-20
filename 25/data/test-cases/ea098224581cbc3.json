@@ -1,0 +1,89 @@
+{
+  "uid" : "ea098224581cbc3",
+  "name" : "canGetFinishedOrders()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.canGetFinishedOrders",
+  "historyId" : "e986218607951de7aed4aa014755f9f5",
+  "time" : {
+    "start" : 1647807238274,
+    "stop" : 1647807238276,
+    "duration" : 2
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az149-889"
+  }, {
+    "name" : "thread",
+    "value" : "2598@fv-az149-889.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canGetFinishedOrders"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "c4594c2d8d2a0638",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/24//#testresult/c4594c2d8d2a0638",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647293085059,
+          "stop" : 1647293085060,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "9c09381e8b3aa30a",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/23//#testresult/9c09381e8b3aa30a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647291245984,
+          "stop" : 1647291245985,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "ea098224581cbc3.json",
+  "parameterValues" : [ ]
+}
