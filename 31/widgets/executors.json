@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://defaultuser1000.github.io/vending-machine-test-task",
+  "buildOrder" : 31,
+  "buildName" : "GitHub Actions Run #2035123387",
+  "buildUrl" : "https://github.com/defaultuser1000/vending-machine-test-task/actions/runs/2035123387",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/31/"
+} ]
