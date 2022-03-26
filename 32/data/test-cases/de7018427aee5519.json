@@ -1,0 +1,57 @@
+{
+  "uid" : "de7018427aee5519",
+  "name" : "itShouldAddAvailableVolume()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest.itShouldAddAvailableVolume",
+  "historyId" : "e6be1faafe8ac8467b0e39716946232",
+  "time" : {
+    "start" : 1648336861294,
+    "stop" : 1648336861318,
+    "duration" : 24
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az147-291"
+  }, {
+    "name" : "thread",
+    "value" : "2233@fv-az147-291.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldAddAvailableVolume"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи BeverageController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "de7018427aee5519.json",
+  "parameterValues" : [ ]
+}
