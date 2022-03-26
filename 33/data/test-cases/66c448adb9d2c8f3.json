@@ -1,0 +1,143 @@
+{
+  "uid" : "66c448adb9d2c8f3",
+  "name" : "processBeverageThrowsBeverageCantBeProcessedException()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.processBeverageThrowsBeverageCantBeProcessedException",
+  "historyId" : "6dfa16bfa698cb1f07e33d16fcbf997c",
+  "time" : {
+    "start" : 1648337110589,
+    "stop" : 1648337110622,
+    "duration" : 33
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az147-291"
+  }, {
+    "name" : "thread",
+    "value" : "2192@fv-az147-291.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "processBeverageThrowsBeverageCantBeProcessedException"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 9,
+        "unknown" : 0,
+        "total" : 9
+      },
+      "items" : [ {
+        "uid" : "f78de17872207b2",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/f78de17872207b2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336863600,
+          "stop" : 1648336863636,
+          "duration" : 36
+        }
+      }, {
+        "uid" : "e4e57c32ab594479",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/31//#testresult/e4e57c32ab594479",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648134995102,
+          "stop" : 1648134995135,
+          "duration" : 33
+        }
+      }, {
+        "uid" : "90fb23cecf943021",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/30//#testresult/90fb23cecf943021",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647815521402,
+          "stop" : 1647815521439,
+          "duration" : 37
+        }
+      }, {
+        "uid" : "694e38c6a3f16f4f",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/29//#testresult/694e38c6a3f16f4f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647815293546,
+          "stop" : 1647815293609,
+          "duration" : 63
+        }
+      }, {
+        "uid" : "537f188546366ffe",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/28//#testresult/537f188546366ffe",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810650258,
+          "stop" : 1647810650314,
+          "duration" : 56
+        }
+      }, {
+        "uid" : "a5e6af3fadb0fd3d",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/27//#testresult/a5e6af3fadb0fd3d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810354842,
+          "stop" : 1647810354901,
+          "duration" : 59
+        }
+      }, {
+        "uid" : "7f2c817c170275d1",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/26//#testresult/7f2c817c170275d1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647808394311,
+          "stop" : 1647808394354,
+          "duration" : 43
+        }
+      }, {
+        "uid" : "f2071fb5fe531cd0",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/25//#testresult/f2071fb5fe531cd0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647807238185,
+          "stop" : 1647807238237,
+          "duration" : 52
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "66c448adb9d2c8f3.json",
+  "parameterValues" : [ ]
+}
