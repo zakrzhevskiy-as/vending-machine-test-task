@@ -5,6 +5,7 @@ import com.sbt.pprb.qa.test_task.model.dto.BeverageType;
 import com.sbt.pprb.qa.test_task.model.response.BeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.BeverageVolumeResponseResource;
 import com.sbt.pprb.qa.test_task.service.BeverageService;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Epic("Integration-тесты контроллеров")
 @DisplayName("Тесты контроллера апи BeverageController")
 class BeverageControllerTest extends ControllerTestContext {
 

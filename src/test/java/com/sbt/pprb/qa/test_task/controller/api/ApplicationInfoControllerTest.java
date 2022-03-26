@@ -2,6 +2,7 @@ package com.sbt.pprb.qa.test_task.controller.api;
 
 import com.sbt.pprb.qa.test_task.controller.ControllerTestContext;
 import com.sbt.pprb.qa.test_task.service.ApplicationInfoService;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Epic("Integration-тесты контроллеров")
 @DisplayName("Тесты контроллера апи ApplicationInfoController")
 class ApplicationInfoControllerTest extends ControllerTestContext {
 

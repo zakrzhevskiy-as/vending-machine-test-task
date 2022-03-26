@@ -2,7 +2,6 @@ package com.sbt.pprb.qa.test_task.controller;
 
 import com.sbt.pprb.qa.test_task.VendingMachineApplication;
 import com.sbt.pprb.qa.test_task.model.dto.AppUser;
-import io.qameta.allure.Epic;
 import org.junit.jupiter.api.BeforeAll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -13,7 +12,6 @@ import org.springframework.test.web.servlet.request.RequestPostProcessor;
 
 @AutoConfigureMockMvc
 @SpringBootTest(classes = VendingMachineApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-@Epic("Integration-тесты контроллеров")
 public class ControllerTestContext {
 
     protected static final String USERNAME = "test_user";

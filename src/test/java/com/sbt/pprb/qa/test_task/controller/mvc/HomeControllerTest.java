@@ -1,6 +1,7 @@
 package com.sbt.pprb.qa.test_task.controller.mvc;
 
 import com.sbt.pprb.qa.test_task.controller.ControllerTestContext;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+@Epic("Integration-тесты контроллеров")
 @DisplayName("Тесты контроллера HomeController")
 class HomeControllerTest extends ControllerTestContext {
 

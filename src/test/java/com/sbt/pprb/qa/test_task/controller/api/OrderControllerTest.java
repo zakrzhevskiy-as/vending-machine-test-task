@@ -11,6 +11,7 @@ import com.sbt.pprb.qa.test_task.model.response.OrderBeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderResponseResource;
 import com.sbt.pprb.qa.test_task.service.OrderService;
 import com.sbt.pprb.qa.test_task.service.UserService;
+import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
+@Epic("Integration-тесты контроллеров")
 @DisplayName("Тесты контроллера апи OrderController")
 class OrderControllerTest extends ControllerTestContext {
 
