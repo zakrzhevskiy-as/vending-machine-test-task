@@ -1,0 +1,77 @@
+{
+  "uid" : "ada87a8326e34bc8",
+  "name" : "itShouldReturnUnauthorizedOnAddAvailableVolumeRequest()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest.itShouldReturnUnauthorizedOnAddAvailableVolumeRequest",
+  "historyId" : "775ca2ea8980094f203d73177df7bd39",
+  "time" : {
+    "start" : 1648337216491,
+    "stop" : 1648337216507,
+    "duration" : 16
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az138-811"
+  }, {
+    "name" : "thread",
+    "value" : "2186@fv-az138-811.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.BeverageControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnUnauthorizedOnAddAvailableVolumeRequest"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи BeverageController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "17549752e6b6f85b",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/17549752e6b6f85b",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336861273,
+          "stop" : 1648336861292,
+          "duration" : 19
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "ada87a8326e34bc8.json",
+  "parameterValues" : [ ]
+}
