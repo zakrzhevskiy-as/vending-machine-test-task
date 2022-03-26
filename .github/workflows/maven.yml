@@ -23,7 +23,7 @@ jobs:
         cache: maven
     
     - name: Test with Maven
-      run: mvn -B test --file pom.xml -Dspring.profiles.active=integrationtest
+      run: mvn -B test --file pom.xml -Dspring.profiles.active=test
     
     - name: Get Allure history
       uses: actions/checkout@v2

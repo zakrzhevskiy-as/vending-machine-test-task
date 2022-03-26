@@ -1,78 +1,127 @@
 package com.sbt.pprb.qa.test_task.controller.api;
 
-import com.sbt.pprb.qa.test_task.CommonTestContext;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Tag;
+import com.sbt.pprb.qa.test_task.controller.ControllerTestContext;
+import com.sbt.pprb.qa.test_task.service.ApplicationInfoService;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-//@SpringBootTest(classes = VendingMachineApplication.class, webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-//@AutoConfigureMockMvc
-class ApplicationInfoControllerTest extends CommonTestContext {
+@DisplayName("Тесты контроллера апи ApplicationInfoController")
+class ApplicationInfoControllerTest extends ControllerTestContext {
+
+    @MockBean
+    private ApplicationInfoService applicationInfoService;
 
     @Autowired
-    private MockMvc mvc;
+    private MockMvc mockMvc;
 
-    @Value("${SPRING_DB_URL:jdbc:postgresql://localhost:5432/test-task}")
-    private String expectedDbUrl;
-    @Value("${system.db.schema}")
-    private String expectedDbSchema;
-    @Value("${system.db.reader.user}")
-    private String expectedDbUsername;
-    @Value("${system.db.reader.password}")
-    private String expectedDbPassword;
-    @Value("${system.rest.auth.type}")
-    private String expectedRestAuthType;
+    @Test
+    void itShouldReturnDbConfig() throws Exception {
+        // Given
+        Map<String, String> body = new HashMap<>();
+        body.put("url", "jdbc:postgresql://localhost:5432/test-task");
+        body.put("schema", "test_schema");
+        body.put("username", "test_username");
+        body.put("password", "test_password");
 
-//    @Test
-    @Disabled
-    void dbConfig_endpoint_test() throws Exception {
-        MockHttpServletRequestBuilder request = get("/api/app-info/database")
-                .with(auth)
-                .contentType(MediaType.APPLICATION_JSON);
+        when(applicationInfoService.getDbConfig()).thenReturn(body);
 
-        mvc.perform(request)
+        // When
+        MockHttpServletRequestBuilder request = get("/api/v1/app-info/database").with(auth);
+
+        // Then
+        mockMvc.perform(request)
+                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.url", is(expectedDbUrl)))
-                .andExpect(jsonPath("$.schema", is(expectedDbSchema)))
-                .andExpect(jsonPath("$.username", is(expectedDbUsername)))
-                .andExpect(jsonPath("$.password", is(expectedDbPassword)));
+                .andExpect(jsonPath("$.url", is(body.get("url"))))
+                .andExpect(jsonPath("$.schema", is(body.get("schema"))))
+                .andExpect(jsonPath("$.username", is(body.get("username"))))
+                .andExpect(jsonPath("$.password", is(body.get("password"))));
     }
 
-//    @Test
-    @Tag("restConfig")
-    @Disabled
-    void restConfig_endpoint_test() throws Exception {
-        MockHttpServletRequestBuilder request = get("/api/app-info/rest")
-                .with(auth)
-                .contentType(MediaType.APPLICATION_JSON);
+    @Test
+    void itShouldReturnUnauthorizedOnDbConfigRequest() throws Exception {
+        // When
+        MockHttpServletRequestBuilder request = get("/api/v1/app-info/database");
 
-        mvc.perform(request)
-                .andExpect(status().isOk())
-                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.auth_type", is(expectedRestAuthType)))
-                .andExpect(jsonPath("$.credentials", is("Same as for UI")))
-                .andExpect(jsonPath("$.documentation", is("swagger-ui/index.html")));
+        // Then
+        mockMvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isUnauthorized());
     }
 
-//    @Test
-    @Disabled
-    void appInfo_endpoint_test() throws Exception {
-        MockHttpServletRequestBuilder request = get("/api/app-info")
-                .with(auth)
-                .contentType(MediaType.APPLICATION_JSON);
+    @Test
+    void itShouldReturnRestConfig() throws Exception {
+        // Given
+        Map<String, String> body = new HashMap<>();
+        body.put("auth_type", "Basic");
+        body.put("credentials", "test_credentials");
+        body.put("documentation", "test_url");
 
-        mvc.perform(request)
+        when(applicationInfoService.getRestConfig()).thenReturn(body);
+
+        // When
+        MockHttpServletRequestBuilder request = get("/api/v1/app-info/rest").with(auth);
+
+        // Then
+        mockMvc.perform(request)
+                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$.username", is(username)));
+                .andExpect(jsonPath("$.auth_type", is("Basic")))
+                .andExpect(jsonPath("$.credentials", is("test_credentials")))
+                .andExpect(jsonPath("$.documentation", is("test_url")));
+    }
+
+    @Test
+    void itShouldReturnUnauthorizedOnRestConfigRequest() throws Exception {
+        // When
+        MockHttpServletRequestBuilder request = get("/api/v1/app-info/rest");
+
+        // Then
+        mockMvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isUnauthorized());
+    }
+
+    @Test
+    void itShouldReturnAppInfo() throws Exception {
+        // Given
+        when(applicationInfoService.getAppInfo()).thenReturn(Collections.singletonMap("username", USERNAME));
+
+        // When
+        MockHttpServletRequestBuilder request = get("/api/v1/app-info").with(auth);
+
+        // Then
+        mockMvc.perform(request)
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$.username", is(USERNAME)));
+    }
+
+    @Test
+    void itShouldReturnUnauthorizedOnAppInfoRequest() throws Exception {
+        // When
+        MockHttpServletRequestBuilder request = get("/api/v1/app-info");
+
+        // Then
+        mockMvc.perform(request)
+                .andDo(print())
+                .andExpect(status().isUnauthorized());
     }
 }

@@ -237,7 +237,7 @@ public class OrderService {
         OrderBeverageResponseResource beverageResponseResource = new OrderBeverageResponseResource();
         beverageResponseResource.setId(orderBeverage.getId());
         beverageResponseResource.setBeverageType(orderBeverage.getBeverageVolume().getBeverage().getBeverageType());
-        beverageResponseResource.setSelectedIce(orderBeverage.getSelectedIce());
+        beverageResponseResource.setSelectedIce(orderBeverage.isSelectedIce());
         beverageResponseResource.setStatus(orderBeverage.getStatus());
 
         BeverageVolumeResponseResource volumeResponseResource = new BeverageVolumeResponseResource();
