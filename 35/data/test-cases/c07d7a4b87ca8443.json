@@ -1,0 +1,89 @@
+{
+  "uid" : "c07d7a4b87ca8443",
+  "name" : "itShouldReturnUnauthorizedOnAddBeverageRequest()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest.itShouldReturnUnauthorizedOnAddBeverageRequest",
+  "historyId" : "194e28ffe74eb8a8c3722df9f6467e33",
+  "time" : {
+    "start" : 1648337838362,
+    "stop" : 1648337838378,
+    "duration" : 16
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az138-811"
+  }, {
+    "name" : "thread",
+    "value" : "2189@fv-az138-811.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnUnauthorizedOnAddBeverageRequest"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи OrderController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 3,
+        "unknown" : 0,
+        "total" : 3
+      },
+      "items" : [ {
+        "uid" : "d8ef182e324aa411",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/34//#testresult/d8ef182e324aa411",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337212819,
+          "stop" : 1648337212829,
+          "duration" : 10
+        }
+      }, {
+        "uid" : "b7dbba642539b58c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/b7dbba642539b58c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336857495,
+          "stop" : 1648336857509,
+          "duration" : 14
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c07d7a4b87ca8443.json",
+  "parameterValues" : [ ]
+}
