@@ -1,0 +1,200 @@
+{
+  "uid" : "111087c6ffede2c8",
+  "name" : "canAddBalanceAndChangeAmountOf10To500()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.canAddBalanceAndChangeAmountOf10To500",
+  "historyId" : "33edaea4f1b367831c0c593d35c20672",
+  "time" : {
+    "start" : 1648415397535,
+    "stop" : 1648415397537,
+    "duration" : 2
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az147-291"
+  }, {
+    "name" : "thread",
+    "value" : "2418@fv-az147-291.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canAddBalanceAndChangeAmountOf10To500"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "critical",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 15,
+        "unknown" : 0,
+        "total" : 15
+      },
+      "items" : [ {
+        "uid" : "9e7800eac9e64fcc",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/36//#testresult/9e7800eac9e64fcc",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648339382550,
+          "stop" : 1648339382552,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "49bd541843c81f8d",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/35//#testresult/49bd541843c81f8d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337844512,
+          "stop" : 1648337844514,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "795409cd18b85619",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/34//#testresult/795409cd18b85619",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337219051,
+          "stop" : 1648337219053,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "35c78b95d8c173f9",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/33//#testresult/35c78b95d8c173f9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337110690,
+          "stop" : 1648337110691,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "aca9925b1c78bf2d",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/aca9925b1c78bf2d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336863691,
+          "stop" : 1648336863692,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "6bbca2fa709d699",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/31//#testresult/6bbca2fa709d699",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648134995195,
+          "stop" : 1648134995196,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "48fe1836f967739e",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/30//#testresult/48fe1836f967739e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647815521499,
+          "stop" : 1647815521501,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "1fdb35449a8c33bf",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/29//#testresult/1fdb35449a8c33bf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647815293701,
+          "stop" : 1647815293703,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "8f35c4760fad4ac9",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/28//#testresult/8f35c4760fad4ac9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810650407,
+          "stop" : 1647810650409,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "135f55a64b800855",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/27//#testresult/135f55a64b800855",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647810354988,
+          "stop" : 1647810354989,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "82958e3f4ae3541c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/26//#testresult/82958e3f4ae3541c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647808394411,
+          "stop" : 1647808394412,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "ad9674841be8ace7",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/25//#testresult/ad9674841be8ace7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647807238302,
+          "stop" : 1647807238303,
+          "duration" : 1
+        }
+      }, {
+        "uid" : "1f4b66156a2e5c41",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/24//#testresult/1f4b66156a2e5c41",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647293085083,
+          "stop" : 1647293085085,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "baafe7e44a260f6e",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/23//#testresult/baafe7e44a260f6e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1647291246010,
+          "stop" : 1647291246011,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "111087c6ffede2c8.json",
+  "parameterValues" : [ ]
+}

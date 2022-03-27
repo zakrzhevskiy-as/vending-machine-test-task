@@ -1,0 +1,57 @@
+{
+  "uid" : "5d8b34d58666e797",
+  "name" : "givenBeverage_whenJobExecuted_thenSuccess()",
+  "fullName" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest.givenBeverage_whenJobExecuted_thenSuccess",
+  "historyId" : "7ee66030d46f46c9f4c2f802b6c22280",
+  "time" : {
+    "start" : 1648415394995,
+    "stop" : 1648415397105,
+    "duration" : 2110
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az147-291"
+  }, {
+    "name" : "thread",
+    "value" : "2418@fv-az147-291.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "givenBeverage_whenJobExecuted_thenSuccess"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5d8b34d58666e797.json",
+  "parameterValues" : [ ]
+}

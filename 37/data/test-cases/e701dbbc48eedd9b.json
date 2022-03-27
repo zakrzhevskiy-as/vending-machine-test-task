@@ -1,0 +1,60 @@
+{
+  "uid" : "e701dbbc48eedd9b",
+  "name" : "itShouldReturnNotFoundWhenNoActiveOrder()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest.itShouldReturnNotFoundWhenNoActiveOrder",
+  "historyId" : "415e79bf0e322231def49cb250de2ef0",
+  "time" : {
+    "start" : 1648415386790,
+    "stop" : 1648415386798,
+    "duration" : 8
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az147-291"
+  }, {
+    "name" : "thread",
+    "value" : "2418@fv-az147-291.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnNotFoundWhenNoActiveOrder"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи OrderController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e701dbbc48eedd9b.json",
+  "parameterValues" : [ ]
+}

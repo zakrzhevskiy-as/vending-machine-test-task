@@ -1,0 +1,60 @@
+{
+  "uid" : "bc10e5c0c38505a4",
+  "name" : "itShouldAddHintHeaders()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.mvc.SecurityFiltersTest.itShouldAddHintHeaders",
+  "historyId" : "6ea91cc0cdc55807ad40317ee6cc9321",
+  "time" : {
+    "start" : 1648415380713,
+    "stop" : 1648415381016,
+    "duration" : 303
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты фильтров запросов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az147-291"
+  }, {
+    "name" : "thread",
+    "value" : "2418@fv-az147-291.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.mvc.SecurityFiltersTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.mvc.SecurityFiltersTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldAddHintHeaders"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты фильтров запросов (SecurityConfig)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "bc10e5c0c38505a4.json",
+  "parameterValues" : [ ]
+}
