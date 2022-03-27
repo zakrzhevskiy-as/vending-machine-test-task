@@ -2,7 +2,6 @@ package com.sbt.pprb.qa.test_task.repository;
 
 import com.sbt.pprb.qa.test_task.model.dto.Beverage;
 import com.sbt.pprb.qa.test_task.model.dto.BeverageVolume;
-import com.sbt.pprb.qa.test_task.model.exception.EntityNotFoundException;
 import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -26,7 +25,7 @@ class BeverageVolumesRepositoryTest {
     @Test
     void itShouldUpdatePriceAndModificationDate() {
         // given
-        BeverageVolume base = underTest.findAll().stream().findAny().orElseThrow(EntityNotFoundException::new);
+        BeverageVolume base = underTest.findAll().get(0);
 
         // when
         underTest.update(base.getId(), base.getPrice() + 10, base.getVolume());
@@ -40,7 +39,7 @@ class BeverageVolumesRepositoryTest {
     @Test
     void itShouldUpdateVolumeAndModificationDate() {
         // given
-        BeverageVolume base = underTest.findAll().stream().findAny().orElseThrow(EntityNotFoundException::new);
+        BeverageVolume base = underTest.findAll().get(0);
 
         // when
         underTest.update(base.getId(), base.getPrice(), base.getVolume() + 1);
@@ -54,7 +53,7 @@ class BeverageVolumesRepositoryTest {
     @Test
     void itShouldUpdatePriceAndVolumeAndModificationDate() {
         // given
-        BeverageVolume base = underTest.findAll().stream().findAny().orElseThrow(EntityNotFoundException::new);
+        BeverageVolume base = underTest.findAll().get(0);
 
         // when
         underTest.update(base.getId(), base.getPrice() + 10, base.getVolume() + 1);
@@ -69,10 +68,7 @@ class BeverageVolumesRepositoryTest {
     @Test
     void itShouldFindBeverageVolumesByBeverage() {
         // given
-        Beverage beverage = beveragesRepository.findAll()
-                .stream()
-                .findAny()
-                .orElseThrow(EntityNotFoundException::new);
+        Beverage beverage = beveragesRepository.findAll().get(0);
 
         // when
         List<BeverageVolume> result = underTest.findBeverageVolumeByBeverage(beverage);

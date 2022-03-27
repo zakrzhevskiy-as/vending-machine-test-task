@@ -2,17 +2,17 @@ package com.sbt.pprb.qa.test_task.service;
 
 import com.sbt.pprb.qa.test_task.model.dto.OrderBeverage;
 import com.sbt.pprb.qa.test_task.model.dto.OrderBeverageStatus;
+import com.sbt.pprb.qa.test_task.model.exception.InternalException;
 import com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepository;
 import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobParameter;
-import org.springframework.batch.core.JobParameters;
+import org.springframework.batch.core.JobParametersBuilder;
+import org.springframework.batch.core.JobParametersInvalidException;
 import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.batch.core.repository.JobExecutionAlreadyRunningException;
+import org.springframework.batch.core.repository.JobInstanceAlreadyCompleteException;
+import org.springframework.batch.core.repository.JobRestartException;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 @AllArgsConstructor
@@ -29,13 +29,16 @@ public class OrderProcessingService {
         }
     }
 
-    @SneakyThrows
-    public void processBeverage(Long orderBeverageId) {
-        JobParameter beverageIdParam = new JobParameter(orderBeverageId);
-        Map<String, JobParameter> parameterMap = new HashMap<>();
-        parameterMap.put("beverageId", beverageIdParam);
-        JobParameters parameters = new JobParameters(parameterMap);
+    public void processBeverage(Long orderBeverageId, Long secondsToProcess) {
+        JobParametersBuilder parametersBuilder = new JobParametersBuilder()
+                .addLong("beverageId", orderBeverageId)
+                .addLong("secondsToProcess", secondsToProcess);
 
-        jobLauncher.run(processBeverageJob, parameters);
+        try {
+            jobLauncher.run(processBeverageJob, parametersBuilder.toJobParameters());
+        } catch (JobExecutionAlreadyRunningException | JobRestartException
+                | JobInstanceAlreadyCompleteException | JobParametersInvalidException e) {
+            throw new InternalException("Processing beverage job run failed", e);
+        }
     }
 }

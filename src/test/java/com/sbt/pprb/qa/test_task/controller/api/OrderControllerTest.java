@@ -1,10 +1,7 @@
 package com.sbt.pprb.qa.test_task.controller.api;
 
 import com.sbt.pprb.qa.test_task.controller.ControllerTestContext;
-import com.sbt.pprb.qa.test_task.model.dto.AppUser;
-import com.sbt.pprb.qa.test_task.model.dto.BeverageType;
-import com.sbt.pprb.qa.test_task.model.dto.Order;
-import com.sbt.pprb.qa.test_task.model.dto.OrderBeverageStatus;
+import com.sbt.pprb.qa.test_task.model.dto.*;
 import com.sbt.pprb.qa.test_task.model.exception.InternalException;
 import com.sbt.pprb.qa.test_task.model.response.BeverageVolumeResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderBeverageResponseResource;
@@ -35,7 +32,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Epic("Integration-тесты контроллеров")
@@ -95,7 +91,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(not(emptyList())))
@@ -118,6 +113,31 @@ class OrderControllerTest extends ControllerTestContext {
     }
 
     @Test
+    void itShouldReturnNotFoundWhenNoActiveOrder() throws Exception {
+        // Given
+        AppUser user = new AppUser();
+        user.setId(1L);
+        user.setUsername(USERNAME);
+        user.setPassword("password");
+        user.setAuthority("USER");
+        user.setEnabled(true);
+        user.setCreated(LocalDateTime.now());
+        user.setModified(LocalDateTime.now());
+
+        when(orderService.getOrders(any(), anyBoolean())).thenReturn(emptyList());
+        when(userService.getUser(eq(USERNAME))).thenReturn(Optional.of(user));
+
+        // When
+        MockHttpServletRequestBuilder request = get("/api/v1/orders")
+                .with(auth)
+                .param("active", "true");
+
+        // Then
+        mockMvc.perform(request)
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
     void itShouldReturnUnauthorizedOnOrdersListRequest() throws Exception {
         // When
         MockHttpServletRequestBuilder request = get("/api/v1/orders")
@@ -125,12 +145,11 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
     @Test
-    void itShouldNotDeleteFinishedOrders() throws Exception {
+    void itShouldThrowInternalExceptionWhenDeletingFinishedOrders() throws Exception {
         // Given
         AppUser user = new AppUser();
         user.setId(1L);
@@ -150,7 +169,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         MvcResult mvcResult = mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isInternalServerError())
                 .andReturn();
 
@@ -162,13 +180,35 @@ class OrderControllerTest extends ControllerTestContext {
     }
 
     @Test
+    void itShouldReturnNoContentWhenDeletingFinishedOrders() throws Exception {
+        // Given
+        AppUser user = new AppUser();
+        user.setId(1L);
+        user.setUsername(USERNAME);
+        user.setPassword("password");
+        user.setAuthority("USER");
+        user.setEnabled(true);
+        user.setCreated(LocalDateTime.now());
+        user.setModified(LocalDateTime.now());
+
+        doNothing().when(orderService).deleteFinished(any());
+        when(userService.getUser(eq(USERNAME))).thenReturn(Optional.of(user));
+
+        // When
+        MockHttpServletRequestBuilder request = delete("/api/v1/orders").with(auth);
+
+        // Then
+        mockMvc.perform(request)
+                .andExpect(status().isNoContent());
+    }
+
+    @Test
     void itShouldReturnUnauthorizedOnOrdersDeleteRequest() throws Exception {
         // When
         MockHttpServletRequestBuilder request = delete("/api/v1/orders");
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -211,7 +251,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(notNullValue(OrderResponseResource.class)))
@@ -239,7 +278,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -253,7 +291,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isNoContent());
     }
 
@@ -264,7 +301,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -305,7 +341,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isCreated())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(notNullValue(OrderResponseResource.class)))
@@ -324,7 +359,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -353,7 +387,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(notNullValue(OrderBeverageResponseResource.class)))
                 .andExpect(jsonPath("$.id").value(beverage.getId()))
@@ -373,7 +406,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -387,7 +419,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isNoContent());
     }
 
@@ -398,12 +429,11 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
     @Test
-    void itShouldProcessBeverage() throws Exception {
+    void itShouldSubmitOrder() throws Exception {
         // Given
         BeverageVolumeResponseResource volume = new BeverageVolumeResponseResource();
         volume.setId(1L);
@@ -427,7 +457,47 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
+                .andExpect(jsonPath("$").value(not(emptyList())))
+                .andExpect(jsonPath("$[0]").value(notNullValue(OrderBeverageResponseResource.class)))
+                .andExpect(jsonPath("$[0].id").value(beverage.getId()))
+                .andExpect(jsonPath("$[0].status").value(beverage.getStatus().name()))
+                .andExpect(jsonPath("$[0].beverageType").value(beverage.getBeverageType().getType()))
+                .andExpect(jsonPath("$[0].selectedIce").value(beverage.isSelectedIce()))
+                .andExpect(jsonPath("$[0].beverageVolume").value(notNullValue(BeverageVolumeResponseResource.class)))
+                .andExpect(jsonPath("$[0].beverageVolume.id").value(beverage.getBeverageVolume().getId()))
+                .andExpect(jsonPath("$[0].beverageVolume.volume").value(beverage.getBeverageVolume().getVolume()))
+                .andExpect(jsonPath("$[0].beverageVolume.price").value(beverage.getBeverageVolume().getPrice()));
+    }
+
+    @Test
+    void itShouldProcessBeverage() throws Exception {
+        // Given
+        BeverageVolumeResponseResource volume = new BeverageVolumeResponseResource();
+        volume.setId(1L);
+        volume.setVolume(0.5);
+        volume.setPrice(100);
+
+        OrderBeverageResponseResource beverage = new OrderBeverageResponseResource();
+        beverage.setId(1L);
+        beverage.setStatus(OrderBeverageStatus.READY);
+        beverage.setBeverageType(BeverageType.SLURM);
+        beverage.setBeverageVolume(volume);
+        beverage.setSelectedIce(false);
+
+        List<OrderBeverageResponseResource> beverages = singletonList(beverage);
+        when(orderService.processBeverage(anyLong(), anyLong(), eq(ProcessAction.PROCESS), anyLong()))
+                .thenReturn(beverages);
+
+        // When
+        MockHttpServletRequestBuilder request = post("/api/v1/orders/1")
+                .with(auth)
+                .param("beverageId", "1")
+                .param("action", "PROCESS");
+
+        // Then
+        mockMvc.perform(request)
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(not(emptyList())))
@@ -450,7 +520,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -473,7 +542,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(notNullValue(OrderResponseResource.class)))
@@ -493,7 +561,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -514,7 +581,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(notNullValue(OrderResponseResource.class)))
@@ -533,7 +599,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -560,7 +625,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$").value(notNullValue(OrderBeverageResponseResource.class)))
@@ -582,7 +646,6 @@ class OrderControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 }

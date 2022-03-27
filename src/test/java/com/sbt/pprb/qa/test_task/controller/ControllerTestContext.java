@@ -19,12 +19,12 @@ public class ControllerTestContext {
 
     @BeforeAll
     static void precondition(@Autowired PasswordEncoder passwordEncoder) {
-        AppUser newUser = new AppUser();
-        newUser.setUsername(USERNAME);
-        newUser.setPassword(passwordEncoder.encode("password"));
-        newUser.setEnabled(true);
-        newUser.setAuthority("USER");
+        AppUser user = new AppUser();
+        user.setUsername(USERNAME);
+        user.setPassword(passwordEncoder.encode("password"));
+        user.setEnabled(true);
+        user.setAuthority("USER");
 
-        auth = SecurityMockMvcRequestPostProcessors.user(newUser);
+        auth = SecurityMockMvcRequestPostProcessors.user(user);
     }
 }

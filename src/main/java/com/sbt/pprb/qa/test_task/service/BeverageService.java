@@ -61,7 +61,7 @@ public class BeverageService {
             responseResource.setBeverageVolumes(beverageVolumesResources);
             responseResources.add(responseResource);
         });
-        Collections.sort(responseResources);
+        responseResources.sort(Comparator.comparing(BeverageResponseResource::getId));
 
         return responseResources;
     }

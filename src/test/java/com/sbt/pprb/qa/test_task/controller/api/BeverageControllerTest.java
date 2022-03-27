@@ -23,7 +23,6 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Epic("Integration-тесты контроллеров")
@@ -66,7 +65,6 @@ class BeverageControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$", not(emptyArray())))
@@ -127,7 +125,6 @@ class BeverageControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -143,7 +140,6 @@ class BeverageControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk());
         verify(beverageService).addVolume(anyLong(), anyDouble());
     }
@@ -156,7 +152,6 @@ class BeverageControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 }

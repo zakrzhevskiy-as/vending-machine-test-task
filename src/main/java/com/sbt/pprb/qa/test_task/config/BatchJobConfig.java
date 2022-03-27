@@ -33,7 +33,8 @@ public class BatchJobConfig {
     }
 
     @Bean
-    public Step step1(ItemReader<OrderBeverage> reader,
+    public Step step1(StepBuilderFactory steps,
+                      ItemReader<OrderBeverage> reader,
                       ItemProcessor<OrderBeverage, OrderBeverage> processor,
                       ItemWriter<OrderBeverage> writer) {
 

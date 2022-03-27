@@ -12,7 +12,6 @@ import com.sbt.pprb.qa.test_task.service.UserService;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
-import lombok.SneakyThrows;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,6 +20,7 @@ import springfox.documentation.annotations.ApiIgnore;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.net.URI;
+import java.net.URISyntaxException;
 import java.security.Principal;
 import java.util.Collections;
 import java.util.List;
@@ -96,7 +96,6 @@ public class OrderController {
         orderService.deleteOrder(id);
     }
 
-    @SneakyThrows
     @PostMapping(produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     @ApiResponse(code = 401, message = "Unauthorized")
@@ -104,11 +103,14 @@ public class OrderController {
         Optional<AppUser> user = userService.getUser(principal.getName());
         Order created = orderService.createOrder(user.get());
         OrderResponseResource responseResource = orderService.getOrderResponseResource(created);
-        URI uri = new URI(String.join(File.separator, ORDERS, String.valueOf(created.getId())));
-        return ResponseEntity.created(uri).body(responseResource);
+        try {
+            URI uri = new URI(String.join(File.separator, ORDERS, String.valueOf(created.getId())));
+            return ResponseEntity.created(uri).body(responseResource);
+        } catch (URISyntaxException e) {
+            throw new InternalException(e);
+        }
     }
 
-    @SneakyThrows
     @PutMapping(path = ORDERS_ID_BEVERAGES, consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ApiResponses({
@@ -139,12 +141,13 @@ public class OrderController {
     })
     public ResponseEntity<List<OrderBeverageResponseResource>> process(@PathVariable(name = "id") Long orderId,
                                                                        @RequestParam(required = false) Long beverageId,
-                                                                       @RequestParam ProcessAction action) {
+                                                                       @RequestParam ProcessAction action,
+                                                                       @RequestParam(required = false, defaultValue = "20") Long secondsToProcess) {
 
         if (action == ProcessAction.SUBMIT) {
             return ResponseEntity.ok(orderService.submitOrder(orderId));
         } else {
-            return ResponseEntity.ok(orderService.processBeverage(orderId, beverageId, action));
+            return ResponseEntity.ok(orderService.processBeverage(orderId, beverageId, action, secondsToProcess));
         }
     }
 

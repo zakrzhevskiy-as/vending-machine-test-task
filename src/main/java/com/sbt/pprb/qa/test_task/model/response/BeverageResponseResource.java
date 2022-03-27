@@ -10,15 +10,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BeverageResponseResource implements Comparable<BeverageResponseResource> {
-
+public class BeverageResponseResource {
     private Long id;
     private Double availableVolume;
     private BeverageType beverageType;
     private List<BeverageVolumeResponseResource> beverageVolumes;
-
-    @Override
-    public int compareTo(BeverageResponseResource o) {
-        return id.compareTo(o.getId());
-    }
 }
