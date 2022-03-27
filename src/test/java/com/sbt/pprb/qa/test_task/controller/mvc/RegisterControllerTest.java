@@ -22,7 +22,6 @@ import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Epic("Integration-тесты контроллеров")
@@ -42,7 +41,6 @@ class RegisterControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(content().string(
@@ -62,7 +60,6 @@ class RegisterControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -88,7 +85,6 @@ class RegisterControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isFound())
                 .andExpect(redirectedUrl("login"));
     }
@@ -106,7 +102,6 @@ class RegisterControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(content().string(

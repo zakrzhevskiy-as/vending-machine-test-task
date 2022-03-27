@@ -18,7 +18,6 @@ import java.util.Map;
 import static org.hamcrest.core.Is.is;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @Epic("Integration-тесты контроллеров")
@@ -47,7 +46,6 @@ class ApplicationInfoControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.url", is(body.get("url"))))
@@ -63,7 +61,6 @@ class ApplicationInfoControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -82,7 +79,6 @@ class ApplicationInfoControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.auth_type", is("Basic")))
@@ -97,7 +93,6 @@ class ApplicationInfoControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 
@@ -123,7 +118,6 @@ class ApplicationInfoControllerTest extends ControllerTestContext {
 
         // Then
         mockMvc.perform(request)
-                .andDo(print())
                 .andExpect(status().isUnauthorized());
     }
 }

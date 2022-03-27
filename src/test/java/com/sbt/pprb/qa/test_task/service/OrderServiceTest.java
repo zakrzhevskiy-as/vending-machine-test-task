@@ -611,10 +611,10 @@ class OrderServiceTest {
         saved.setModified(LocalDateTime.now());
 
         // when
-        underTest.processBeverage(order.getId(), saved.getId(), ProcessAction.PROCESS);
+        underTest.processBeverage(order.getId(), saved.getId(), ProcessAction.PROCESS, 20L);
 
         // then
-        verify(processingService).processBeverage(eq(order.getId()));
+        verify(processingService).processBeverage(eq(order.getId()), eq(20L));
     }
 
     @Test
@@ -674,7 +674,7 @@ class OrderServiceTest {
         when(ordersRepository.getById(anyLong())).thenReturn(order);
 
         // when
-        underTest.processBeverage(order.getId(), orderBeverage2.getId(), ProcessAction.TAKE);
+        underTest.processBeverage(order.getId(), orderBeverage2.getId(), ProcessAction.TAKE, null);
 
         // then
         verify(processingService).beveragesToStatus(orderBeverage2.getStatus().getNextStatus(), orderBeverage2);
@@ -737,7 +737,7 @@ class OrderServiceTest {
         when(ordersRepository.getById(anyLong())).thenReturn(order);
 
         // when
-        underTest.processBeverage(order.getId(), orderBeverage2.getId(), ProcessAction.TAKE);
+        underTest.processBeverage(order.getId(), orderBeverage2.getId(), ProcessAction.TAKE, null);
 
         // then
         verify(processingService).beveragesToStatus(orderBeverage2.getStatus().getNextStatus(), orderBeverage2);
@@ -802,25 +802,26 @@ class OrderServiceTest {
         Throwable thrown = catchThrowable(() -> underTest.processBeverage(
                 order.getId(),
                 orderBeverage2.getId(),
-                ProcessAction.PROCESS
+                ProcessAction.PROCESS,
+                null
         ));
 
         // then
         assertThat(thrown).isInstanceOf(BeverageCantBeProcessedException.class);
-        verify(processingService, never()).processBeverage(anyLong());
+        verify(processingService, never()).processBeverage(anyLong(), anyLong());
     }
 
     @Test
     void processBeverageThrowsIllegalArgumentException() {
         // when
-        Throwable thrown = catchThrowable(() -> underTest.processBeverage(null, null, ProcessAction.SUBMIT));
+        Throwable thrown = catchThrowable(() -> underTest.processBeverage(null, null, ProcessAction.SUBMIT, null));
 
         // then
         assertThat(thrown)
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Action type SUBMIT not supported");
         verify(orderBeveragesRepository).findByOrderId(any(), any());
-        verify(processingService, never()).processBeverage(any());
+        verify(processingService, never()).processBeverage(anyLong(), anyLong());
         verify(processingService, never()).beveragesToStatus(any(), any());
     }
 

@@ -1,10 +1,10 @@
 package com.sbt.pprb.qa.test_task.model.exception;
 
-public class UsernameAlreadyTakenException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
-    public UsernameAlreadyTakenException() {
-        super();
-    }
+@ResponseStatus(HttpStatus.CONFLICT)
+public class UsernameAlreadyTakenException extends RuntimeException {
 
     public UsernameAlreadyTakenException(String username) {
         super("Username '" + username + "' already taken");

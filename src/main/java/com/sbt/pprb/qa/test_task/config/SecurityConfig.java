@@ -28,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         String failureUrl = "/login?error";
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/**/*.{js,css,html}", "**/favicon.ico").permitAll()
+                .antMatchers("/**/*.{js,css,html}", "**/favicon.ico", "**/h2-console*").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().failureUrl(failureUrl).permitAll()
@@ -38,5 +38,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterAfter(new RedirectToRegisterFilter(), UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(new AuthHintFilter(failureUrl), DefaultLoginPageGeneratingFilter.class)
                 .httpBasic();
+        http.headers().frameOptions().disable();
     }
 }

@@ -131,7 +131,8 @@ public class OrderService {
 
     public List<OrderBeverageResponseResource> processBeverage(Long orderId,
                                                                Long beverageId,
-                                                               ProcessAction action) {
+                                                               ProcessAction action,
+                                                               Long secondsToProcess) {
         Sort sort = Sort.by(Sort.Direction.ASC, "created");
         List<OrderBeverage> beverages = orderBeveragesRepository.findByOrderId(orderId, sort);
 
@@ -144,7 +145,7 @@ public class OrderService {
                             throw new BeverageCantBeProcessedException(orderBeverage);
                         });
 
-                processingService.processBeverage(beverageId);
+                processingService.processBeverage(beverageId, secondsToProcess);
                 break;
             case TAKE:
                 OrderBeverage beverage = orderBeveragesRepository.getById(beverageId);
