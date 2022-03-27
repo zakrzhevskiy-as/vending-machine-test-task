@@ -4,6 +4,7 @@ import com.sbt.pprb.qa.test_task.model.dto.AppUser;
 import com.sbt.pprb.qa.test_task.model.dto.Order;
 import com.sbt.pprb.qa.test_task.model.dto.OrderBeverage;
 import com.sbt.pprb.qa.test_task.model.dto.ProcessAction;
+import com.sbt.pprb.qa.test_task.model.exception.InternalException;
 import com.sbt.pprb.qa.test_task.model.response.OrderBeverageResponseResource;
 import com.sbt.pprb.qa.test_task.model.response.OrderResponseResource;
 import com.sbt.pprb.qa.test_task.service.OrderService;
@@ -19,7 +20,6 @@ import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.IOException;
 import java.net.URI;
 import java.security.Principal;
 import java.util.Collections;
@@ -62,12 +62,16 @@ public class OrderController {
             @ApiResponse(code = 404, message = "Not Found")
     })
     public void deleteFinishedOrders(@ApiIgnore Principal principal,
-                                     @ApiIgnore HttpServletResponse response) throws IOException {
+                                     @ApiIgnore HttpServletResponse response) {
 
         Optional<AppUser> user = userService.getUser(principal.getName());
 
         AppUser owner = user.get();
-        orderService.deleteFinished(owner);
+        try {
+            orderService.deleteFinished(owner);
+        } catch (Exception e) {
+            throw new InternalException(e);
+        }
 
         response.setStatus(HttpStatus.NO_CONTENT.value());
     }

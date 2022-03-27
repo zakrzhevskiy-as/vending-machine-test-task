@@ -19,7 +19,7 @@ public class OrderBeverage extends AuditEntity {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    private Boolean selectedIce;
+    private boolean selectedIce;
 
     @ManyToOne(cascade = CascadeType.DETACH)
     private BeverageVolume beverageVolume;

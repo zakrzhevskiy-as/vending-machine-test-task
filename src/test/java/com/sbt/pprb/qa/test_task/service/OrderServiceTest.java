@@ -993,6 +993,6 @@ class OrderServiceTest {
 
         // then
         verify(orderBeveragesRepository).save(any(OrderBeverage.class));
-        assertThat(result.getSelectedIce()).isTrue();
+        assertThat(result.isSelectedIce()).isTrue();
     }
 }

@@ -34,9 +34,9 @@ public class RegisterController {
 
     @RequestMapping(method = RequestMethod.POST, value = REGISTER)
     public Object register(@RequestParam String username,
-                                 @RequestParam String password,
-                                 HttpServletRequest request)
-    {
+                           @RequestParam String password,
+                           HttpServletRequest request) {
+
         AppUser newUser = new AppUser();
         newUser.setUsername(username);
         newUser.setPassword(passwordEncoder.encode(password));

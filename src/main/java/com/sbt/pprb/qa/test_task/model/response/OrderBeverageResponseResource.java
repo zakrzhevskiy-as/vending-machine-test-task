@@ -8,7 +8,7 @@ import lombok.Data;
 public class OrderBeverageResponseResource {
     private Long id;
     private BeverageType beverageType;
-    private Boolean selectedIce;
+    private boolean selectedIce;
     private BeverageVolumeResponseResource beverageVolume;
     private OrderBeverageStatus status;
 }
