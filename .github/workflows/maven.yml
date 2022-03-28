@@ -8,7 +8,7 @@ on:
     branches: [ develop, master ]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -26,6 +26,7 @@ jobs:
       run: mvn -B test --file pom.xml -Dspring.profiles.active=test
     
     - name: Get Allure history
+      if: always()
       uses: actions/checkout@v2
       continue-on-error: true
       with:
@@ -33,6 +34,7 @@ jobs:
         path: target/allure-report-pages
     
     - name: Allure Report Generation
+      if: always()
       uses: simple-elf/allure-report-action@v1.6
       with:
         gh_pages: target/allure-report-pages
@@ -41,6 +43,7 @@ jobs:
         allure_history: target/allure-history
         
     - name: Deploy report to Github Pages
+      if: always()
       uses: peaceiris/actions-gh-pages@v2
       env:
         PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
