@@ -1,0 +1,114 @@
+{
+  "total" : 19,
+  "items" : [ {
+    "uid" : "34d427e241c52d4e0c3d8a3be6fba99b",
+    "name" : "Тесты контроллера апи OrderController",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 25,
+      "unknown" : 0,
+      "total" : 25
+    }
+  }, {
+    "uid" : "75bd681f4d51dcca84591db72c88dbaf",
+    "name" : "Тесты сервиса OrderService",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 25,
+      "unknown" : 0,
+      "total" : 25
+    }
+  }, {
+    "uid" : "e547d46dfac639ed8cf2b24e224b61d2",
+    "name" : "Тесты репозитория OrdersRepository",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 8,
+      "unknown" : 0,
+      "total" : 8
+    }
+  }, {
+    "uid" : "af8e4f3e61e0f842789a0c519d8dd067",
+    "name" : "Тесты контроллера апи ApplicationInfoController",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 6,
+      "unknown" : 0,
+      "total" : 6
+    }
+  }, {
+    "uid" : "2ba6ed119cfb05b0b48e842b98e5cdab",
+    "name" : "Тесты проверки создания контроллеров",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 5,
+      "unknown" : 0,
+      "total" : 5
+    }
+  }, {
+    "uid" : "7100c35ac47d6a9c09f978bfd25ae45c",
+    "name" : "Тесты репозитория BeverageVolumesRepository",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "88741c03721e1b00b823382e24603c54",
+    "name" : "Тесты контроллера RegisterController",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "9195873a2874c813ecb54b2a38646014",
+    "name" : "Тесты контроллера апи BeverageController",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 4
+    }
+  }, {
+    "uid" : "826f8b1e098efdbeee0486e327d9d547",
+    "name" : "Тесты репозитория OrderBeveragesRepository",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    }
+  }, {
+    "uid" : "6a6cc093c28c832370e9415dcaf2b109",
+    "name" : "Тесты сервиса ApplicationInfoService",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 3,
+      "unknown" : 0,
+      "total" : 3
+    }
+  } ]
+}
