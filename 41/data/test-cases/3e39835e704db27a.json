@@ -1,0 +1,134 @@
+{
+  "uid" : "3e39835e704db27a",
+  "name" : "itShouldReturnUnauthorizedOnDbConfigRequest()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest.itShouldReturnUnauthorizedOnDbConfigRequest",
+  "historyId" : "f9427173f5d56e9e7c95f5f94d5c8b44",
+  "time" : {
+    "start" : 1648498553924,
+    "stop" : 1648498554000,
+    "duration" : 76
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az198-951"
+  }, {
+    "name" : "thread",
+    "value" : "2205@fv-az198-951.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnUnauthorizedOnDbConfigRequest"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи ApplicationInfoController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 8,
+        "unknown" : 0,
+        "total" : 8
+      },
+      "items" : [ {
+        "uid" : "5fb925da1db2758c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/39//#testresult/5fb925da1db2758c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648489563055,
+          "stop" : 1648489563065,
+          "duration" : 10
+        }
+      }, {
+        "uid" : "b77a309657168adc",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/38//#testresult/b77a309657168adc",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415664563,
+          "stop" : 1648415664569,
+          "duration" : 6
+        }
+      }, {
+        "uid" : "612fa43fc854cacf",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/37//#testresult/612fa43fc854cacf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415389009,
+          "stop" : 1648415389018,
+          "duration" : 9
+        }
+      }, {
+        "uid" : "b879b39eb1784e39",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/36//#testresult/b879b39eb1784e39",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648339378340,
+          "stop" : 1648339378353,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "76f0cab89860671f",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/35//#testresult/76f0cab89860671f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337839995,
+          "stop" : 1648337840012,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "49f02ccbb7e5f561",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/34//#testresult/49f02ccbb7e5f561",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337214801,
+          "stop" : 1648337214809,
+          "duration" : 8
+        }
+      }, {
+        "uid" : "87d4942a316724c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/87d4942a316724c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336859422,
+          "stop" : 1648336859434,
+          "duration" : 12
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "3e39835e704db27a.json",
+  "parameterValues" : [ ]
+}

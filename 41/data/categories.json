@@ -1,0 +1,117 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Failed to load ApplicationContext",
+      "children" : [ {
+        "name" : "itShouldAddHintHeaders()",
+        "uid" : "c914faeea676c682",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498546389,
+          "stop" : 1648498546391,
+          "duration" : 2
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "itShouldReturnRegisterPage()",
+        "uid" : "163b509e62049fa1",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498547634,
+          "stop" : 1648498547635,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "registerControllerLoads()",
+        "uid" : "517655aa90580c64",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498557672,
+          "stop" : 1648498557675,
+          "duration" : 3
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "applicationInfoControllerLoads()",
+        "uid" : "b914b6bea5e06c6",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498559379,
+          "stop" : 1648498559380,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "orderControllerLoads()",
+        "uid" : "552cd0557d8e85af",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498560930,
+          "stop" : 1648498560930,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "homeControllerLoads()",
+        "uid" : "9bb36e358ad36502",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498562630,
+          "stop" : 1648498562631,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "beverageControllerLoads()",
+        "uid" : "bf0891415012da21",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498564301,
+          "stop" : 1648498564302,
+          "duration" : 1
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "givenBeverage_whenJobExecuted_thenSuccess()",
+        "uid" : "d1e33aab5266cedb",
+        "parentUid" : "1bbe147fca36e65ab39a243a75635d24",
+        "status" : "broken",
+        "time" : {
+          "start" : 1648498565104,
+          "stop" : 1648498565107,
+          "duration" : 3
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "1bbe147fca36e65ab39a243a75635d24"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ],
+  "name" : "categories"
+}
