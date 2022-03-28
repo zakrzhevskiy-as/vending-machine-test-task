@@ -39,5 +39,5 @@ system:
   db:
     schema: vending_machine
     reader:
-      user: ${SPRING_DB_USER:postgres}
-      password: ${SPRING_DB_PASSWORD:1234}
+      user: ${TEST_TASK_DB_USER}
+      password: ${TEST_TASK_DB_PASSWORD}
