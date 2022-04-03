@@ -1,0 +1,143 @@
+{
+  "uid" : "8999cd55036fbaf5",
+  "name" : "itShouldRemoveBeverage()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest.itShouldRemoveBeverage",
+  "historyId" : "35aee6aa0a1fa092f77b44e29fa6835",
+  "time" : {
+    "start" : 1648996094504,
+    "stop" : 1648996094509,
+    "duration" : 5
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az123-118"
+  }, {
+    "name" : "thread",
+    "value" : "2201@fv-az123-118.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldRemoveBeverage"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи OrderController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 9,
+        "unknown" : 0,
+        "total" : 9
+      },
+      "items" : [ {
+        "uid" : "16e39f1cf7117764",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/42//#testresult/16e39f1cf7117764",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648995775154,
+          "stop" : 1648995775165,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "f6595590ac6161b2",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/39//#testresult/f6595590ac6161b2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648489561058,
+          "stop" : 1648489561064,
+          "duration" : 6
+        }
+      }, {
+        "uid" : "5f216f5b3cba4976",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/38//#testresult/5f216f5b3cba4976",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415662574,
+          "stop" : 1648415662579,
+          "duration" : 5
+        }
+      }, {
+        "uid" : "b3fe31d2725f4c4c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/37//#testresult/b3fe31d2725f4c4c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415386619,
+          "stop" : 1648415386634,
+          "duration" : 15
+        }
+      }, {
+        "uid" : "27c60b724b3c73e0",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/36//#testresult/27c60b724b3c73e0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648339376412,
+          "stop" : 1648339376427,
+          "duration" : 15
+        }
+      }, {
+        "uid" : "f3d4ef4e973d2220",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/35//#testresult/f3d4ef4e973d2220",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337838227,
+          "stop" : 1648337838240,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "4d2576f8c300526f",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/34//#testresult/4d2576f8c300526f",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337212682,
+          "stop" : 1648337212694,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "ba93e5e294aa09f7",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/ba93e5e294aa09f7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336857383,
+          "stop" : 1648336857391,
+          "duration" : 8
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "8999cd55036fbaf5.json",
+  "parameterValues" : [ ]
+}

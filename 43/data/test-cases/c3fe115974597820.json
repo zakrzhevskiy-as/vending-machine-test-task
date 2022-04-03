@@ -1,0 +1,117 @@
+{
+  "uid" : "c3fe115974597820",
+  "name" : "itShouldAddHintHeaders()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.mvc.SecurityFiltersTest.itShouldAddHintHeaders",
+  "historyId" : "6ea91cc0cdc55807ad40317ee6cc9321",
+  "time" : {
+    "start" : 1648996089297,
+    "stop" : 1648996089623,
+    "duration" : 326
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты фильтров запросов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az123-118"
+  }, {
+    "name" : "thread",
+    "value" : "2201@fv-az123-118.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.mvc.SecurityFiltersTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.mvc.SecurityFiltersTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldAddHintHeaders"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты фильтров запросов (SecurityConfig)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 1,
+        "skipped" : 0,
+        "passed" : 5,
+        "unknown" : 0,
+        "total" : 6
+      },
+      "items" : [ {
+        "uid" : "19dcd50e7f986c3e",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/42//#testresult/19dcd50e7f986c3e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648995770413,
+          "stop" : 1648995770700,
+          "duration" : 287
+        }
+      }, {
+        "uid" : "c914faeea676c682",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/41//#testresult/c914faeea676c682",
+        "status" : "broken",
+        "statusDetails" : "Failed to load ApplicationContext",
+        "time" : {
+          "start" : 1648498546389,
+          "stop" : 1648498546391,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "e1f964feba56077c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/39//#testresult/e1f964feba56077c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648489555747,
+          "stop" : 1648489556066,
+          "duration" : 319
+        }
+      }, {
+        "uid" : "2c06d524c0692795",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/38//#testresult/2c06d524c0692795",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415656872,
+          "stop" : 1648415657159,
+          "duration" : 287
+        }
+      }, {
+        "uid" : "bc10e5c0c38505a4",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/37//#testresult/bc10e5c0c38505a4",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415380713,
+          "stop" : 1648415381016,
+          "duration" : 303
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c3fe115974597820.json",
+  "parameterValues" : [ ]
+}
