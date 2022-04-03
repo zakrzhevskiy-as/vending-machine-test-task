@@ -1,0 +1,1051 @@
+[ {
+  "uid" : "fa7fe2f1fa86acd1",
+  "name" : "addBalanceThrowsFakeCoinException()",
+  "time" : {
+    "start" : 1648995783825,
+    "stop" : 1648995783826,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "fab2c1592a13db56",
+  "name" : "canPassBeveragesToStatus()",
+  "time" : {
+    "start" : 1648995783534,
+    "stop" : 1648995783536,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "925692edeaa6c4c5",
+  "name" : "itShouldUpdateVolumeAndModificationDate()",
+  "time" : {
+    "start" : 1648995766269,
+    "stop" : 1648995766296,
+    "duration" : 27
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "18eadb8cd75cdbcc",
+  "name" : "canCreateOrder()",
+  "time" : {
+    "start" : 1648995783827,
+    "stop" : 1648995783828,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a0e76d78d9b81909",
+  "name" : "itShouldFindOrdersByOwnerAndNotActiveAndSortedByCreatedAsc()",
+  "time" : {
+    "start" : 1648995766610,
+    "stop" : 1648995766668,
+    "duration" : 58
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "42eca0be76550fb4",
+  "name" : "canGetFinishedOrders()",
+  "time" : {
+    "start" : 1648995783821,
+    "stop" : 1648995783822,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ac57cc327e9db5de",
+  "name" : "homeControllerLoads()",
+  "time" : {
+    "start" : 1648995779904,
+    "stop" : 1648995779908,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e6e65a4f92d57d22",
+  "name" : "canAddBalanceAndChangeAmountOf10To500()",
+  "time" : {
+    "start" : 1648995783839,
+    "stop" : 1648995783840,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "44fd3914ea745976",
+  "name" : "itShouldReturnNoContentWhenDeletingFinishedOrders()",
+  "time" : {
+    "start" : 1648995775309,
+    "stop" : 1648995775317,
+    "duration" : 8
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "490271020cc72e0d",
+  "name" : "itShouldAddBalance()",
+  "time" : {
+    "start" : 1648995775232,
+    "stop" : 1648995775242,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ece4d0919d64d70a",
+  "name" : "canGetUserByUsername()",
+  "time" : {
+    "start" : 1648995783572,
+    "stop" : 1648995783573,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5d813c3539a92765",
+  "name" : "addBeverageThrowsEntityNotFoundException_beverageVolume()",
+  "time" : {
+    "start" : 1648995783802,
+    "stop" : 1648995783806,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e42808cf33958495",
+  "name" : "itShouldReturnUnauthorizedOnOrderRequest()",
+  "time" : {
+    "start" : 1648995775347,
+    "stop" : 1648995775353,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6ff2e1e586966aaf",
+  "name" : "itShouldReturnRestConfig()",
+  "time" : {
+    "start" : 1648995776834,
+    "stop" : 1648995776839,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8740ad1d56e9d90e",
+  "name" : "itShouldDeleteActiveOrderByOwner()",
+  "time" : {
+    "start" : 1648995766671,
+    "stop" : 1648995766689,
+    "duration" : 18
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "616d5aae2c899c78",
+  "name" : "itShouldReturnUnauthorizedOnAppInfoRequest()",
+  "time" : {
+    "start" : 1648995776844,
+    "stop" : 1648995776848,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "78b0f551220e5018",
+  "name" : "canProcessBeverage()",
+  "time" : {
+    "start" : 1648995783816,
+    "stop" : 1648995783817,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "962e2d8f01790586",
+  "name" : "itShouldFindOrdersByOwnerAndNotActiveAndSortedByCreatedDesc()",
+  "time" : {
+    "start" : 1648995766742,
+    "stop" : 1648995766803,
+    "duration" : 61
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "aa8fad44633c492d",
+  "name" : "canSubmitOrder()",
+  "time" : {
+    "start" : 1648995783841,
+    "stop" : 1648995783842,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4a20571c278ca1e",
+  "name" : "itShouldReturnDbConfig()",
+  "time" : {
+    "start" : 1648995776823,
+    "stop" : 1648995776832,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a2bfcc41cca24d6f",
+  "name" : "canGetVolumes()",
+  "time" : {
+    "start" : 1648995783514,
+    "stop" : 1648995783517,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "90d4e9b02546fc74",
+  "name" : "itShouldReturnUnauthorizedOnRemoveBeverageRequest()",
+  "time" : {
+    "start" : 1648995774976,
+    "stop" : 1648995774989,
+    "duration" : 13
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "308dbc7aa88650d5",
+  "name" : "itShouldFindOrderByOwnerAndActive()",
+  "time" : {
+    "start" : 1648995766879,
+    "stop" : 1648995766894,
+    "duration" : 15
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b6b1093bed237303",
+  "name" : "itShouldFindExistingUserByUsername()",
+  "time" : {
+    "start" : 1648995766951,
+    "stop" : 1648995766960,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "224f90775fa478e5",
+  "name" : "itShouldReturnUnauthorizedOnBeveragesRequest()",
+  "time" : {
+    "start" : 1648995778226,
+    "stop" : 1648995778232,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "75ded8657e04e1ab",
+  "name" : "canGetBeverages()",
+  "time" : {
+    "start" : 1648995783473,
+    "stop" : 1648995783511,
+    "duration" : 38
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a3bddbf58b99c395",
+  "name" : "canTakeBeverage()",
+  "time" : {
+    "start" : 1648995783798,
+    "stop" : 1648995783801,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "33e6dd08a7ff63de",
+  "name" : "orderControllerLoads()",
+  "time" : {
+    "start" : 1648995779900,
+    "stop" : 1648995779902,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "16cf9f930dc8bbbd",
+  "name" : "itShouldNotDeleteNotActiveOrdersByOwner()",
+  "time" : {
+    "start" : 1648995766806,
+    "stop" : 1648995766876,
+    "duration" : 70
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ea17caae70074325",
+  "name" : "itShouldReturnUnauthorizedOnRestConfigRequest()",
+  "time" : {
+    "start" : 1648995776840,
+    "stop" : 1648995776843,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "35fc6cd38a190bda",
+  "name" : "throwsExceptionWhenRunJob()",
+  "time" : {
+    "start" : 1648995783521,
+    "stop" : 1648995783533,
+    "duration" : 12
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "622fb8408e9e9204",
+  "name" : "processBeverageThrowsIllegalArgumentException()",
+  "time" : {
+    "start" : 1648995783823,
+    "stop" : 1648995783824,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "63f9f7341ec5075a",
+  "name" : "itShouldNotFindUserByUsername()",
+  "time" : {
+    "start" : 1648995766930,
+    "stop" : 1648995766948,
+    "duration" : 18
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b53c50ccaf8b7871",
+  "name" : "addBeverageThrowsBeverageCantBeSelectedException()",
+  "time" : {
+    "start" : 1648995783807,
+    "stop" : 1648995783809,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b25b55386889ba57",
+  "name" : "getOrderThrowsEntityNotFoundException()",
+  "time" : {
+    "start" : 1648995783814,
+    "stop" : 1648995783815,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f81b2fe3b96d87d7",
+  "name" : "canSelectIce()",
+  "time" : {
+    "start" : 1648995783843,
+    "stop" : 1648995783844,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "363b72c6dec2d7f5",
+  "name" : "givenBeverage_whenJobExecuted_thenSuccess()",
+  "time" : {
+    "start" : 1648995781312,
+    "stop" : 1648995783439,
+    "duration" : 2127
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f375e5217f98fab",
+  "name" : "itShouldCreateOrder()",
+  "time" : {
+    "start" : 1648995775319,
+    "stop" : 1648995775329,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "96549fa4a503a54a",
+  "name" : "itShouldReturnUnauthorizedOnSelectIceRequest()",
+  "time" : {
+    "start" : 1648995775215,
+    "stop" : 1648995775221,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "beba8f28849cb470",
+  "name" : "itShouldReturnUnauthorizedOnOrdersDeleteRequest()",
+  "time" : {
+    "start" : 1648995775301,
+    "stop" : 1648995775306,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "706267d6522e326f",
+  "name" : "itShouldReturnUnauthorizedOnResetBalanceRequest()",
+  "time" : {
+    "start" : 1648995775382,
+    "stop" : 1648995775388,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4ee0c372f0291522",
+  "name" : "itShouldAddBeverage()",
+  "time" : {
+    "start" : 1648995774995,
+    "stop" : 1648995775125,
+    "duration" : 130
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f55d422ada98c9b6",
+  "name" : "canGetOrder()",
+  "time" : {
+    "start" : 1648995783831,
+    "stop" : 1648995783832,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9e74b2eeaf89adab",
+  "name" : "itShouldGetCorrectNextOrderNumberByOne()",
+  "time" : {
+    "start" : 1648995766574,
+    "stop" : 1648995766585,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "16e39f1cf7117764",
+  "name" : "itShouldRemoveBeverage()",
+  "time" : {
+    "start" : 1648995775154,
+    "stop" : 1648995775165,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a0f01da9c9e549d8",
+  "name" : "itShouldReturnUnauthorizedOnDbConfigRequest()",
+  "time" : {
+    "start" : 1648995776815,
+    "stop" : 1648995776821,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "25550e7ef3845ef6",
+  "name" : "applicationInfoControllerLoads()",
+  "time" : {
+    "start" : 1648995779897,
+    "stop" : 1648995779899,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b7ce9342a7a07b96",
+  "name" : "canDeleteOrder()",
+  "time" : {
+    "start" : 1648995783820,
+    "stop" : 1648995783821,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7da02e222251b26a",
+  "name" : "itShouldReturnUnauthorizedOnOrderCreateRequest()",
+  "time" : {
+    "start" : 1648995775183,
+    "stop" : 1648995775190,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bbdd1ef60dba86e4",
+  "name" : "itShouldReturnRegisterPage()",
+  "time" : {
+    "start" : 1648995770702,
+    "stop" : 1648995771031,
+    "duration" : 329
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8fdd7fd2518a7cb8",
+  "name" : "canTakeLastBeverage()",
+  "time" : {
+    "start" : 1648995783833,
+    "stop" : 1648995783834,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b08a6e696ec8a9c1",
+  "name" : "canGetActiveOrder()",
+  "time" : {
+    "start" : 1648995783794,
+    "stop" : 1648995783797,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d491936a776c42d7",
+  "name" : "canGetAppInfo()",
+  "time" : {
+    "start" : 1648995783444,
+    "stop" : 1648995783462,
+    "duration" : 18
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "afc05564e32e1cab",
+  "name" : "itShouldSelectIce()",
+  "time" : {
+    "start" : 1648995775356,
+    "stop" : 1648995775369,
+    "duration" : 13
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "20f6b8bd298e4b32",
+  "name" : "itShouldCreateNewUser()",
+  "time" : {
+    "start" : 1648995772945,
+    "stop" : 1648995773044,
+    "duration" : 99
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "def167bc8edd8b3d",
+  "name" : "itShouldSubmitOrder()",
+  "time" : {
+    "start" : 1648995775371,
+    "stop" : 1648995775380,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fd1dc5a1b6c41526",
+  "name" : "canGetDbConfig()",
+  "time" : {
+    "start" : 1648995783465,
+    "stop" : 1648995783467,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "bced27c86cbc54bd",
+  "name" : "canCreateUser()",
+  "time" : {
+    "start" : 1648995783661,
+    "stop" : 1648995783744,
+    "duration" : 83
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d0ba2f916b35e4be",
+  "name" : "processBeverageThrowsBeverageCantBeProcessedException()",
+  "time" : {
+    "start" : 1648995783747,
+    "stop" : 1648995783785,
+    "duration" : 38
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ac466121034fc635",
+  "name" : "itShouldProcessBeverage()",
+  "time" : {
+    "start" : 1648995775332,
+    "stop" : 1648995775345,
+    "duration" : 13
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "883b474322407143",
+  "name" : "itShouldReturnUnauthorizedWhenRequestRegisterPage()",
+  "time" : {
+    "start" : 1648995773046,
+    "stop" : 1648995773057,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "360f0a3b91727e68",
+  "name" : "canRemoveBeverage()",
+  "time" : {
+    "start" : 1648995783818,
+    "stop" : 1648995783819,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d0e92815ebc9a61f",
+  "name" : "itShouldAddAvailableVolume()",
+  "time" : {
+    "start" : 1648995778259,
+    "stop" : 1648995778270,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "857a686485523e8",
+  "name" : "itShouldThrowUsernameAlreadyTakenException()",
+  "time" : {
+    "start" : 1648995772806,
+    "stop" : 1648995772943,
+    "duration" : 137
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "19dcd50e7f986c3e",
+  "name" : "itShouldAddHintHeaders()",
+  "time" : {
+    "start" : 1648995770413,
+    "stop" : 1648995770700,
+    "duration" : 287
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f6810bf0137904d5",
+  "name" : "canAddNewBeverage()",
+  "time" : {
+    "start" : 1648995783812,
+    "stop" : 1648995783814,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7b155c6eea7c4105",
+  "name" : "canGetRestConfig()",
+  "time" : {
+    "start" : 1648995783463,
+    "stop" : 1648995783464,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ffbce5d513db7034",
+  "name" : "itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateDesc()",
+  "time" : {
+    "start" : 1648995766501,
+    "stop" : 1648995766532,
+    "duration" : 31
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a1e3f2ec476376d1",
+  "name" : "beverageControllerLoads()",
+  "time" : {
+    "start" : 1648995779910,
+    "stop" : 1648995779912,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "16d62e43927fbf2a",
+  "name" : "willThrowWhenUsernameIsTaken()",
+  "time" : {
+    "start" : 1648995783575,
+    "stop" : 1648995783659,
+    "duration" : 84
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "7b1b149fe84bec15",
+  "name" : "itShouldFindOrdersByOwnerAndNotActiveAndUnsorted()",
+  "time" : {
+    "start" : 1648995766695,
+    "stop" : 1648995766739,
+    "duration" : 44
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "37703408502952e0",
+  "name" : "canResetBalance()",
+  "time" : {
+    "start" : 1648995783787,
+    "stop" : 1648995783790,
+    "duration" : 3
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "198488d92727ca9a",
+  "name" : "itShouldReturnUnauthorizedOnAddAvailableVolumeRequest()",
+  "time" : {
+    "start" : 1648995778253,
+    "stop" : 1648995778257,
+    "duration" : 4
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "2529409c43792648",
+  "name" : "itShouldReturnNotFoundWhenNoActiveOrder()",
+  "time" : {
+    "start" : 1648995775275,
+    "stop" : 1648995775283,
+    "duration" : 8
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a58cfa62543eeace",
+  "name" : "itShouldNotFindOrderByOwnerAndActive()",
+  "time" : {
+    "start" : 1648995766557,
+    "stop" : 1648995766571,
+    "duration" : 14
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "f9eaa4bb4eb74fd",
+  "name" : "itShouldResetBalance()",
+  "time" : {
+    "start" : 1648995775201,
+    "stop" : 1648995775213,
+    "duration" : 12
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "20de612dbfd35fcd",
+  "name" : "itShouldReturnBeverages()",
+  "time" : {
+    "start" : 1648995778235,
+    "stop" : 1648995778251,
+    "duration" : 16
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8b25d435570d8c88",
+  "name" : "itShouldReturnRegisterPage()",
+  "time" : {
+    "start" : 1648995773059,
+    "stop" : 1648995773066,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6f9831f1c0f5790",
+  "name" : "itShouldFindBeveragesByExistingOrderIdUnsorted()",
+  "time" : {
+    "start" : 1648995766331,
+    "stop" : 1648995766463,
+    "duration" : 132
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "33983e061e96aa66",
+  "name" : "itShouldUpdateBeverageAvailableVolume()",
+  "time" : {
+    "start" : 1648995765904,
+    "stop" : 1648995766097,
+    "duration" : 193
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "57a4335ce34495e1",
+  "name" : "canAddMoreBeverage()",
+  "time" : {
+    "start" : 1648995783835,
+    "stop" : 1648995783836,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "58a2108372cb887c",
+  "name" : "itShouldReturnOrder()",
+  "time" : {
+    "start" : 1648995775262,
+    "stop" : 1648995775272,
+    "duration" : 10
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b998323c328d294a",
+  "name" : "itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateAsc()",
+  "time" : {
+    "start" : 1648995766466,
+    "stop" : 1648995766497,
+    "duration" : 31
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "41d4226409e102f2",
+  "name" : "registerControllerLoads()",
+  "time" : {
+    "start" : 1648995779889,
+    "stop" : 1648995779895,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "becd7591fc44c340",
+  "name" : "itShouldReturnAppInfo()",
+  "time" : {
+    "start" : 1648995776849,
+    "stop" : 1648995776854,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dbb0b578886150af",
+  "name" : "canAddVolume()",
+  "time" : {
+    "start" : 1648995783512,
+    "stop" : 1648995783513,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6f95e3b480a7bed4",
+  "name" : "itShouldThrowUsernameNotFoundException()",
+  "time" : {
+    "start" : 1648995783569,
+    "stop" : 1648995783570,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8a2607d0c618b584",
+  "name" : "itShouldDeleteOrder()",
+  "time" : {
+    "start" : 1648995775286,
+    "stop" : 1648995775292,
+    "duration" : 6
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5f81a957c1bf69ee",
+  "name" : "itShouldReturnMainPage()",
+  "time" : {
+    "start" : 1648995773156,
+    "stop" : 1648995773165,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "eafabf7b12f8f906",
+  "name" : "itShouldReturnOrdersList()",
+  "time" : {
+    "start" : 1648995775127,
+    "stop" : 1648995775151,
+    "duration" : 24
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5c502b31c29b7a1a",
+  "name" : "itShouldReturnUserDetails()",
+  "time" : {
+    "start" : 1648995783542,
+    "stop" : 1648995783567,
+    "duration" : 25
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "811453cb74b01c54",
+  "name" : "itShouldReturnUnauthorizedOnOrdersListRequest()",
+  "time" : {
+    "start" : 1648995775244,
+    "stop" : 1648995775249,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "35ab77a4fba8b6eb",
+  "name" : "addBalanceThrowsEntityNotFoundException_order()",
+  "time" : {
+    "start" : 1648995783810,
+    "stop" : 1648995783811,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "critical"
+}, {
+  "uid" : "484c62d90bbc6f54",
+  "name" : "itShouldFindBeverageVolumesByBeverage()",
+  "time" : {
+    "start" : 1648995766240,
+    "stop" : 1648995766266,
+    "duration" : 26
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b74dee3a58bdb62e",
+  "name" : "itShouldReturnUnauthorizedOnAddBalanceRequest()",
+  "time" : {
+    "start" : 1648995775224,
+    "stop" : 1648995775229,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5fec387ab9969d2",
+  "name" : "itShouldThrowInternalExceptionWhenDeletingFinishedOrders()",
+  "time" : {
+    "start" : 1648995775167,
+    "stop" : 1648995775181,
+    "duration" : 14
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "58b0971dee78a0dc",
+  "name" : "itShouldUpdatePriceAndModificationDate()",
+  "time" : {
+    "start" : 1648995766174,
+    "stop" : 1648995766212,
+    "duration" : 38
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "25abbc07ccc214e8",
+  "name" : "addBeverageThrowsEntityNotFoundException_order()",
+  "time" : {
+    "start" : 1648995783845,
+    "stop" : 1648995783846,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "35880c1214de4fa",
+  "name" : "itShouldReturnUnauthorizedOnAddBeverageRequest()",
+  "time" : {
+    "start" : 1648995775251,
+    "stop" : 1648995775258,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "ccca01015a7d71b9",
+  "name" : "itShouldReturnUnauthorizedOnProcessBeverageRequest()",
+  "time" : {
+    "start" : 1648995775193,
+    "stop" : 1648995775200,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fe2b72f7050a66",
+  "name" : "resetBalanceThrowsEntityNotFoundException_order()",
+  "time" : {
+    "start" : 1648995783837,
+    "stop" : 1648995783838,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "731001b111c36045",
+  "name" : "itShouldUpdatePriceAndVolumeAndModificationDate()",
+  "time" : {
+    "start" : 1648995766217,
+    "stop" : 1648995766237,
+    "duration" : 20
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c6a68476160f8319",
+  "name" : "canProcessBeverage()",
+  "time" : {
+    "start" : 1648995783537,
+    "stop" : 1648995783539,
+    "duration" : 2
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "12ea5ac4b305169a",
+  "name" : "itShouldReturnUnauthorizedOnOrderDeleteRequest()",
+  "time" : {
+    "start" : 1648995775293,
+    "stop" : 1648995775298,
+    "duration" : 5
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5dc00d5b91de6d0f",
+  "name" : "cantDeleteFinishedOrders()",
+  "time" : {
+    "start" : 1648995783829,
+    "stop" : 1648995783830,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "severity" : "critical"
+} ]

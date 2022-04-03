@@ -1,0 +1,143 @@
+{
+  "uid" : "4a20571c278ca1e",
+  "name" : "itShouldReturnDbConfig()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest.itShouldReturnDbConfig",
+  "historyId" : "d5336bada7c1f04af2a84000fef541a",
+  "time" : {
+    "start" : 1648995776823,
+    "stop" : 1648995776832,
+    "duration" : 9
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-789"
+  }, {
+    "name" : "thread",
+    "value" : "2185@fv-az39-789.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnDbConfig"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи ApplicationInfoController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 9,
+        "unknown" : 0,
+        "total" : 9
+      },
+      "items" : [ {
+        "uid" : "5750ef4bae1ac763",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/41//#testresult/5750ef4bae1ac763",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648498554002,
+          "stop" : 1648498554156,
+          "duration" : 154
+        }
+      }, {
+        "uid" : "78984579b59864a2",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/39//#testresult/78984579b59864a2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648489563070,
+          "stop" : 1648489563086,
+          "duration" : 16
+        }
+      }, {
+        "uid" : "86a09233b6ac38c2",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/38//#testresult/86a09233b6ac38c2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415664570,
+          "stop" : 1648415664581,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "9b5f8d29965fc1f2",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/37//#testresult/9b5f8d29965fc1f2",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415389023,
+          "stop" : 1648415389040,
+          "duration" : 17
+        }
+      }, {
+        "uid" : "e995d629833b20da",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/36//#testresult/e995d629833b20da",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648339378355,
+          "stop" : 1648339378376,
+          "duration" : 21
+        }
+      }, {
+        "uid" : "e2acebd9ea6b0bda",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/35//#testresult/e2acebd9ea6b0bda",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337840015,
+          "stop" : 1648337840039,
+          "duration" : 24
+        }
+      }, {
+        "uid" : "d89a3403d1c590c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/34//#testresult/d89a3403d1c590c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337214812,
+          "stop" : 1648337214825,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "f270b0d3cdf4cf4a",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/f270b0d3cdf4cf4a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336859438,
+          "stop" : 1648336859458,
+          "duration" : 20
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "4a20571c278ca1e.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,134 @@
+{
+  "uid" : "857a686485523e8",
+  "name" : "itShouldThrowUsernameAlreadyTakenException()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.mvc.RegisterControllerTest.itShouldThrowUsernameAlreadyTakenException",
+  "historyId" : "7928338ad628a3d9cc5771dad0c4af9e",
+  "time" : {
+    "start" : 1648995772806,
+    "stop" : 1648995772943,
+    "duration" : 137
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-789"
+  }, {
+    "name" : "thread",
+    "value" : "2185@fv-az39-789.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.mvc.RegisterControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.mvc.RegisterControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldThrowUsernameAlreadyTakenException"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера RegisterController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 8,
+        "unknown" : 0,
+        "total" : 8
+      },
+      "items" : [ {
+        "uid" : "7fa6e85e0f6ab90e",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/39//#testresult/7fa6e85e0f6ab90e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648489558511,
+          "stop" : 1648489558645,
+          "duration" : 134
+        }
+      }, {
+        "uid" : "5a86fe4b47e55984",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/38//#testresult/5a86fe4b47e55984",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415659705,
+          "stop" : 1648415659847,
+          "duration" : 142
+        }
+      }, {
+        "uid" : "fb3d1c102d0e8e82",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/37//#testresult/fb3d1c102d0e8e82",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415383831,
+          "stop" : 1648415383967,
+          "duration" : 136
+        }
+      }, {
+        "uid" : "7a6bd5c5c7ffa9d3",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/36//#testresult/7a6bd5c5c7ffa9d3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648339371148,
+          "stop" : 1648339371646,
+          "duration" : 498
+        }
+      }, {
+        "uid" : "e5a267c0be94e207",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/35//#testresult/e5a267c0be94e207",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337833261,
+          "stop" : 1648337833717,
+          "duration" : 456
+        }
+      }, {
+        "uid" : "e2bfa2acde77efa0",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/34//#testresult/e2bfa2acde77efa0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337207401,
+          "stop" : 1648337207940,
+          "duration" : 539
+        }
+      }, {
+        "uid" : "13eba40ab936549",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/13eba40ab936549",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336851830,
+          "stop" : 1648336852450,
+          "duration" : 620
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "857a686485523e8.json",
+  "parameterValues" : [ ]
+}

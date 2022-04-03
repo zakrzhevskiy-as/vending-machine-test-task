@@ -1,0 +1,143 @@
+{
+  "uid" : "becd7591fc44c340",
+  "name" : "itShouldReturnAppInfo()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest.itShouldReturnAppInfo",
+  "historyId" : "a2b20c8e901bbcb98e8cb93568e7672f",
+  "time" : {
+    "start" : 1648995776849,
+    "stop" : 1648995776854,
+    "duration" : 5
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-789"
+  }, {
+    "name" : "thread",
+    "value" : "2185@fv-az39-789.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnAppInfo"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи ApplicationInfoController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 9,
+        "unknown" : 0,
+        "total" : 9
+      },
+      "items" : [ {
+        "uid" : "9d9d01585dc6c135",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/41//#testresult/9d9d01585dc6c135",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648498554204,
+          "stop" : 1648498554215,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "dc5adc1e69c6e701",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/39//#testresult/dc5adc1e69c6e701",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648489563119,
+          "stop" : 1648489563128,
+          "duration" : 9
+        }
+      }, {
+        "uid" : "15ee36b88f0e83a1",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/38//#testresult/15ee36b88f0e83a1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415664598,
+          "stop" : 1648415664602,
+          "duration" : 4
+        }
+      }, {
+        "uid" : "f3e2690e07caae9",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/37//#testresult/f3e2690e07caae9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648415389075,
+          "stop" : 1648415389084,
+          "duration" : 9
+        }
+      }, {
+        "uid" : "c30995f308bb68ec",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/36//#testresult/c30995f308bb68ec",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648339378445,
+          "stop" : 1648339378457,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "fdefeb9dbbe5a0fa",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/35//#testresult/fdefeb9dbbe5a0fa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337840091,
+          "stop" : 1648337840102,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "da63abe956608bec",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/34//#testresult/da63abe956608bec",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648337214864,
+          "stop" : 1648337214875,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "943e1ca25e2205db",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/32//#testresult/943e1ca25e2205db",
+        "status" : "passed",
+        "time" : {
+          "start" : 1648336859494,
+          "stop" : 1648336859506,
+          "duration" : 12
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "becd7591fc44c340.json",
+  "parameterValues" : [ ]
+}
