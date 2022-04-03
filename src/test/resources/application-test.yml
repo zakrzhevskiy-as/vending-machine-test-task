@@ -10,3 +10,8 @@ spring:
         dialect: org.hibernate.dialect.H2Dialect
   main:
     banner-mode: off
+system:
+  db:
+    reader:
+      user: sa
+      password: sa
