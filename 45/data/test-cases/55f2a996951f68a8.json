@@ -1,0 +1,60 @@
+{
+  "uid" : "55f2a996951f68a8",
+  "name" : "orderControllerLoads()",
+  "fullName" : "com.sbt.pprb.qa.test_task.VendingMachineApplicationTests.orderControllerLoads",
+  "historyId" : "beade9c73078c6ea47273f39f1b37371",
+  "time" : {
+    "start" : 1650316688503,
+    "stop" : 1650316688505,
+    "duration" : 2
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты контекста приложения"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-574"
+  }, {
+    "name" : "thread",
+    "value" : "2351@fv-az39-574.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.VendingMachineApplicationTests"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.VendingMachineApplicationTests"
+  }, {
+    "name" : "testMethod",
+    "value" : "orderControllerLoads"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты проверки создания контроллеров"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "55f2a996951f68a8.json",
+  "parameterValues" : [ ]
+}

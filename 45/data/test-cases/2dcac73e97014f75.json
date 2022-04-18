@@ -1,0 +1,60 @@
+{
+  "uid" : "2dcac73e97014f75",
+  "name" : "canSubmitOrder()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.canSubmitOrder",
+  "historyId" : "696c68c4de86399db0671ebbe360bb52",
+  "time" : {
+    "start" : 1650316688902,
+    "stop" : 1650316688903,
+    "duration" : 1
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-574"
+  }, {
+    "name" : "thread",
+    "value" : "2351@fv-az39-574.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canSubmitOrder"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2dcac73e97014f75.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,60 @@
+{
+  "uid" : "9d978475608543fa",
+  "name" : "throwsExceptionWhenRunJob()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest.throwsExceptionWhenRunJob",
+  "historyId" : "362f9967a8093d570f1cb760f5d61ea1",
+  "time" : {
+    "start" : 1650316688942,
+    "stop" : 1650316688953,
+    "duration" : 11
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-574"
+  }, {
+    "name" : "thread",
+    "value" : "2351@fv-az39-574.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "throwsExceptionWhenRunJob"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderProcessingService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9d978475608543fa.json",
+  "parameterValues" : [ ]
+}

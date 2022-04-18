@@ -1,0 +1,60 @@
+{
+  "uid" : "1285a7170a19679e",
+  "name" : "itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateAsc()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest.itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateAsc",
+  "historyId" : "21cf17c16bc0950b243bfafd50efefa5",
+  "time" : {
+    "start" : 1650316693709,
+    "stop" : 1650316693729,
+    "duration" : 20
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты репозиториев"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-574"
+  }, {
+    "name" : "thread",
+    "value" : "2351@fv-az39-574.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateAsc"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты репозитория OrderBeveragesRepository"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1285a7170a19679e.json",
+  "parameterValues" : [ ]
+}

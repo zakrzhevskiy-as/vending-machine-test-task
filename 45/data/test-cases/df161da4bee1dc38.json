@@ -1,0 +1,57 @@
+{
+  "uid" : "df161da4bee1dc38",
+  "name" : "scheduledSelfPing()",
+  "fullName" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest.scheduledSelfPing",
+  "historyId" : "ecc07c1bc31a56ddd464df902d6e36d6",
+  "time" : {
+    "start" : 1650316667974,
+    "stop" : 1650316672056,
+    "duration" : 4082
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az39-574"
+  }, {
+    "name" : "thread",
+    "value" : "2351@fv-az39-574.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "scheduledSelfPing"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "df161da4bee1dc38.json",
+  "parameterValues" : [ ]
+}

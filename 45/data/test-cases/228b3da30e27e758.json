@@ -1,0 +1,60 @@
+{
+  "uid" : "228b3da30e27e758",
+  "name" : "itShouldUpdatePriceAndVolumeAndModificationDate()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepositoryTest.itShouldUpdatePriceAndVolumeAndModificationDate",
+  "historyId" : "518c078a8ac53960534ae00813422d29",
+  "time" : {
+    "start" : 1650316693627,
+    "stop" : 1650316693640,
+    "duration" : 13
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты репозиториев"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-574"
+  }, {
+    "name" : "thread",
+    "value" : "2351@fv-az39-574.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldUpdatePriceAndVolumeAndModificationDate"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты репозитория BeverageVolumesRepository"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "228b3da30e27e758.json",
+  "parameterValues" : [ ]
+}
