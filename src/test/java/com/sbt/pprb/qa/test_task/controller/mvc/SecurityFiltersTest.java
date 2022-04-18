@@ -6,6 +6,7 @@ import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -33,13 +34,17 @@ class SecurityFiltersTest {
 
     @Autowired
     private MockMvc mockMvc;
+    @Value("${system.rest.auth.username}")
+    private String username;
+    @Value("${system.rest.auth.password}")
+    private String password;
 
     @Test
     void itShouldReturnRegisterPage() throws Exception {
         // Given
         AppUser user = new AppUser();
-        user.setUsername("qa_engineer");
-        user.setPassword("vending_machine");
+        user.setUsername(username);
+        user.setPassword(password);
         user.setEnabled(true);
         user.setAuthority("USER");
 
@@ -51,7 +56,7 @@ class SecurityFiltersTest {
         // Then
         mockMvc.perform(request)
                 .andExpect(status().isOk())
-                .andExpect(authenticated().withUsername("qa_engineer").withRoles("USER"))
+                .andExpect(authenticated().withUsername(username).withRoles("USER"))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(content().string(
                         allOf(
@@ -81,8 +86,8 @@ class SecurityFiltersTest {
         // Then
         mockMvc.perform(loginErrorRequest)
                 .andExpect(status().isOk())
-                .andExpect(header().string("username", is("qa_engineer")))
-                .andExpect(header().string("password", is("vending_machine")))
+                .andExpect(header().string("username", is(username)))
+                .andExpect(header().string("password", is(password)))
                 .andExpect(content().contentTypeCompatibleWith(MediaType.TEXT_HTML))
                 .andExpect(content().string(containsString("<div class=\"alert alert-danger\" role=\"alert\">[401] Bad credentials: Inspect response headers of login page for credentials</div>")));
     }

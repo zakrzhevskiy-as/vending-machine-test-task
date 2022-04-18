@@ -16,9 +16,13 @@ import java.io.IOException;
 public class AuthHintFilter extends DefaultLoginPageGeneratingFilter {
 
     private final String failureUrl;
+    private final String username;
+    private final String password;
 
-    public AuthHintFilter(String failureUrl) {
+    public AuthHintFilter(String failureUrl, String username, String password) {
         this.failureUrl = failureUrl;
+        this.username = username;
+        this.password = password;
     }
 
     @Override
@@ -36,8 +40,8 @@ public class AuthHintFilter extends DefaultLoginPageGeneratingFilter {
                 session.setAttribute(WebAttributes.AUTHENTICATION_EXCEPTION, exception);
             }
 
-            httpResponse.addHeader("username", "qa_engineer");
-            httpResponse.addHeader("password", "vending_machine");
+            httpResponse.addHeader("username", username);
+            httpResponse.addHeader("password", password);
         }
 
         super.doFilter(httpRequest, httpResponse, chain);

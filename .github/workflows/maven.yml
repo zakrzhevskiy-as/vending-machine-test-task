@@ -24,7 +24,9 @@ jobs:
     
     - name: Test with Maven
       run: mvn -B test --file pom.xml -Dspring.profiles.active=test
-    
+      env:
+        PING_CRON: 0/1 * * * * *
+
     - name: Get Allure history
       if: always()
       uses: actions/checkout@v2

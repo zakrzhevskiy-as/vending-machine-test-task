@@ -1,6 +1,7 @@
 package com.sbt.pprb.qa.test_task.config;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,6 +18,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsServiceImpl userDetailsService;
+
+    @Value("${system.rest.auth.username}")
+    private String username;
+    @Value("${system.rest.auth.password}")
+    private String password;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -35,8 +41,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().logoutUrl("/logout").invalidateHttpSession(true).permitAll()
                 .and()
-                .addFilterAfter(new RedirectToRegisterFilter(), UsernamePasswordAuthenticationFilter.class)
-                .addFilterBefore(new AuthHintFilter(failureUrl), DefaultLoginPageGeneratingFilter.class)
+                .addFilterAfter(new RedirectToRegisterFilter(username), UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new AuthHintFilter(failureUrl, username, password), DefaultLoginPageGeneratingFilter.class)
                 .httpBasic();
         http.headers().frameOptions().disable();
     }

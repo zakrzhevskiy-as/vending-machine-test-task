@@ -5,6 +5,7 @@ import io.qameta.allure.Epic;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.Optional;
@@ -19,11 +20,11 @@ class UsersRepositoryTest {
     @Autowired
     private UsersRepository underTest;
 
+    @Value("${system.rest.auth.username}")
+    private String username;
+
     @Test
     void itShouldFindExistingUserByUsername() {
-        // given
-        String username = "qa_engineer";
-
         // when
         Optional<AppUser> result = underTest.findByUsername(username);
 

@@ -15,7 +15,7 @@
 	<description>Test task for QA Engineer</description>
 
 	<properties>
-		<java.version>1.8</java.version>
+		<java.version>17</java.version>
 		<frontend-src-dir>${project.basedir}/src/main/frontend</frontend-src-dir>
 		<frontend-target-dir>${project.build.directory}/frontend</frontend-target-dir>
 		<node.version>v14.15.4</node.version>
@@ -187,6 +187,11 @@
 		<dependency>
 			<groupId>org.springframework.batch</groupId>
 			<artifactId>spring-batch-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.awaitility</groupId>
+			<artifactId>awaitility</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<!-- TEST DEPS -->

@@ -20,7 +20,7 @@ spring:
     rest:
       base-path: /api
   jpa:
-    show-sql: true
+    show-sql: false
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -36,5 +36,7 @@ system:
   rest:
     auth:
       type: Basic
+      username: qa_engineer
+      password: vending_machine
   db:
     schema: vending_machine
