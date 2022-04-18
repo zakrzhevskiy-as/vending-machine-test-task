@@ -1,0 +1,80 @@
+{
+  "uid" : "a4b1fe079b982519",
+  "name" : "itShouldReturnUserDetails()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.UserDetailsServiceImplTest.itShouldReturnUserDetails",
+  "historyId" : "1d53f06112dfbe290793a11acfe72d77",
+  "time" : {
+    "start" : 1650317023535,
+    "stop" : 1650317023536,
+    "duration" : 1
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.UserDetailsServiceImplTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.UserDetailsServiceImplTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnUserDetails"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса UserDetailsServiceImpl"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "14ef832af56a1a7e",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/14ef832af56a1a7e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316688769,
+          "stop" : 1650316688771,
+          "duration" : 2
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "a4b1fe079b982519.json",
+  "parameterValues" : [ ]
+}

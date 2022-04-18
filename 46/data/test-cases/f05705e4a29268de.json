@@ -1,0 +1,77 @@
+{
+  "uid" : "f05705e4a29268de",
+  "name" : "scheduledSelfPing()",
+  "fullName" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest.scheduledSelfPing",
+  "historyId" : "ecc07c1bc31a56ddd464df902d6e36d6",
+  "time" : {
+    "start" : 1650317003726,
+    "stop" : 1650317008020,
+    "duration" : 4294
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "scheduledSelfPing"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.schedule.ScheduledTasksTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "df161da4bee1dc38",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/df161da4bee1dc38",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316667974,
+          "stop" : 1650316672056,
+          "duration" : 4082
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f05705e4a29268de.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,80 @@
+{
+  "uid" : "299d1a36174c4433",
+  "name" : "throwsExceptionWhenRunJob()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest.throwsExceptionWhenRunJob",
+  "historyId" : "362f9967a8093d570f1cb760f5d61ea1",
+  "time" : {
+    "start" : 1650317023752,
+    "stop" : 1650317023764,
+    "duration" : 12
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderProcessingServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "throwsExceptionWhenRunJob"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderProcessingService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "9d978475608543fa",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/9d978475608543fa",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316688942,
+          "stop" : 1650316688953,
+          "duration" : 11
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "299d1a36174c4433.json",
+  "parameterValues" : [ ]
+}

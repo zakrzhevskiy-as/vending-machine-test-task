@@ -1,0 +1,80 @@
+{
+  "uid" : "37aad122ea2d20e0",
+  "name" : "itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateDesc()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest.itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateDesc",
+  "historyId" : "d648b17e5cbfdaa372241941275e3f4d",
+  "time" : {
+    "start" : 1650317028292,
+    "stop" : 1650317028312,
+    "duration" : 20
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты репозиториев"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldNotFindBeveragesByNotExistingOrderIdSortedByCreationDateDesc"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты репозитория OrderBeveragesRepository"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "b49863e368dd4ee3",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/b49863e368dd4ee3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316693730,
+          "stop" : 1650316693760,
+          "duration" : 30
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "37aad122ea2d20e0.json",
+  "parameterValues" : [ ]
+}

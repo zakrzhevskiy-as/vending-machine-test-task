@@ -1,0 +1,83 @@
+{
+  "uid" : "cb4c8c22ffa9b808",
+  "name" : "addBalanceThrowsFakeCoinException()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.addBalanceThrowsFakeCoinException",
+  "historyId" : "7b33cd2dff16a33479c5fd0c5f293b05",
+  "time" : {
+    "start" : 1650317023664,
+    "stop" : 1650317023665,
+    "duration" : 1
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "addBalanceThrowsFakeCoinException"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "severity",
+    "value" : "critical"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "critical",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "dcffd6421c1387c3",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/dcffd6421c1387c3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316688883,
+          "stop" : 1650316688884,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "cb4c8c22ffa9b808.json",
+  "parameterValues" : [ ]
+}

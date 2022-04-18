@@ -1,0 +1,80 @@
+{
+  "uid" : "a2be521e896dce3d",
+  "name" : "itShouldNotDeleteNotActiveOrdersByOwner()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest.itShouldNotDeleteNotActiveOrdersByOwner",
+  "historyId" : "cf3bc29fbe4af217ee4b87ed51dc346d",
+  "time" : {
+    "start" : 1650317028006,
+    "stop" : 1650317028069,
+    "duration" : 63
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты репозиториев"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrdersRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldNotDeleteNotActiveOrdersByOwner"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты репозитория OrdersRepository"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "32bfad40dde0b8e8",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/32bfad40dde0b8e8",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316693463,
+          "stop" : 1650316693546,
+          "duration" : 83
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "a2be521e896dce3d.json",
+  "parameterValues" : [ ]
+}

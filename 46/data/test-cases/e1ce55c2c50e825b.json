@@ -1,0 +1,80 @@
+{
+  "uid" : "e1ce55c2c50e825b",
+  "name" : "itShouldAddBeverage()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest.itShouldAddBeverage",
+  "historyId" : "e60a14345e04b6cd00a6cb3b969708cf",
+  "time" : {
+    "start" : 1650317016325,
+    "stop" : 1650317016374,
+    "duration" : 49
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldAddBeverage"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи OrderController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "b68e3e740176359",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/b68e3e740176359",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316681285,
+          "stop" : 1650316681331,
+          "duration" : 46
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "e1ce55c2c50e825b.json",
+  "parameterValues" : [ ]
+}

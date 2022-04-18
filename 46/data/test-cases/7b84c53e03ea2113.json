@@ -1,0 +1,80 @@
+{
+  "uid" : "7b84c53e03ea2113",
+  "name" : "canCreateUser()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.UserServiceTest.canCreateUser",
+  "historyId" : "27dbb8119f67910e50ce2d765dcf2b51",
+  "time" : {
+    "start" : 1650317023446,
+    "stop" : 1650317023529,
+    "duration" : 83
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.UserServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.UserServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canCreateUser"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса UserService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "f5b74aa95b13991e",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/f5b74aa95b13991e",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316688681,
+          "stop" : 1650316688764,
+          "duration" : 83
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "7b84c53e03ea2113.json",
+  "parameterValues" : [ ]
+}

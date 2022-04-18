@@ -1,0 +1,80 @@
+{
+  "uid" : "c7c3f286c5fca44",
+  "name" : "itShouldReturnUnauthorizedOnResetBalanceRequest()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest.itShouldReturnUnauthorizedOnResetBalanceRequest",
+  "historyId" : "4bf8dcd2f648d741a02d8735c5f2f891",
+  "time" : {
+    "start" : 1650317016676,
+    "stop" : 1650317016681,
+    "duration" : 5
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnUnauthorizedOnResetBalanceRequest"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи OrderController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "3792f3d5d2a68926",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/3792f3d5d2a68926",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316681567,
+          "stop" : 1650316681570,
+          "duration" : 3
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "c7c3f286c5fca44.json",
+  "parameterValues" : [ ]
+}

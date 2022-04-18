@@ -1,0 +1,80 @@
+{
+  "uid" : "18c148bb81de2345",
+  "name" : "itShouldFindBeveragesByExistingOrderIdUnsorted()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest.itShouldFindBeveragesByExistingOrderIdUnsorted",
+  "historyId" : "8f87db6f68ded6210820ee7352a41e9e",
+  "time" : {
+    "start" : 1650317028235,
+    "stop" : 1650317028265,
+    "duration" : 30
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты репозиториев"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.OrderBeveragesRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldFindBeveragesByExistingOrderIdUnsorted"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты репозитория OrderBeveragesRepository"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "68ec914d601a4a78",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/68ec914d601a4a78",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316693679,
+          "stop" : 1650316693708,
+          "duration" : 29
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "18c148bb81de2345.json",
+  "parameterValues" : [ ]
+}

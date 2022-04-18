@@ -1,0 +1,80 @@
+{
+  "uid" : "eadd7657411acbbd",
+  "name" : "getOrderThrowsEntityNotFoundException()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.getOrderThrowsEntityNotFoundException",
+  "historyId" : "95e558a753a862fb64a9d69b3dbcc6d7",
+  "time" : {
+    "start" : 1650317023641,
+    "stop" : 1650317023642,
+    "duration" : 1
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "getOrderThrowsEntityNotFoundException"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "162eea24b8c57b61",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/162eea24b8c57b61",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316688869,
+          "stop" : 1650316688870,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "eadd7657411acbbd.json",
+  "parameterValues" : [ ]
+}

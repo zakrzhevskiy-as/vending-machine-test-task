@@ -1,0 +1,80 @@
+{
+  "uid" : "8ebc8ff59fd256fd",
+  "name" : "itShouldUpdatePriceAndModificationDate()",
+  "fullName" : "com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepositoryTest.itShouldUpdatePriceAndModificationDate",
+  "historyId" : "86923f29590e9e236a896f0512088bbd",
+  "time" : {
+    "start" : 1650317028105,
+    "stop" : 1650317028165,
+    "duration" : 60
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты репозиториев"
+  }, {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepositoryTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.repository.BeverageVolumesRepositoryTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldUpdatePriceAndModificationDate"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты репозитория BeverageVolumesRepository"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "fc2a9d48fc3dd901",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/fc2a9d48fc3dd901",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316693599,
+          "stop" : 1650316693625,
+          "duration" : 26
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "8ebc8ff59fd256fd.json",
+  "parameterValues" : [ ]
+}

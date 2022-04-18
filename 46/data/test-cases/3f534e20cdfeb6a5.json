@@ -1,0 +1,77 @@
+{
+  "uid" : "3f534e20cdfeb6a5",
+  "name" : "givenBeverage_whenJobExecuted_thenSuccess()",
+  "fullName" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest.givenBeverage_whenJobExecuted_thenSuccess",
+  "historyId" : "7ee66030d46f46c9f4c2f802b6c22280",
+  "time" : {
+    "start" : 1650317025106,
+    "stop" : 1650317027266,
+    "duration" : 2160
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "fv-az135-608"
+  }, {
+    "name" : "thread",
+    "value" : "2263@fv-az135-608.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "givenBeverage_whenJobExecuted_thenSuccess"
+  }, {
+    "name" : "suite",
+    "value" : "com.sbt.pprb.qa.test_task.batch.BeverageProcessingJobTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 2,
+        "unknown" : 0,
+        "total" : 2
+      },
+      "items" : [ {
+        "uid" : "266d29a2410e9d78",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/266d29a2410e9d78",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316690436,
+          "stop" : 1650316692537,
+          "duration" : 2101
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "3f534e20cdfeb6a5.json",
+  "parameterValues" : [ ]
+}
