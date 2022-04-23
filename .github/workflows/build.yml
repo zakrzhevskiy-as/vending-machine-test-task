@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build package
-        run: mvn -DskipTests dependency:list package
+        run: mvn --file pom.xml -DskipTests dependency:list package

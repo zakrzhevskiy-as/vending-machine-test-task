@@ -21,10 +21,13 @@ jobs:
           fi
 
   test:
+    needs: setup
     uses: ./.github/workflows/test.yml
   build:
+    needs: test
     uses: ./.github/workflows/build.yml
   deploy:
+    needs: build
     uses: ./.github/workflows/deploy.yml
     with:
       heroku-app-name: ${{ needs.setup.outputs.heroku_app }}
