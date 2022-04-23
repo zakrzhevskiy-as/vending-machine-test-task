@@ -21,3 +21,4 @@ jobs:
           heroku_api_key: ${{ secrets.heroku-api-key }}
           heroku_app_name: ${{ inputs.heroku-app-name }}
           heroku_email: ${{ secrets.heroku-email }}
+          dontautocreate: true

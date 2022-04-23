@@ -19,6 +19,8 @@ jobs:
           else
             echo "::set-output name=heroku_app::vending-machine-dev"
           fi
+      - name: Print result
+        run: echo "${{ outputs.heroku_app }}"
 
   test:
     needs: setup
