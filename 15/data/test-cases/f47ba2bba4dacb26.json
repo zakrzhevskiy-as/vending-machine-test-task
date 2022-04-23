@@ -1,0 +1,134 @@
+{
+  "uid" : "f47ba2bba4dacb26",
+  "name" : "itShouldReturnUnauthorizedOnAddBeverageRequest()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest.itShouldReturnUnauthorizedOnAddBeverageRequest",
+  "historyId" : "194e28ffe74eb8a8c3722df9f6467e33",
+  "time" : {
+    "start" : 1650733995423,
+    "stop" : 1650733995430,
+    "duration" : 7
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az71-656"
+  }, {
+    "name" : "thread",
+    "value" : "2255@fv-az71-656.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.OrderControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnUnauthorizedOnAddBeverageRequest"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи OrderController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 8,
+        "unknown" : 0,
+        "total" : 8
+      },
+      "items" : [ {
+        "uid" : "57d5211aca0cb8fc",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/13//#testresult/57d5211aca0cb8fc",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650733523970,
+          "stop" : 1650733523975,
+          "duration" : 5
+        }
+      }, {
+        "uid" : "3e19b4fa92e6c712",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/12//#testresult/3e19b4fa92e6c712",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650733103941,
+          "stop" : 1650733103946,
+          "duration" : 5
+        }
+      }, {
+        "uid" : "15d846ced41e715",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/11//#testresult/15d846ced41e715",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650730768700,
+          "stop" : 1650730768712,
+          "duration" : 12
+        }
+      }, {
+        "uid" : "6ee150adbc4b2a15",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/9//#testresult/6ee150adbc4b2a15",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650729874228,
+          "stop" : 1650729874233,
+          "duration" : 5
+        }
+      }, {
+        "uid" : "a9eade2c393d66ca",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/7//#testresult/a9eade2c393d66ca",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650729357337,
+          "stop" : 1650729357346,
+          "duration" : 9
+        }
+      }, {
+        "uid" : "9e78aca26bc9313a",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/46//#testresult/9e78aca26bc9313a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650317016515,
+          "stop" : 1650317016519,
+          "duration" : 4
+        }
+      }, {
+        "uid" : "b42419a937f805cf",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/b42419a937f805cf",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316681469,
+          "stop" : 1650316681473,
+          "duration" : 4
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "f47ba2bba4dacb26.json",
+  "parameterValues" : [ ]
+}
