@@ -14,6 +14,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Deploy to ${{ inputs.heroku-app-name }}
       - uses: akhileshns/heroku-deploy@v3.12.12
       with:
         heroku_api_key: ${{ secrets.heroku-api-key }}
