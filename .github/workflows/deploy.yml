@@ -16,7 +16,8 @@ jobs:
 
     steps:
       - name: Deploy to ${{ inputs.heroku-app-name }}
-        uses: akhileshns/heroku-deploy@v3.12.12
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.heroku-api-key }}
           heroku_app_name: ${{ inputs.heroku-app-name }}
