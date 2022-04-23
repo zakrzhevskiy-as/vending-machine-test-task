@@ -1,0 +1,10 @@
+[ {
+  "name" : "GitHub Actions",
+  "type" : "github",
+  "url" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task",
+  "buildOrder" : 11,
+  "buildName" : "GitHub Actions Run #2212842817",
+  "buildUrl" : "https://github.com/zakrzhevskiy-as/vending-machine-test-task/actions/runs/2212842817",
+  "reportName" : "Allure Report with history",
+  "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/11/"
+} ]
