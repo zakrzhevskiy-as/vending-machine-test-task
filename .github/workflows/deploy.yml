@@ -5,20 +5,22 @@ on:
       heroku-app-name:
         required: true
         type: string
-    secrets:
-      heroku-email:
-        required: true
-      heroku-api-key:
-        required: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12
-        with:
-          heroku_api_key: ${{ secrets.heroku-api-key }}
-          heroku_app_name: ${{ inputs.heroku-app-name }}
-          heroku_email: ${{ secrets.heroku-email }}
-          dontautocreate: true
+      - name: Login to Heroku Container registry
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:login
+      - name: Build and push
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:push -a ${{ inputs.heroku-app-name }} #web
+      - name: Release
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+        run: heroku container:release -a ${{ inputs.heroku-app-name }} #web

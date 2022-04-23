@@ -38,6 +38,3 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       heroku-app-name: ${{ needs.setup.outputs.heroku_app }}
-    secrets:
-      heroku-email: ${{ secrets.HEROKU_EMAIL }}
-      heroku-api-key: ${{ secrets.HEROKU_API_KEY }}
