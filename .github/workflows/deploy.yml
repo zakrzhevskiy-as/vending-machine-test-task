@@ -10,7 +10,15 @@ on:
         required: true
 
 jobs:
+  print:
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
+      - name: Print
+        run: echo "heroku_app=${{ inputs.heroku-app-name }}"
+
   deploy:
+    needs: print
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +27,11 @@ jobs:
         env:
           HEROKU_API_KEY: ${{ secrets.heroku-api-key }}
         run: heroku container:login
-      - name: Build and push
-        env:
-          HEROKU_API_KEY: ${{ secrets.heroku-api-key }}
-        run: heroku container:push -a ${{ inputs.heroku-app-name }} #web
-      - name: Release
-        env:
-          HEROKU_API_KEY: ${{ secrets.heroku-api-key }}
-        run: heroku container:release -a ${{ inputs.heroku-app-name }} #web
+#      - name: Build and push
+#        env:
+#          HEROKU_API_KEY: ${{ secrets.heroku-api-key }}
+#        run: heroku container:push -a ${{ inputs.heroku-app-name }} #web
+#      - name: Release
+#        env:
+#          HEROKU_API_KEY: ${{ secrets.heroku-api-key }}
+#        run: heroku container:release -a ${{ inputs.heroku-app-name }} #web
