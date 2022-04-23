@@ -1,0 +1,125 @@
+{
+  "uid" : "cc1d23f4d5a5d980",
+  "name" : "canSubmitOrder()",
+  "fullName" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest.canSubmitOrder",
+  "historyId" : "696c68c4de86399db0671ebbe360bb52",
+  "time" : {
+    "start" : 1650733531054,
+    "stop" : 1650733531061,
+    "duration" : 7
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Unit-тесты сервисов"
+  }, {
+    "name" : "host",
+    "value" : "fv-az42-299"
+  }, {
+    "name" : "thread",
+    "value" : "2342@fv-az42-299.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.service.OrderServiceTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "canSubmitOrder"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты сервиса OrderService"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 7,
+        "unknown" : 0,
+        "total" : 7
+      },
+      "items" : [ {
+        "uid" : "a5ece5922a12bbf9",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/12//#testresult/a5ece5922a12bbf9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650733112503,
+          "stop" : 1650733112505,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "dfbbfeddad5de717",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/11//#testresult/dfbbfeddad5de717",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650730778157,
+          "stop" : 1650730778159,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "b22a94b8625eb2d1",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/9//#testresult/b22a94b8625eb2d1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650729882880,
+          "stop" : 1650729882882,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "b56388db87f2d790",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/7//#testresult/b56388db87f2d790",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650729367790,
+          "stop" : 1650729367792,
+          "duration" : 2
+        }
+      }, {
+        "uid" : "a8dd5abfda27612d",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/46//#testresult/a8dd5abfda27612d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650317023693,
+          "stop" : 1650317023696,
+          "duration" : 3
+        }
+      }, {
+        "uid" : "2dcac73e97014f75",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/2dcac73e97014f75",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316688902,
+          "stop" : 1650316688903,
+          "duration" : 1
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "cc1d23f4d5a5d980.json",
+  "parameterValues" : [ ]
+}
