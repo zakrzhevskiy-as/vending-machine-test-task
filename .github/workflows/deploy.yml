@@ -1,0 +1,21 @@
+name: Deploy to Heroku workflow
+on:
+  workflow_call:
+    inputs:
+      heroku-app-name:
+        required: true
+        type: string
+    secrets:
+      heroku-email:
+        required: true
+      heroku-api-key:
+        required: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{ secrets.heroku-api-key }}
+        heroku_app_name: ${{ inputs.heroku-app-name }}
+        heroku_email: ${{ secrets.heroku-email }}

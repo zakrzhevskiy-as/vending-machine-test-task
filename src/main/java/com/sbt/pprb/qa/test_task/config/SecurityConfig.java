@@ -11,6 +11,9 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter;
 
+import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.APP_INFO;
+import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.APP_INFO_PING;
+
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -34,7 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         String failureUrl = "/login?error";
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/**/*.{js,css,html}", "**/favicon.ico", "**/h2-console*").permitAll()
+                .antMatchers("/**/*.{js,css,html}", "**/favicon.ico", "**" + APP_INFO + APP_INFO_PING).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().failureUrl(failureUrl).permitAll()

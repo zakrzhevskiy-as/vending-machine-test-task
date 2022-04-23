@@ -1,0 +1,30 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ develop, master ]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup branch environment
+        run: |
+          if [[ "${{ github.base_ref }}" == "master" || "${{ github.ref }}" == "refs/heads/master" ]]; then
+            echo "HEROKU_APP=vending-machine-prod" >> "$GITHUB_ENV"
+            echo "::set-output name=heroku_app::vending-machine-prod"
+          else
+            echo "HEROKU_APP=vending-machine-dev" >> "$GITHUB_ENV"
+          fi
+
+  test:
+    uses: ./.github/workflows/test.yml
+  build:
+    uses: ./.github/workflows/build.yml
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+    with:
+      heroku-app-name: ${{ env.HEROKU_APP }}
+    secrets:
+      heroku-email: ${{ secrets.HEROKU_EMAIL }}
+      heroku-api-key: ${{ secrets.HEROKU_API_KEY }}

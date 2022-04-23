@@ -7,6 +7,7 @@ public final class EndpointPaths {
     public static final String APP_INFO = "/api/v1/app-info";
     public static final String APP_INFO_DATABASE = "/database";
     public static final String APP_INFO_REST = "/rest";
+    public static final String APP_INFO_PING = "/ping";
     public static final String BEVERAGES = "/api/v1/beverages";
     public static final String BEVERAGES_VOLUMES = "/volumes";
     public static final String BEVERAGES_ID = "/{id}";

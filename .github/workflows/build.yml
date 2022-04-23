@@ -1,0 +1,8 @@
+name: Build project workflow
+on: workflow_call
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build package
+        run: mvn -DskipTests dependency:list package

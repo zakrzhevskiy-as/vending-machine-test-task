@@ -8,14 +8,15 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.ServletContext;
 import java.io.IOException;
-import java.net.Authenticator;
-import java.net.PasswordAuthentication;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
+
+import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.APP_INFO;
+import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.APP_INFO_PING;
 
 @Slf4j
 @Component
@@ -29,11 +30,12 @@ public class ScheduledTasks {
     @Value("${system.rest.auth.password}")
     private String password;
 
-    @Scheduled(cron = "${PING_CRON}")
+    @Scheduled(cron = "${PING_CRON:0 0/5 * * * *}")
     public void scheduledSelfPing() {
         log.debug("Pinging app");
         try {
-            String urlString = "http://localhost:8080%s/api/v1/app-info".formatted(servletContext.getContextPath());
+            Object[] parts = new String[]{servletContext.getContextPath(), APP_INFO, APP_INFO_PING};
+            String urlString = "http://localhost:8080%s%s%s".formatted(parts);
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(new URI(urlString))
                     .timeout(Duration.ofSeconds(10))
@@ -42,14 +44,8 @@ public class ScheduledTasks {
 
             HttpClient.newBuilder()
                     .followRedirects(HttpClient.Redirect.NEVER)
-                    .authenticator(new Authenticator() {
-                        @Override
-                        protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication(username, password.toCharArray());
-                        }
-                    })
                     .build()
-                    .send(request, HttpResponse.BodyHandlers.ofString());
+                    .send(request, HttpResponse.BodyHandlers.discarding());
         } catch (IOException | InterruptedException e) {
             log.error("Failed to send request", e);
         } catch (URISyntaxException e) {

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springfox.documentation.annotations.ApiIgnore;
 
+import java.util.Collections;
+
 import static com.sbt.pprb.qa.test_task.controller.EndpointPaths.*;
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
@@ -32,5 +34,10 @@ public class ApplicationInfoController {
     @GetMapping(produces = APPLICATION_JSON_VALUE)
     public ResponseEntity<?> appInfo() {
         return ResponseEntity.ok(service.getAppInfo());
+    }
+
+    @GetMapping(path = APP_INFO_PING, produces = APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> ping() {
+        return ResponseEntity.ok(Collections.singletonMap("status", "active"));
     }
 }
