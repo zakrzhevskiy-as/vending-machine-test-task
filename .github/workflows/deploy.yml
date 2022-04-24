@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print
-        run: echo "heroku_app=${{ inputs.heroku-app-name }}"
+        run: echo "heroku_app=${{ needs.inputs.heroku-app-name }}"
 
   deploy:
     needs: print
