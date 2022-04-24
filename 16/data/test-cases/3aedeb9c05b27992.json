@@ -1,0 +1,143 @@
+{
+  "uid" : "3aedeb9c05b27992",
+  "name" : "itShouldReturnAppInfo()",
+  "fullName" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest.itShouldReturnAppInfo",
+  "historyId" : "a2b20c8e901bbcb98e8cb93568e7672f",
+  "time" : {
+    "start" : 1650800041189,
+    "stop" : 1650800041194,
+    "duration" : 5
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "epic",
+    "value" : "Integration-тесты контроллеров"
+  }, {
+    "name" : "host",
+    "value" : "fv-az71-656"
+  }, {
+    "name" : "thread",
+    "value" : "2277@fv-az71-656.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testClass",
+    "value" : "com.sbt.pprb.qa.test_task.controller.api.ApplicationInfoControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "itShouldReturnAppInfo"
+  }, {
+    "name" : "suite",
+    "value" : "Тесты контроллера апи ApplicationInfoController"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 0,
+        "skipped" : 0,
+        "passed" : 9,
+        "unknown" : 0,
+        "total" : 9
+      },
+      "items" : [ {
+        "uid" : "1be55876da711220",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/15//#testresult/1be55876da711220",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650733997603,
+          "stop" : 1650733997608,
+          "duration" : 5
+        }
+      }, {
+        "uid" : "e11af618c3ee73fe",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/13//#testresult/e11af618c3ee73fe",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650733525485,
+          "stop" : 1650733525491,
+          "duration" : 6
+        }
+      }, {
+        "uid" : "f1f9c8d882dcdba9",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/12//#testresult/f1f9c8d882dcdba9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650733105879,
+          "stop" : 1650733105886,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "42b34dab381332ad",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/11//#testresult/42b34dab381332ad",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650730770834,
+          "stop" : 1650730770845,
+          "duration" : 11
+        }
+      }, {
+        "uid" : "26764f70950bc08d",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/9//#testresult/26764f70950bc08d",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650729876261,
+          "stop" : 1650729876268,
+          "duration" : 7
+        }
+      }, {
+        "uid" : "c8b3e5b86c35c402",
+        "reportUrl" : "https://zakrzhevskiy-as.github.io/vending-machine-test-task/7//#testresult/c8b3e5b86c35c402",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650729359897,
+          "stop" : 1650729359910,
+          "duration" : 13
+        }
+      }, {
+        "uid" : "56db19dccaddc6a0",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/46//#testresult/56db19dccaddc6a0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650317018206,
+          "stop" : 1650317018214,
+          "duration" : 8
+        }
+      }, {
+        "uid" : "67b773f30041b78c",
+        "reportUrl" : "https://defaultuser1000.github.io/vending-machine-test-task/45//#testresult/67b773f30041b78c",
+        "status" : "passed",
+        "time" : {
+          "start" : 1650316683129,
+          "stop" : 1650316683135,
+          "duration" : 6
+        }
+      } ]
+    },
+    "tags" : [ ]
+  },
+  "source" : "3aedeb9c05b27992.json",
+  "parameterValues" : [ ]
+}
